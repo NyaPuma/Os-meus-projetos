@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Perfil Animado com Header e Footer</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /*
+        ********************************************************
+        *** Estilos Globais e Configurações do Fundo Mágico ***
+        ********************************************************
+        */
+
+        /* Reset básico: Remove margens e preenchimentos padrão do navegador */
+        * {
+            margin: 0;
+            padding: 0;
+            /* Garante que 'padding' e 'border' não aumentam o tamanho total do elemento */
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Ocupa 100% da altura da janela de visualização (viewport) */
+            height: 100vh;
+            /* Centraliza o conteúdo (o cartão) perfeitamente na tela */
+            display: flex;
+            /* Altera a direção para coluna para permitir que o header/footer/card sejam organizados */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Esconde qualquer barra de rolagem desnecessária */
+            overflow: hidden;
+
+            /*
+            *** O Fundo Animado - A Estrela do Show! ***
+            */
+            /* Novo gradiente diagonal vibrante: Azul turquesa (#23b9c6) → Rosa intenso (#d74385) */
+            background: linear-gradient(to bottom right,
+                    #23b9c6 0%,
+                    #23b9c6 40%,
+                    #d74385 60%,
+                    #d74385 100%);
+
+            /* Um fundo ENORME (400% x 400%) para permitir o movimento estilo "onda" */
+            background-size: 400% 400%;
+
+            /* Animação: Executa a animação 'diagonalFlow' continuamente (infinite) e de forma suave (ease-in-out) */
+            animation: diagonalFlow 14s ease-in-out infinite;
+        }
+
+        /*
+        ********************************************************
+        *** Definição da Animação do Gradiente de Fundo (Keyframes) ***
+        ********************************************************
+        */
+        @keyframes diagonalFlow {
+            0% {
+                background-position: top left;
+            }
+
+            25% {
+                background-position: center;
+            }
+
+            50% {
+                background-position: bottom right;
+            }
+
+            75% {
+                background-position: center;
+            }
+
+            100% {
+                background-position: top left;
+            }
+        }
+
+        /*
+        ********************************************************
+        *** Definição da Animação de Entrada do Cartão (Keyframes) ***
+        ********************************************************
+        */
+        @keyframes crescer {
+            0% {
+                transform: scale(0.1);
+                /* Começa super pequeno */
+                opacity: 0;
+                /* E completamente invisível */
+            }
+
+            100% {
+                transform: scale(1);
+                /* Termina no seu tamanho normal */
+                opacity: 1;
+                /* E totalmente visível */
+            }
+        }
+
+
+        /*
+        ********************************************************
+        *** NOVOS ESTILOS PARA HEADER E FOOTER ***
+        ********************************************************
+        */
+
+        /* Estilo Base para Header e Footer */
+        header,
+        footer {
+            /* Fixa no topo/fundo para que fiquem sempre visíveis */
+            position: fixed;
+            width: 100%;
+            padding: 15px 0;
+            color: white;
+            text-align: center;
+            /* Z-index alto para garantir que fiquem acima do background e do cartão */
+            z-index: 100;
+            /* Sombra suave para separá-los visualmente do corpo */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+        }
+
+        /* Estilo Específico do Header (Topo da Página) */
+        header {
+            top: 0;
+            left: 0;
+            /* O gradiente diagonal animado do header/footer simula uma "onda" do fundo */
+            background: linear-gradient(to right, #23b9c6 0%, #d74385 100%);
+            /* Tamanho de fundo grande para animação */
+            background-size: 200% auto;
+            /* Aplica a mesma animação de fundo, mas mais rápido */
+            animation: diagonalFlowHeaderFooter 7s linear infinite alternate;
+        }
+
+        /* Estilo Específico do Footer (Base da Página) */
+        footer {
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to left, #23b9c6 0%, #d74385 100%);
+            /* Tamanho de fundo grande para animação */
+            background-size: 200% auto;
+            /* Aplica a mesma animação de fundo, mas mais rápido e na direção oposta */
+            animation: diagonalFlowHeaderFooter 7s linear infinite alternate-reverse;
+        }
+
+        /* Keyframes para a animação do background do Header/Footer */
+        @keyframes diagonalFlowHeaderFooter {
+            to {
+                /* Desloca a posição do background */
+                background-position: 200% center;
+            }
+        }
+
+        /*
+        ********************************************************
+        *** Estilos do Cartão de Perfil (Card) - Inalterados ***
+        ********************************************************
+        */
+
+        /* Estilo base do Cartão */
+        .card {
+            background-color: white;
+            padding: 30px 30px;
+            border-radius: 20px;
+            text-align: center;
+            /* Sombra elegante para o fazer 'saltar' do fundo animado */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            max-width: 350px;
+            /* Aplica a animação 'crescer' apenas uma vez (forwards) */
+            animation: crescer 0.8s ease-out forwards;
+            /* Garante que o cartão está no centro, acima de tudo */
+            position: relative; 
+            z-index: 5;
+        }
+
+        /* Foto de Perfil */
+        .foto-perfil {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            /* Forma circular perfeita */
+            border-radius: 50%;
+            /* Borda inicial azul que combina com a cor principal */
+            border: 4px solid #23b9c6;
+            /* Transição suave para o efeito hover */
+            transition: border-color 0.3s ease;
+            margin-bottom: 25px;
+            cursor: pointer;
+        }
+
+        /* Efeito Hover: A borda da foto muda para o rosa vibrante (d74385) */
+        .foto-perfil:hover {
+            border-color: #d74385;
+        }
+
+        /* Título Principal (Nome/Função Principal) */
+        h1.titulo {
+            color: #23b9c6;
+            font-weight: 600;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        /* Subtítulo (Descrição/Detalhes) */
+        h2.subtitulo {
+            color: #7f8c8d;
+            /* Cinzento suave */
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        /*
+        ********************************************************
+        *** Estilos do Formulário (Subscrição) ***
+        ********************************************************
+        */
+
+        /* Contentor do input e botão (Layout Flex) */
+        .input-group {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Campo de Email */
+        input[type="email"] {
+            padding: 8px 8px;
+            border: 1px solid #ddd;
+            /* Arredondamento apenas do lado esquerdo para encaixar no botão */
+            border-radius: 8px 0 0 8px;
+            border-right: none;
+            font-family: 'Poppins', sans-serif;
+            width: 65%;
+            outline: none;
+            transition: border-color 0.3s;
+            font-size: 12px;
+        }
+
+        /* Efeito Foco: Borda azul quando o utilizador está a escrever */
+        input[type="email"]:focus {
+            border-color: #23b9c6;
+        }
+
+        /* Botão de Subscrição */
+        button {
+            background-color: #23b9c6;
+            color: white;
+            border: none;
+            padding: 8px 8px;
+            /* Arredondamento apenas do lado direito para encaixar no input */
+            border-radius: 0 8px 8px 0;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            font-size: 14px;
+            width: 35%;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Efeito Hover: Botão escurece ligeiramente */
+        button:hover {
+            background-color: #1d6fa5;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        **Projeto de Demonstração de Animação CSS**
+    </header>
+
+    <div class="card">
+        <img src="perfil.webp" alt="Foto de Perfil" class="foto-perfil">
+
+        <h1 class="titulo">Formando<br>
+            Iniciante</h1>
+
+        <h2 class="subtitulo">Desenvolvedor CSS Júnior | <br>
+            Aprender a Animar! <br>
+            O CSS permite-nos dar vida ao <br>
+            HTML com estilo e movimento.</h2>
+
+        <div class="input-group">
+            <input type="email" placeholder="Seu email para contacto..." title="Por favor preencha este campo">
+            <button>Subscrever</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 André Moreira. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
