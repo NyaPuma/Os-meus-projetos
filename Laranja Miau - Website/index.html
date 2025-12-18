@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Laranja Miau - Pet Shop Online</title>
+</head>
+
+<body>
+  <div class="website-container">
+
+<header class="header">
+  <a href="index.html">
+    <img class="logo-marca" src="img/logo-marca.png" alt="Logo da marca Laranja Miau" />
+  </a>
+  <nav class="botes-header" id="header-auth-buttons" aria-label="Navegação de autenticação">
+    </nav>
+</header>
+
+    <nav class="barra-de-secoes">
+      <div class="categorias-nav" aria-label="Navegação de categorias">
+        <a href="#alimentacao" class="nav-item active">Alimentação</a>
+        <a href="#brinquedos" class="nav-item">Brinquedos</a>
+        <a href="#acessorios" class="nav-item">Acessórios</a>
+        <a href="#higiene" class="nav-item">Higiene</a>
+      </div>
+      <form class="search-bar" role="search" aria-label="Pesquisar produtos">
+        <input type="search" id="search-input" name="search" placeholder="O que procura?"
+          aria-label="Campo de pesquisa" />
+        <button type="submit" aria-label="Pesquisar"><i class="fas fa-search"></i></button>
+      </form>
+    </nav>
+
+    <main class="main-content" style="padding: 0; min-height: auto;">
+      <section class="banner-promocional" aria-label="Banner promocional">
+        <div class="promo-texto">
+          <p class="promo-o-at-na">
+            <span class="promo-title">Promoção</span><br />
+            <span class="promo-subtitle">até -25% na<br />Alimentação</span>
+          </p>
+        </div>
+        <img class="imagem-promoo-na" src="img/imagem-promo-o-25-na-alimenta-o.png"
+          alt="Imagem promocional de alimentação com desconto de 25%" />
+      </section>
+
+      <section class="seccao-produtos" id="alimentacao" aria-labelledby="alimentacao-heading">
+        <div class="seccao-header">
+          <h2 id="alimentacao-heading">Alimentação</h2>
+          <a href="#ver-mais-alimentacao" class="ver-mais">ver mais</a>
+        </div>
+
+        <button class="seta seta-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+
+        <div class="lista-produtos">
+
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Comedouro de ceramica<br /></span> <span class="preco">3,00€</span>
+              </p>
+              <img class="produto-img" src="img/imagem-comedouro-de-ceramica.png" alt="Comedouro de cerâmica" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Ração p/ gatos Advance<br /></span><span class="preco">20,00€</span>
+              </p>
+              <img class="produto-img" src="img/advance-vet-urinary.png" alt="Ração para gatos Advance" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Ração p/ gatos Ownat<br /></span><span class="preco">15,00€</span></p>
+              <img class="produto-img" src="img/screenshot-2025-10-09-at-17-16-35-alimenta-o-GATARIA-1-1.png"
+                alt="Ração para gatos Ownat" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Ração húmida (patê)<br /></span> <span class="preco">25,00€</span>
+              </p>
+              <img class="produto-img"
+                src="img/advance-vet-urinary-racao-seca-para-gato-adulto-com-problemas-urinarios-1-2.png"
+                alt="Ração húmida" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Comida Biológica Salmão<br /></span> <span class="preco">12,50€</span>
+              </p>
+              <img class="produto-img" src="img/placeholder-alimento-5.png" alt="Comida Biológica Salmão" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Snacks para Gatos<br /></span> <span class="preco">5,90€</span></p>
+              <img class="produto-img" src="img/placeholder-alimento-6.png" alt="Snacks para Gatos" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Comedouro Plástico<br /></span> <span class="preco">2,50€</span></p>
+              <img class="produto-img" src="img/imagem-comedouro-de-ceramica.png" alt="Comedouro Plástico" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Advance Sensible<br /></span><span class="preco">22,00€</span></p>
+              <img class="produto-img" src="img/advance-vet-urinary.png" alt="Advance Sensible" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Ownat Light<br /></span><span class="preco">14,00€</span></p>
+              <img class="produto-img" src="img/screenshot-2025-10-09-at-17-16-35-alimenta-o-GATARIA-1-1.png"
+                alt="Ownat Light" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Húmida Sabor Frango<br /></span> <span class="preco">2,99€</span></p>
+              <img class="produto-img"
+                src="img/advance-vet-urinary-racao-seca-para-gato-adulto-com-problemas-urinarios-1-2.png"
+                alt="Húmida Sabor Frango" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Comida Biológica Pato<br /></span> <span class="preco">13,00€</span>
+              </p>
+              <img class="produto-img" src="img/placeholder-alimento-5.png" alt="Comida Biológica Pato" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Snacks Anti-Bola Pêlo<br /></span> <span class="preco">6,50€</span>
+              </p>
+              <img class="produto-img" src="img/placeholder-alimento-6.png" alt="Snacks Anti-Bola Pêlo" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Comedouro Duplo<br /></span> <span class="preco">5,00€</span></p>
+              <img class="produto-img" src="img/imagem-comedouro-de-ceramica.png" alt="Comedouro Duplo" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Advance Kitten<br /></span><span class="preco">24,00€</span></p>
+              <img class="produto-img" src="img/advance-vet-urinary.png" alt="Advance Kitten" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Ownat Salmão<br /></span><span class="preco">16,50€</span></p>
+              <img class="produto-img" src="img/screenshot-2025-10-09-at-17-16-35-alimenta-o-GATARIA-1-1.png"
+                alt="Ownat Salmão" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Húmida Sabor Vaca<br /></span> <span class="preco">2,75€</span></p>
+              <img class="produto-img"
+                src="img/advance-vet-urinary-racao-seca-para-gato-adulto-com-problemas-urinarios-1-2.png"
+                alt="Húmida Sabor Vaca" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Comida Biológica Peru<br /></span> <span class="preco">12,00€</span>
+              </p>
+              <img class="produto-img" src="img/placeholder-alimento-5.png" alt="Comida Biológica Peru" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Sticks de Catnip<br /></span> <span class="preco">4,99€</span></p>
+              <img class="produto-img" src="img/placeholder-alimento-6.png" alt="Sticks de Catnip" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Advance Sterilized<br /></span><span class="preco">21,50€</span></p>
+              <img class="produto-img" src="img/advance-vet-urinary.png" alt="Advance Sterilized" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Comedouro Elevado<br /></span> <span class="preco">7,00€</span></p>
+              <img class="produto-img" src="img/imagem-comedouro-de-ceramica.png" alt="Comedouro Elevado" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+        </div>
+
+        <button class="seta seta-next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="bullets-container"></div>
+      </section>
+
+      <section class="seccao-produtos" id="brinquedos" aria-labelledby="brinquedos-heading">
+        <div class="seccao-header">
+          <h2 id="brinquedos-heading">Brinquedos</h2>
+          <a href="#ver-mais-brinquedos" class="ver-mais">ver mais</a>
+        </div>
+
+        <button class="seta seta-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+
+        <div class="lista-produtos">
+
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Rato de Corda<br /></span> <span class="preco">4,50€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-1.png" alt="Rato de Corda" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Bola com Penas<br /></span> <span class="preco">6,00€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-2.png" alt="Bola com Penas" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Vara Telescópica<br /></span> <span class="preco">8,99€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-3.png" alt="Vara Telescópica" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Túnel para Gatos<br /></span> <span class="preco">19,99€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-4.png" alt="Túnel para Gatos" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Dispenser de Ração<br /></span> <span class="preco">35,00€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-5.png" alt="Dispenser de Ração" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Apontador Laser USB<br /></span> <span class="preco">10,00€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-6.png" alt="Apontador Laser USB" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Rato de Lã<br /></span> <span class="preco">3,99€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-1.png" alt="Rato de Lã" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Bola interativa<br /></span> <span class="preco">7,50€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-2.png" alt="Bola interativa" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Vara de Led<br /></span> <span class="preco">11,99€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-3.png" alt="Vara de Led" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Túnel dobrável<br /></span> <span class="preco">16,00€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-4.png" alt="Túnel dobrável" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Tapete de Ração<br /></span> <span class="preco">28,00€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-5.png" alt="Tapete de Ração" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Bola Laser<br /></span> <span class="preco">15,00€</span></p>
+              <img class="produto-img" src="img/placeholder-brinquedo-6.png" alt="Bola Laser" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+
+        </div>
+
+        <button class="seta seta-next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="bullets-container"></div>
+      </section>
+
+      <section class="seccao-produtos" id="acessorios" aria-labelledby="acessorios-heading">
+        <div class="seccao-header">
+          <h2 id="acessorios-heading">Acessórios</h2>
+          <a href="#ver-mais-acessorios" class="ver-mais">ver mais</a>
+        </div>
+
+        <button class="seta seta-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+
+        <div class="lista-produtos">
+
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Arranhador Alto<br /></span> <span class="preco">59,99€</span></p>
+              <img class="produto-img" src="img/placeholder-acessorios-1.png" alt="Arranhador Alto" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Coleira Anti-Pulgas<br /></span> <span class="preco">9,50€</span></p>
+              <img class="produto-img" src="img/placeholder-acessorios-2.png" alt="Coleira Anti-Pulgas" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Cama para Gatos<br /></span> <span class="preco">30,00€</span></p>
+              <img class="produto-img" src="img/imagem-cama-para-gatos.png" alt="Cama para Gatos" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Mochila de Transporte<br /></span> <span class="preco">49,00€</span>
+              </p>
+              <img class="produto-img" src="img/placeholder-acessorios-4.png" alt="Mochila de Transporte" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Cama Quentinha<br /></span> <span class="preco">25,00€</span></p>
+              <img class="produto-img" src="img/imagem-cama-para-gatos-2.png" alt="Cama Quentinha" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Fonte de Água<br /></span> <span class="preco">45,00€</span></p>
+              <img class="produto-img" src="img/placeholder-acessorios-5.png" alt="Fonte de Água" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Arranhador Pequeno<br /></span> <span class="preco">25,00€</span></p>
+              <img class="produto-img" src="img/placeholder-acessorios-1.png" alt="Arranhador Pequeno" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Coleira com Sino<br /></span> <span class="preco">4,99€</span></p>
+              <img class="produto-img" src="img/placeholder-acessorios-2.png" alt="Coleira com Sino" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Tenda de Gato<br /></span> <span class="preco">19,50€</span></p>
+              <img class="produto-img" src="img/imagem-cama-para-gatos-2.png" alt="Tenda de Gato" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Caixa de Transporte<br /></span> <span class="preco">35,00€</span></p>
+              <img class="produto-img" src="img/placeholder-acessorios-4.png" alt="Caixa de Transporte" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Bebedouro Simples<br /></span> <span class="preco">5,99€</span></p>
+              <img class="produto-img" src="img/placeholder-acessorios-5.png" alt="Bebedouro Simples" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Peitoral de Nylon<br /></span> <span class="preco">10,00€</span></p>
+              <img class="produto-img" src="img/placeholder-acessorios-6.png" alt="Peitoral de Nylon" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Cama Suspensa<br /></span> <span class="preco">22,00€</span></p>
+              <img class="produto-img" src="img/imagem-cama-para-gatos.png" alt="Cama Suspensa" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Trela e Peitoral<br /></span> <span class="preco">14,99€</span></p>
+              <img class="produto-img" src="img/placeholder-acessorios-6.png" alt="Trela e Peitoral" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+
+        </div>
+
+        <button class="seta seta-next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="bullets-container"></div>
+      </section>
+
+      <section class="seccao-produtos" id="higiene" aria-labelledby="higiene-heading">
+        <div class="seccao-header">
+          <h2 id="higiene-heading">Higiene</h2>
+          <a href="#ver-mais-higiene" class="ver-mais">ver mais</a>
+        </div>
+
+        <button class="seta seta-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+
+        <div class="lista-produtos">
+
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Caixa de Areia Fechada<br /></span> <span class="preco">29,99€</span>
+              </p>
+              <img class="produto-img" src="img/placeholder-higiene-1.png" alt="Caixa de Areia Fechada" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Areia Aglomerante<br /></span> <span class="preco">7,50€</span></p>
+              <img class="produto-img" src="img/placeholder-higiene-2.png" alt="Areia Aglomerante" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Escova de Pêlo<br /></span> <span class="preco">19,00€</span></p>
+              <img class="produto-img" src="img/placeholder-higiene-3.png" alt="Escova de Pêlo" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Champô Hidratante<br /></span> <span class="preco">11,99€</span></p>
+              <img class="produto-img" src="img/placeholder-higiene-4.png" alt="Champô Hidratante" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Toalhetes de Limpeza<br /></span> <span class="preco">4,00€</span></p>
+              <img class="produto-img" src="img/placeholder-higiene-5.png" alt="Toalhetes de Limpeza" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Corta-unhas<br /></span> <span class="preco">6,50€</span></p>
+              <img class="produto-img" src="img/placeholder-higiene-6.png" alt="Corta-unhas" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Caixa de Areia Aberta<br /></span> <span class="preco">15,00€</span>
+              </p>
+              <img class="produto-img" src="img/placeholder-higiene-1.png" alt="Caixa de Areia Aberta" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Areia Sílica<br /></span> <span class="preco">12,99€</span></p>
+              <img class="produto-img" src="img/placeholder-higiene-2.png" alt="Areia Sílica" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Pente de Dentes Finos<br /></span> <span class="preco">15,00€</span>
+              </p>
+              <img class="produto-img" src="img/placeholder-higiene-3.png" alt="Pente de Dentes Finos" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Champô Seco<br /></span> <span class="preco">9,50€</span></p>
+              <img class="produto-img" src="img/placeholder-higiene-4.png" alt="Champô Seco" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+          <article class="produto-card">
+            <div class="produto-info">
+              <p class="produto-titulo-preco"><span>Champô 2 em 1<br /></span> <span class="preco">8,50€</span></p>
+              <img class="produto-img" src="img/placeholder-higiene-4.png" alt="Champô 2 em 1" />
+              <button class="icone-favoritos" aria-label="Adicionar aos favoritos"><i class="fas fa-star"></i></button>
+            </div>
+            <button class="comprar-btn">Comprar</button>
+          </article>
+
+        </div>
+
+        <button class="seta seta-next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="bullets-container"></div>
+      </section>
+
+    </main>
+
+    <footer class="rodap">
+      <div class="rodap-main-content">
+        <section class="newsletter rodap-left-section" aria-labelledby="newsletter-heading">
+          <p id="newsletter-heading" class="newsletter-text">
+            <span class="text-wrapper">Subscreva a nossa newsletter<br /></span>
+            <span class="span">Fique a par de todas as novidades e descontos</span>
+          </p>
+          <form class="newsletter-form">
+            <div class="endereo-de-e-mail">
+              <label for="email-input-footer">Endereço de email*</label>
+              <input type="email" id="email-input-footer" name="email" required aria-required="true"
+                placeholder="O seu e-mail" />
+            </div>
+            <button type="submit" class="subscrever">Subscrever</button>
+          </form>
+        </section>
+
+        <div class="rodap-right-sections">
+          <section class="onde-estamos" aria-labelledby="onde-estamos-heading">
+            <p id="onde-estamos-heading" class="onde-fica-a-nossa">
+              <span class="text-wrapper">Onde fica a nossa casota?<br /></span>
+              <span class="span">Morada: Rua dos Bigodes Felizes, nº 45 4705-123 Bué Longe, Portugal</span>
+            </p>
+          </section>
+          <section class="contactos" aria-labelledby="contactos-heading">
+            <p id="contactos-heading" class="comunique-connosco">
+              <span class="text-wrapper">Comunique connosco<br /></span>
+              <span class="span">Email: contacto@laranjamiau.pt<br />Telefone: +351 912 345 678<br />Redes Sociais:
+                @laranjamiau</span>
+            </p>
+          </section>
+        </div>
+      </div>
+      <p class="rodap-copy">© 2025 Laranja Miau. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
