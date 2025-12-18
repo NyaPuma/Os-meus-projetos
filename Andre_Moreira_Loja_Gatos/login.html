@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Login / Registo - Laranja Miau</title>
+</head>
+
+<body>
+  <div class="desktop">
+
+<header class="header">
+  <a href="index.html">
+    <img class="logo-marca" src="img/logo-marca.png" alt="Logo da marca Laranja Miau" />
+  </a>
+  <nav class="botes-header" id="header-auth-buttons" aria-label="Navegação de autenticação">
+    </nav>
+</header>
+
+    <main class="main-content">
+      <div class="login-container">
+        <h1>Acesso à Sua Casota 🐾</h1>
+
+        <div class="form-switch">
+          <button id="switch-login" class="active" aria-controls="login-form-area">Login</button>
+          <button id="switch-register" aria-controls="register-form-area">Registo</button>
+        </div>
+
+        <form class="auth-form" id="login-form-area">
+          <div class="form-group">
+            <label for="login-email">Endereço de Email</label>
+            <input type="email" id="login-email" required placeholder="o-seu-email@mail.pt" />
+            </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required placeholder="••••••••" minlength="6" />
+            </div>
+          <button type="submit" class="btn-submit-auth" id="login-btn">Entrar na Conta</button>
+        </form>
+
+        <form class="auth-form hidden" id="register-form-area">
+          <div class="form-group">
+            <label for="register-name">Nome Completo</label>
+            <input type="text" id="register-name" required placeholder="Nome e Apelido" />
+            </div>
+          <div class="form-group">
+            <label for="register-email">Endereço de Email</label>
+            <input type="email" id="register-email" required placeholder="o-seu-email@mail.pt" />
+            </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" required placeholder="Mínimo 6 caracteres" minlength="6" />
+            </div>
+          <div class="form-group">
+            <label for="register-confirm-password">Confirmar Password</label>
+            <input type="password" id="register-confirm-password" required placeholder="Repetir password" minlength="6" />
+            </div>
+          <button type="submit" class="btn-submit-auth" id="register-btn">Criar Conta</button>
+        </form>
+
+      </div>
+    </main>
+
+    <footer class="rodap">
+      <div class="rodap-main-content">
+        <section class="newsletter rodap-left-section" aria-labelledby="newsletter-heading">
+          <p id="newsletter-heading" class="newsletter-text">
+            <span class="text-wrapper">Subscreva a nossa newsletter<br /></span>
+            <span class="span">Fique a par de todas as novidades e descontos</span>
+          </p>
+          <form class="newsletter-form">
+            <div class="endereo-de-e-mail">
+              <label for="email-input-footer">Endereço de email*</label>
+              <input type="email" id="email-input-footer" name="email" required aria-required="true"
+                placeholder="O seu e-mail" />
+            </div>
+            <button type="submit" class="subscrever">Subscrever</button>
+          </form>
+        </section>
+
+        <div class="rodap-right-sections">
+          <section class="onde-estamos" aria-labelledby="onde-estamos-heading">
+            <p id="onde-estamos-heading" class="onde-fica-a-nossa">
+              <span class="text-wrapper">Onde fica a nossa casota?<br /></span>
+              <span class="span">Morada: Rua dos Bigodes Felizes, nº 45 4705-123 Bué Longe, Portugal</span>
+            </p>
+          </section>
+          <section class="contactos" aria-labelledby="contactos-heading">
+            <p id="contactos-heading" class="comunique-connosco">
+              <span class="text-wrapper">Comunique connosco<br /></span>
+              <span class="span">Email: contacto@laranjamiau.pt<br />Telefone: +351 912 345 678<br />Redes Sociais:
+                @laranjamiau</span>
+            </p>
+          </section>
+        </div>
+      </div>
+      <p class="rodap-copy">© 2025 Laranja Miau. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

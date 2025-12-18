@@ -1,0 +1,1187 @@
+/* ================================================= */
+/* === 0. BASE: RESET E TIPOGRAFIA GLOBAL === */
+/* ================================================= */
+
+/* Importa o Reset CSS para normalização de browsers */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+/* Importa a fonte principal: Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    /* Ativa suavização de fontes (melhora a aparência no macOS/Windows) */
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    /* Impede o scroll horizontal indesejado */
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Foco de acessibilidade: Melhora a visibilidade do foco para navegação por teclado */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    /* Mantido !important para garantir a sobreposição de estilos de browser */
+    outline: 2px solid #4a90e2 !important; 
+    outline-offset: 2px;
+}
+
+/* ================================================= */
+/* === 1. VARIÁVEIS DE COR E TIPOGRAFIA === */
+/* ================================================= */
+
+:root {
+    /* Cores do Tema */
+    --color-primary: #FF6600; /* Laranja Miau */
+    --color-secondary: #222222; /* Preto Profundo */
+    --color-background: #F4F4F4; /* Fundo Leve */
+    --color-card-background: #FFFFFF; /* Fundo de Cartões e Main */
+    
+    /* Cores de Texto */
+    --color-text-dark: #222222;
+    --color-text-light: #FFFFFF;
+    --color-text-muted: #666;
+    
+    /* Cores de Feedback e Componentes */
+    --color-favorite: gold; /* Cor para o ícone de Favoritos */
+    --color-border-light: #eee;
+    --color-border-medium: #ccc;
+    --color-error: #e74c3c;
+    
+    /* Tipografia */
+    --font-family-title: 'Roboto', sans-serif;
+}
+
+/* ================================================= */
+/* === 2. LAYOUT GERAL E ESTRUTURA === */
+/* ================================================= */
+
+.website-container {
+    width: 100%;
+    min-width: 1024px; /* Garante layout mínimo em desktop */
+    margin: 0 auto;
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.desktop {
+    /* Classe de fallback ou específica para layout principal */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    padding: 30px 5% 50px;
+    width: 100%;
+    min-height: 500px;
+    background-color: var(--color-card-background); /* Uso da variável para consistência */
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+}
+
+/* ================================================= */
+/* === 3. CABEÇALHO SUPERIOR (Header) === */
+/* ================================================= */
+
+.header {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-marca {
+    height: 40px;
+    margin-right: auto;
+}
+
+.botes-header {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-icon-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8em;
+    color: var(--color-text-light);
+    opacity: 0.8;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.nav-icon-link:hover {
+    opacity: 1;
+    color: var(--color-primary);
+}
+
+.nav-icon-link i {
+    font-size: 1.2em;
+    margin-bottom: 3px;
+}
+
+/* Utilizador Logado */
+.user-info-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9em;
+    color: var(--color-text-light);
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.user-info-link:hover {
+    opacity: 0.9;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    object-fit: cover;
+    border: 2px solid var(--color-text-light);
+}
+
+/* ================================================= */
+/* === 4. BARRA DE PESQUISA E NAVEGAÇÃO DE CATEGORIAS === */
+/* ================================================= */
+
+.barra-de-secoes {
+    /* Mantém a barra fixa no topo da janela se necessário */
+    background-color: var(--color-secondary);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.categorias-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-item {
+    color: var(--color-text-light);
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background-color: var(--color-primary);
+}
+
+.search-bar {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    padding: 12px 20px;
+    border: 1px solid var(--color-border-medium);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 1em;
+}
+
+.search-bar button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 0 8px 8px 0;
+    font-size: 1em;
+}
+
+/* ================================================= */
+/* === 5. LAYOUT PRINCIPAL (INDEX): BANNER PROMOCIONAL === */
+/* ================================================= */
+
+.banner-promocional {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-card-background);
+    padding: 40px 5%;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.promo-texto {
+    line-height: 1.1;
+}
+
+.promo-title {
+    color: var(--color-primary);
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.promo-subtitle {
+    color: var(--color-secondary);
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.imagem-promoo-na {
+    max-width: 400px;
+    height: auto;
+}
+
+/* ================================================= */
+/* === 6. LAYOUT PRINCIPAL (INDEX): SECÇÕES DE PRODUTOS E CARROSSÉIS === */
+/* ================================================= */
+
+.seccao-produtos {
+    padding: 0 5%;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    /* ESSENCIAL para a navegação suave do header (JS app.js) */
+    scroll-margin-top: 170px; 
+}
+
+.seccao-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 5px;
+}
+
+.seccao-header h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.ver-mais {
+    color: var(--color-primary);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    transition: opacity 0.2s;
+}
+
+.ver-mais:hover {
+    opacity: 0.8;
+}
+
+/* Lista Horizontal (Carrossel) */
+.lista-produtos {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+}
+
+/* Esconder a barra de scroll padrão nos browsers */
+.lista-produtos::-webkit-scrollbar {
+    display: none;
+}
+.lista-produtos {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+
+/* Botões de Navegação (Setas) */
+.seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.seta:hover {
+    background-color: var(--color-primary);
+}
+
+.seta-prev {
+    left: 0;
+    transform: translateY(-50%) translateX(10px);
+}
+
+.seta-next {
+    right: 0;
+    transform: translateY(-50%) translateX(-10px);
+}
+
+.seta:disabled {
+    opacity: 0.5;
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Indicadores de Página (Bullets) */
+.bullets-container {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.bullet {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-text-muted);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.bullet.active {
+    background-color: var(--color-primary);
+}
+
+/* ================================================= */
+/* === 7. COMPONENTES: CARTÃO DE PRODUTO === */
+/* ================================================= */
+
+.produto-card {
+    background-color: var(--color-card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    width: 250px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    min-height: 350px;
+}
+
+.produto-info {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.icone-favoritos {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* Cor de hover para Favoritos */
+.icone-favoritos:hover,
+.icone-favoritos.is-favorite {
+    color: var(--color-favorite);
+}
+/* Força a cor 'gold' para o estado ativo */
+.icone-favoritos.is-favorite {
+    color: var(--color-favorite) !important; 
+}
+
+
+.produto-img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin: 10px 0;
+}
+
+.produto-titulo-preco {
+    margin-bottom: 10px;
+}
+
+.produto-titulo-preco span:first-child {
+    display: block;
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+.preco {
+    color: var(--color-primary);
+    font-size: 1.4em;
+    font-weight: 700;
+    display: block;
+    margin-top: 5px;
+}
+
+.comprar-btn {
+    /* Estilos de botão primário */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 1em;
+}
+
+.comprar-btn:hover {
+    background-color: #e65c00; /* Variação de cor primária */
+}
+
+/* ================================================= */
+/* === 8. RODAPÉ (Footer) === */
+/* ================================================= */
+
+.rodap {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 40px 5%;
+    margin-top: auto; /* Garante que o rodapé fica sempre no fundo */
+}
+
+.rodap-main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.rodap-main-content section {
+    line-height: 1.4;
+    padding-right: 20px;
+}
+
+.rodap-left-section {
+    flex-grow: 1;
+    max-width: 450px;
+    order: 1;
+}
+
+.rodap-right-sections {
+    display: flex;
+    gap: 40px;
+    order: 2;
+}
+
+.rodap-main-content .text-wrapper {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-primary);
+}
+
+/* Newsletter */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.endereo-de-e-mail {
+    flex: 1;
+}
+
+.endereo-de-e-mail input {
+    width: 100%;
+    height: 45px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border-medium);
+    font-size: 1em;
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+.subscrever {
+    height: 45px;
+    padding: 0 20px;
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background-color 0.2s;
+
+    /* Correção visual para alinhar com o input */
+    transform: translateY(11px); 
+}
+
+.subscrever:hover {
+    background-color: #e65c00;
+}
+
+/* Copyright */
+.rodap-copy {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ================================================= */
+/* === 9. ESTILOS DE LAYOUTS SECUNDÁRIOS (Carrinho, Perfil, Favoritos) === */
+/* ================================================= */
+
+/* Layout principal */
+.perfil-wrapper,
+.carrinho-wrapper,
+.favoritos-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.btn-voltar-index {
+    /* Reutilização dos estilos do botão primário */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.btn-voltar-index:hover {
+    background-color: #e65c00;
+}
+
+.lista-vazia-texto {
+    font-size: 1.2em;
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: 50px 0;
+    width: 100%;
+}
+
+/* --- Perfil --- */
+
+.perfil-layout {
+    display: flex;
+    gap: 40px;
+}
+
+.menu-perfil {
+    width: 250px;
+    border-right: 1px solid var(--color-border-medium);
+    padding-right: 20px;
+    flex-shrink: 0;
+}
+
+.menu-perfil h2 {
+    font-size: 1.5em;
+    color: var(--color-secondary);
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+}
+
+.menu-perfil nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-perfil nav ul li {
+    margin-bottom: 5px;
+}
+
+.menu-perfil nav ul li a {
+    text-decoration: none;
+    padding: 12px 20px;
+    display: block;
+    border-radius: 8px;
+    color: var(--color-text-muted);
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 1em;
+}
+
+.menu-perfil nav ul li a:hover,
+.menu-perfil nav ul li a.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.detalhes-perfil {
+    flex-grow: 1;
+}
+
+.detalhes-perfil h1 {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-border-medium);
+    padding-bottom: 10px;
+}
+
+.detalhes-perfil h3 {
+    font-size: 1.3em;
+    color: var(--color-primary);
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.detalhes-perfil p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.detalhes-perfil .edit-link {
+    color: #4a90e2; /* Azul de link padrão/ação */
+    font-weight: 500;
+    text-decoration: underline;
+    display: block;
+    margin-top: 15px;
+}
+
+/* --- Carrinho --- */
+
+.carrinho-layout h1 {
+    margin-bottom: 40px;
+    color: var(--color-secondary);
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.lista-itens {
+    width: 65%;
+    flex-shrink: 0;
+}
+
+.carrinho-item {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.carrinho-item-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.carrinho-item-details {
+    flex-grow: 1;
+}
+
+.carrinho-item-details h3 {
+    font-size: 1.1em;
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.carrinho-item-details p {
+    color: var(--color-text-muted);
+    font-size: 1em;
+}
+
+.item-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-quantidade input {
+    width: 50px;
+    text-align: center;
+    padding: 12px 5px; 
+    border: 1px solid var(--color-border-medium);
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+}
+
+.item-preco {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-align: right;
+    width: 100px;
+}
+
+.remover-item {
+    color: var(--color-error); /* Uso da variável de erro para consistência */
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    align-self: flex-start;
+    margin-top: 5px; 
+}
+
+.remover-item:hover {
+    opacity: 0.8;
+}
+
+.resumo-carrinho {
+    width: 35%;
+    background-color: var(--color-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.resumo-carrinho h2 {
+    font-size: 1.5em;
+    color: var(--color-secondary);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.carrinho-detalhe {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--color-text-muted);
+    font-size: 1em;
+}
+
+.carrinho-total {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--color-border-medium);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.carrinho-total span {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--color-secondary);
+}
+
+.carrinho-total span:last-child {
+    color: var(--color-primary);
+}
+
+.btn-finalizar {
+    /* Reutilização dos estilos de botão primário */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+    font-size: 1em;
+}
+
+.btn-finalizar:hover {
+    background-color: #e65c00;
+}
+
+/* ================================================= */
+/* === 10. LAYOUTS DE SISTEMA: LOGIN / REGISTO === */
+/* ================================================= */
+
+.login-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--color-card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container h1 {
+    font-size: 2em;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
+.form-switch {
+    display: flex;
+    width: 100%;
+    border: 1px solid var(--color-border-medium);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.form-switch button {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background-color: var(--color-background);
+    color: var(--color-secondary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.form-switch button.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    padding: 12px 20px;
+    border: 1px solid var(--color-border-medium);
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+}
+
+.form-group input.error {
+    border-color: var(--color-error) !important;
+}
+
+.error-message {
+    color: var(--color-error);
+    font-size: 0.85em;
+    margin-top: 5px;
+    margin-bottom: -10px;
+    font-weight: 500;
+    min-height: 20px;
+    display: block;
+}
+
+.btn-submit-auth {
+    /* Reutilização dos estilos de botão primário */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+    font-size: 1em;
+}
+
+.btn-submit-auth:hover {
+    background-color: #e65c00;
+}
+
+.hidden {
+    display: none !important; /* Uso de !important para garantir que a classe oculta o elemento */
+}
+
+/* ================================================= */
+/* === 11. MEDIA QUERIES / RESPONSIVIDADE === */
+/* ================================================= */
+
+/* Tablets e Telas Médias (<= 1024px) */
+@media (max-width: 1024px) {
+
+    .website-container {
+        min-width: auto;
+        padding: 0;
+    }
+
+    .header,
+    .barra-de-secoes {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .rodap {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .main-content {
+        padding: 20px 20px 50px;
+    }
+
+    /* Regras específicas para INDEX.HTML */
+    .banner-promocional {
+        padding: 40px 0;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .seccao-produtos {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 40px;
+        scroll-margin-top: 140px; /* Ajuste a margem de scroll para telas menores */
+    }
+
+    /* Rodapé */
+    .rodap-main-content {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .rodap-right-sections {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .imagem-promoo-na {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .lista-produtos {
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .produto-card {
+        width: 200px;
+        min-height: 300px;
+    }
+    
+    /* Layouts de Sistema (Carrinho, Perfil, Favoritos) */
+    .perfil-layout,
+    .carrinho-layout,
+    .favoritos-layout {
+        display: flex; 
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .perfil-wrapper,
+    .carrinho-wrapper,
+    .favoritos-wrapper {
+        flex-direction: column;
+        gap: 40px;
+        padding: 50px 20px;
+    }
+
+    /* Botão Voltar à Loja */
+    .btn-voltar-index {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 40px auto 0; 
+        text-align: center;
+    }
+
+    .lista-itens,
+    .resumo-carrinho {
+        width: 100%;
+    }
+
+    .menu-perfil {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border-medium);
+        padding-right: 0;
+        padding-bottom: 10px;
+    }
+
+    .form-switch button {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+
+    /* Padronização de elementos de formulário */
+    .auth-form .form-group input,
+    .search-bar input,
+    .search-bar button,
+    .subscrever,
+    .btn-voltar-index,
+    .btn-submit-auth,
+    .comprar-btn,
+    .btn-finalizar {
+        font-size: 0.95em;
+        padding: 10px 15px;
+        height: 40px;
+    }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+
+    /* Header */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .logo-marca {
+        margin-bottom: 15px;
+    }
+
+    .botes-header {
+        width: 100%;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: nowrap;
+    }
+
+    /* Melhora a legibilidade no mobile para ícones do header */
+    .botes-header .nav-icon-link {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* Barra de Pesquisa e Categorias */
+    .barra-de-secoes {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .categorias-nav {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        gap: 10px;
+    }
+
+    .nav-item {
+        flex-shrink: 0;
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .search-bar {
+        width: 100%;
+        display: flex;
+        overflow: visible;
+        border-radius: 8px;
+    }
+
+    .search-bar input {
+        flex-grow: 1;
+        padding: 10px 15px;
+        border-right: 1px solid var(--color-border-medium); /* Reverte o border-right: none da versão desktop */
+    }
+
+    .search-bar button {
+        padding: 10px 15px;
+        border-radius: 0 8px 8px 0;
+        border-right: none;
+    }
+
+    /* Banner Promocional */
+    .promo-title {
+        font-size: 2.5em;
+    }
+
+    .promo-subtitle {
+        font-size: 1.5em;
+    }
+
+    /* Cartões de Produto */
+    .produto-card {
+        width: 180px;
+        min-height: 280px;
+    }
+
+    .produto-img {
+        height: 120px;
+    }
+
+    .preco {
+        font-size: 1.2em;
+    }
+
+    /* Botão Voltar à Loja */
+    .btn-voltar-index {
+        max-width: 100%;
+    }
+
+    /* Carrinho */
+    .carrinho-item {
+        flex-wrap: wrap;
+        text-align: left;
+        justify-content: left;
+    }
+
+    .carrinho-item-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .item-preco {
+        /* Garante que o preço ocupa a largura total na linha inferior, à direita */
+        width: 100%; 
+        text-align: right;
+        margin-top: 10px;
+    }
+}
