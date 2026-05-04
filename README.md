@@ -1,5 +1,5 @@
 # Os meus projetos
-Um repositório para guardar mini projetos pessoais
+Um repositório para guardar mini projetos pessoais e escolares
 
 # Links Projetos Figma
 WorkUp - Website de renting de espaços para coworking:
