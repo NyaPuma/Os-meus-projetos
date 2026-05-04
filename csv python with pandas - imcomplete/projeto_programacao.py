@@ -1,58 +1,68 @@
 import pandas as pd
-
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('day.csv')
+# Load the data
+try:
+    df = pd.read_csv('day.csv')
+except FileNotFoundError:
+    print("Erro: O ficheiro 'day.csv' não foi encontrado.")
+    exit()
 
-escolha = int(input("Para visualizar base dados inteira escolha 1\nPara visualizar o grafico com numeric e numeric-2 escolha 2\nPara amostrar os primeiros numeros da base de dados escolha 3\nPara amostrar os ultimos numeros da base de dados escolha 4\nPara a média dos numéricos escolha 5\nPara a mediana dos numéricos escolha 6\nPara a moda dos numéricos escolha 7:"))
+def base_dados():
+    return df
 
-def basedados():
-    return(df)
+def mostrar_grafico():
+    # Improved with a title and labels
+    df.plot(kind='scatter', x='Numeric', y='Numeric-2', color='blue')
+    plt.title('Relação entre Numeric e Numeric-2')
+    plt.xlabel('Eixo X (Numeric)')
+    plt.ylabel('Eixo Y (Numeric-2)')
+    plt.grid(True)
+    plt.show() 
 
-def grafico():
-    df.plot(kind = 'scatter', x = 'Numeric', y = 'Numeric-2')
-    return plt.show()
-    
-def primnum():
-    x = int(input("Insire a quantidade dos primeiros numeros que quer:"))
-    return(df.head(x))
+def amostra(tipo='head'):
+    qtd = int(input(f"Insira a quantidade de linhas ({tipo}): "))
+    return df.head(qtd) if tipo == 'head' else df.tail(qtd)
 
-def ultnum():
-    y = int(input("Insire a quantidade dos ultimos numeros que quer:"))
-    return(df.tail(y))
+# Statistics functions
+def calc_stats(operacao):
+    if operacao == 'media':
+        return df["Numeric"].mean()
+    elif operacao == 'mediana':
+        return df["Numeric"].median()
+    elif operacao == 'moda':
+        return df["Numeric"].mode()[0]
 
-def media():
-    a = df["Numeric"].mean()
-    return a
+menu = """
+--- MENU DE DADOS ---
+1. Visualizar base de dados inteira
+2. Gráfico de Dispersão (Scatter)
+3. Primeiras N linhas
+4. Últimas N linhas
+5. Média de 'Numeric'
+6. Mediana de 'Numeric'
+7. Moda de 'Numeric'
+Escolha: """
 
-def mediana():
-    b = df["Numeric"].median()
-    return b
+try:
+    escolha = int(input(menu))
 
-def moda():
-    c = df["Numeric"].mode()[0]
-    return c
+    if escolha == 1:
+        print(base_dados())
+    elif escolha == 2:
+        mostrar_grafico() # Não precisa de print
+    elif escolha == 3:
+        print(amostra('head'))
+    elif escolha == 4:
+        print(amostra('tail'))
+    elif escolha == 5:
+        print(f"Média: {calc_stats('media')}")
+    elif escolha == 6:
+        print(f"Mediana: {calc_stats('mediana')}")
+    elif escolha == 7:
+        print(f"Moda: {calc_stats('moda')}")
+    else:
+        print("Opção inválida!")
 
-if escolha == 1:
-    print(basedados())
-
-elif escolha == 2:
-    print(grafico())
-    
-elif escolha == 3:
-    print(primnum())
-    
-elif escolha == 4:
-    print(ultnum())
-    
-elif escolha == 5:
-    print(media())
-    
-elif escolha == 6:
-    print(mediana())
-
-elif escolha == 7:
-    print(moda())
-       
-else:
-    print("Erro!, por favor insira um valor valido.")
+except ValueError:
+    print("Erro: Por favor, insira apenas números.")
