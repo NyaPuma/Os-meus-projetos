@@ -1,0 +1,56 @@
+# Ignorar ficheiros desnecessários
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+
+# Ficheiros temporários
+*.tmp
+*.log
+*.bak
+
+# Pastas de build
+bin/
+obj/
+build/
+dist/
+
+# Ambientes virtuais Python
+venv/
+.env/
+
+# Ficheiros de configuração local
+.env
+*.local
+
+# Ficheiros de projeto (ex: Visual Studio, JetBrains)
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ficheiros de cache
+.cache/
+__pycache__/
+*.pyc
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Git
+.git/
+.gitignore
+
+# Ficheiros de grande dimensão (LFS)
+*.psd
+*.ai
+*.zip
+*.rar
