@@ -28,9 +28,6 @@ Bem-vindo ao meu repositório de projetos pessoais e académicos! Aqui encontras
 - [Bases de Dados](exercicios/bases-de-dados): Exercícios de SQL e modelação de dados.
 - [Análise de Dados](exercicios/analise-dados/python-pandas): Projetos com Python e Pandas.
 
-### 🎓 Formação
-
-
 ### 💻 Linguagens
 - [C#](linguagens/csharp): Projetos desenvolvidos em C#.
 - [Aulas de Python](formacao/python/aulas): Materiais e notas das aulas de Python.
