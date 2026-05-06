@@ -55,3 +55,6 @@ package-lock.json
 *.zip
 *.rar
 /.vs
+/linguagens/csharp/Explicação-Enum/.vs
+*.slnx
+*.csproj
