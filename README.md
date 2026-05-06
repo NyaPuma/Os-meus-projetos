@@ -9,7 +9,6 @@ Bem-vindo ao meu repositório de projetos pessoais e académicos! Aqui encontras
 | **Categoria**       | **Descrição**                          | **Tecnologias**               |
 |---------------------|----------------------------------------|-------------------------------|
 | [/exercicios](exercicios) | Exercícios académicos (algoritmos, bases de dados, etc.) | Python, SQL, C# |
-| [/formacao](formacao)     | Materiais de formação (aulas, notas)    | Python, Markdown              |
 | [/linguagens](linguagens)   | Projetos por linguagem                 | C#, Python                    |
 | [/projetos](projetos)     | Projetos pessoais e profissionais      | SolidWorks, Autodesk Fusion, HTML/CSS, Python |
 
@@ -30,18 +29,16 @@ Bem-vindo ao meu repositório de projetos pessoais e académicos! Aqui encontras
 - [Análise de Dados](exercicios/analise-dados/python-pandas): Projetos com Python e Pandas.
 
 ### 🎓 Formação
-- [Aulas de Python](formacao/python/aulas): Materiais e notas das aulas de Python.
+
 
 ### 💻 Linguagens
 - [C#](linguagens/csharp): Projetos desenvolvidos em C#.
+- [Aulas de Python](formacao/python/aulas): Materiais e notas das aulas de Python.
 
 ### 🛠 Projetos
-- [Microcontroladores](projetos/embarcados/microcontroladores): Projetos com Microchip Studio.
+- [Microcontroladores](projetos/sistemas Integrados/microcontroladores): Projetos com Microchip Studio.
 - [Modelação 3D](projetos/modelacao-3d): Projetos em SolidWorks e Autodesk Fusion.
-  - [Secretaria](projetos/modelacao-3d/solidworks-secretaria)
-  - [Peças Mecânicas](projetos/modelacao-3d/solidworks-pecas-mecanicas)
-  - [Geometrias Básicas](projetos/modelacao-3d/autodesk-fusion)
-- [Visão Computacional](projetos/visao-computacional/deteccao-bordas-python): Detecção de bordas usando Python.
+- [Visão Computacional](projetos/visao-computacional/deteccao-bordas-python): Detecção de bordas utilizando Python.
 - [CNC - Torno](projetos/cnc-torno): Projetos de controle numérico computadorizado.
 - [Web](projetos/web): Projetos de desenvolvimento web.
   - [Laranja Miau](projetos/web/laranja-miau): Website desenvolvido para o projeto Laranja Miau.
@@ -59,7 +56,7 @@ Bem-vindo ao meu repositório de projetos pessoais e académicos! Aqui encontras
 ## 📩 Contacto
 - **Email**: [afrmscb@gmail.com](mailto:afrmscb@gmail.com)
 - **GitHub**: [@NyaPuma](https://github.com/NyaPuma)
-- **LinkedIn**: [André Moreira](https://www.linkedin.com/in/andré-moreira/)
+- **LinkedIn**: [André Moreira](https://www.linkedin.com/in/andre-nyapuma-moreira-/)
 - **Localização**: Braga, Portugal
 
 ---
