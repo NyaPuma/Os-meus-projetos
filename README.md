@@ -36,7 +36,7 @@ Bem-vindo ao meu repositório de projetos pessoais e académicos! Aqui encontras
 - [Aulas de Python](formacao/python/aulas): Materiais e notas das aulas de Python.
 
 ### 🛠 Projetos
-- [Microcontroladores](projetos/sistemas Integrados/microcontroladores): Projetos com Microchip Studio.
+- [Microcontroladores](https://github.com/NyaPuma/Os-meus-projetos/tree/5bd92837a0d5907d131ab1016ba8cfd7e10fac89/projetos/sistemas%20Integrados/microcontroladores): Projetos com Microchip Studio.
 - [Modelação 3D](projetos/modelacao-3d): Projetos em SolidWorks e Autodesk Fusion.
 - [Visão Computacional](projetos/visao-computacional/deteccao-bordas-python): Detecção de bordas utilizando Python.
 - [CNC - Torno](projetos/cnc-torno): Projetos de controle numérico computadorizado.
