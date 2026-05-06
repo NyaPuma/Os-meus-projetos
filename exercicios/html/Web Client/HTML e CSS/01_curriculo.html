@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="curriculo-style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <meta name="description"
+        content="André Moreira - Especialista em Robótica Colaborativa, Inteligência Industrial e UX/UI Design. Conheça a minha trajetória e projetos em Braga, Portugal.">
+    <meta name="keywords"
+        content="André Moreira, Robótica Colaborativa, Automação Industrial, UX/UI Design, Engenharia Braga, Currículo">
+    <meta name="author" content="André Moreira">
+    <meta property="og:title" content="André Moreira | Engenharia e Inovação Industrial">
+    <meta property="og:description" content="Engenharia, Inovação Industrial e Design UX/UI.">
+    <meta property="og:image" content="foto-perfil.jpg">
+    <meta property="og:type" content="website">
+
+    <title>André Moreira | Engenharia e Inovação Industrial</title>
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "André Moreira",
+    "jobTitle": "Engenheiro de Inovação Industrial",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Braga",
+        "addressCountry": "PT"
+    },
+    "url": "https://nyapuma.github.io", 
+    "sameAs": [
+        "https://github.com/NyaPuma",
+        "https://www.linkedin.com/in/andre-nyapuma-moreira-"
+    ]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Container principal do currículo -->
+    <div class="curriculo-container">
+
+        <!-- Navegação com links para as secções -->
+        <nav class="curriculo-nav">
+            <div class="categorias-nav" aria-label="Navegação do Currículo">
+                <a href="#sobre" class="nav-item">Sobre Mim</a>
+                <a href="#experiencia" class="nav-item">Experiência</a>
+                <a href="#formacao" class="nav-item">Formação</a>
+                <a href="#traducoes" class="nav-item">Voluntariado</a>
+                <a href="#stack" class="nav-item">Stack</a>
+                <a href="#projetos" class="nav-item">Projetos</a>
+            </div>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <main class="curriculo-main">
+
+            <!-- Banner/cabeçalho do currículo -->
+            <section class="curriculo-banner" aria-label="Destaque Profissional">
+                <div class="curriculo-header-content">
+                    <div class="perfil-foto-container">
+                        <img src="foto-perfil.jpg" alt="André Moreira - Engenheiro de Inovação Industrial"
+                            class="perfil-foto">
+                    </div>
+
+                    <div class="header-text-content">
+                        <h1 class="curriculo-nome">André Moreira</h1>
+                        <p class="curriculo-subtitulo">Engenharia e Inovação Industrial</p>
+
+                        <ul class="curriculo-skills">
+                            <li><i class="fas fa-microchip"></i> Robótica Colaborativa & Inteligência Industrial</li>
+                            <li><i class="fas fa-cube"></i> Desenho Digital 3D</li>
+                            <li><i class="fas fa-swatchbook"></i> Design UX/UI</li>
+                            <li><i class="fas fa-code"></i> Software</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Layout com sidebar e conteúdo -->
+            <div class="curriculo-layout">
+
+                <!-- Sidebar com informações -->
+                <aside class="curriculo-sidebar">
+                    <nav aria-label="Menu de Perfil">
+                        <div class="contactos-box" aria-label="Informações de Contacto">
+                            <strong>Contactos Diretos:</strong>
+
+                            <div class="contact-item">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <a href="mailto:afrmscb@gmail.com">afrmscb@gmail.com</a>
+                            </div>
+
+                            <div class="contact-item">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                <a href="tel:+351912797918">+351 912 797 918</a>
+                            </div>
+
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <a href="https://www.google.com/maps/search/Braga,+Portugal" target="_blank">Braga,
+                                    Portugal</a>
+                            </div>
+                        </div>
+
+                        <button id="btn-export-pdf" class="btn-export-pdf no-print">
+                            <i class="fas fa-file-pdf"></i> Descarregar PDF
+                        </button>
+
+                    </nav>
+                </aside>
+
+                <!-- Secção de detalhes -->
+                <section class="curriculo-detalhes">
+
+                    <!-- Article: Sobre Mim -->
+                    <article id="sobre" class="curriculo-section">
+                        <h2 class="section-heading">Sobre Mim</h2>
+                        <p class="texto-descricao">
+                            Especialista em <strong>Robótica Colaborativa e Inteligência Industrial</strong>. A minha
+                            formação técnica foca-se na integração de sistemas avançados, desde a eletrificação de
+                            quadros até à visão industrial. Paralelamente, desenvolvo competências em <strong>UX/UI
+                                Design</strong> e desenvolvimento Web, acreditando que a tecnologia industrial deve ser
+                            tão intuitiva quanto eficiente.
+                        </p>
+                    </article>
+
+                    <!-- Separador -->
+                    <hr class="section-divider">
+
+                    <!-- Article: Experiência -->
+                    <article id="experiencia" class="curriculo-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Experiência Recente</h2>
+                        </div>
+
+                        <div class="experiencia-item">
+                            <h3 class="experiencia-titulo">Técnico de sistemas elétricos | ITEC</h3>
+                            <p class="experiencia-data">Maio 2024 – Outubro 2024 | Braga</p>
+                            <ul class="experiencia-lista">
+                                <li><strong>EPLAN & Projetos Elétricos:</strong> Desenho e eletrificação de quadros
+                                    elétricos industriais.</li>
+                                <li><strong>Sistemas Pneumáticos:</strong> Dimensionamento e montagem de componentes
+                                    pneumáticos em bancadas de teste.</li>
+                                <li><strong>Hardware:</strong> Soldadura de precisão em PCBs e integração de componentes
+                                    eletrónicos.</li>
+                                <li><strong>Colaboração:</strong> Trabalho direto em equipas de manutenção e
+                                    prototipagem industrial.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Article: Formação -->
+                    <article id="formacao" class="curriculo-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Educação e Qualificações</h2>
+                        </div>
+
+                        <div class="formacao-lista">
+
+                            <div class="formacao-item">
+                                <div class="formacao-detalhes">
+                                    <strong class="formacao-curso">Desenho Digital 3D</strong>
+                                    <p class="formacao-instituicao">
+                                        Escola Secundária Alberto Sampaio | <span class="formacao-data">2016 –
+                                            2019</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="formacao-item">
+                                <div class="formacao-detalhes">
+                                    <strong class="formacao-curso">Robótica Colaborativa (CTeSP)</strong>
+                                    <p class="formacao-instituicao">
+                                        IPCA - Instituto Politécnico do Cávado e do Ave | <span
+                                            class="formacao-data">2022 – 2024</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="formacao-item">
+                                <div class="formacao-detalhes">
+                                    <strong class="formacao-curso">Design de Experiência do Utilizador (UX/UI)</strong>
+                                    <p class="formacao-instituicao">
+                                        Formação Especializada (Jovem+Digital) | <span class="formacao-data">2025 –
+                                            2025</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- Article: Traduções/Voluntariado -->
+                    <article id="traducoes" class="curriculo-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Voluntariado: Localização & Tradução Técnica</h2>
+                        </div>
+
+                        <div class="voluntariado-lista">
+
+                            <div class="voluntariado-item">
+                                <div class="voluntariado-detalhes">
+                                    <strong class="voluntariado-projeto">
+                                        <i class="fab fa-python"></i> Python Foundation (Tradução & Coordenação)
+                                    </strong>
+                                    <p class="voluntariado-data">Ago 2025 – Presente</p>
+                                    <p class="voluntariado-descricao">
+                                        Coordenação e tradução de documentação oficial e legendagem para <strong>Python
+                                            The Documentary</strong>.
+                                        Trabalho direto nas versões <strong>3.10 até 3.14</strong>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="voluntariado-item">
+                                <div class="voluntariado-detalhes">
+                                    <strong class="voluntariado-projeto">
+                                        <i class="fab fa-linux"></i> Ecossistema Linux (GNOME, Arch, CachyOS, Solus)
+                                    </strong>
+                                    <p class="voluntariado-data">Abr 2025 – Presente</p>
+                                    <p class="voluntariado-descricao">
+                                        <strong>GNOME:</strong> Localização de apps core (Phosh, Chatty, G4Music,
+                                        Firmware).<br>
+                                        <strong>Arch Linux:</strong> Tradução do gestor de pacotes
+                                        <strong>Pacman</strong> e Arch-Update.<br>
+                                        <strong>CachyOS & Solus:</strong> Tradução de Wikis, instaladores e do gestor
+                                        <strong>eopkg</strong>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="voluntariado-item">
+                                <div class="voluntariado-detalhes">
+                                    <strong class="voluntariado-projeto">
+                                        <i class="fas fa-globe"></i> Web, Fintech & Software Industrial
+                                    </strong>
+                                    <p class="voluntariado-data">Ago 2025 – Presente</p>
+                                    <p class="voluntariado-descricao">
+                                        <strong>Bitcoin.com:</strong> Localização de conteúdos Fintech.<br>
+                                        <strong>Ecwid by Lightspeed:</strong> Tradução de painéis de controlo
+                                        e-commerce.<br>
+                                        <strong>Lutris & Disqus:</strong> Tradução de interfaces de utilizador.<br>
+                                        <strong>Joomla:</strong> Localização massiva de módulos de API, Blogs e sistemas
+                                        de Quiz.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+
+                    <!-- Article: Stack Tecnológica -->
+                    <article id="stack" class="curriculo-section">
+                        <h2 class="section-title">Stack Tecnológica & Competências</h2>
+
+                        <div class="stack-group">
+                            <h3 class="stack-category-title">Automação & Robótica Industrial</h3>
+                            <div class="stack-tags">
+                                <span class="tag-item">Linguagem Ladder & PLC</span>
+                                <span class="tag-item">Sysmac Studio / CX-Programmer</span>
+                                <span class="tag-item">CoDeSys & Automation Studio</span>
+                                <span class="tag-item">SCADA (NB/CX-Designer)</span>
+                                <span class="tag-item">NI LabVIEW / Factory I/O</span>
+                                <span class="tag-item">Robótica & Automação</span>
+                            </div>
+                        </div>
+
+                        <div class="stack-group">
+                            <h3 class="stack-category-title">Engenharia Elétrica & Hardware</h3>
+                            <div class="stack-tags">
+                                <span class="tag-item">EPLAN Electric P8 & QEletroTech</span>
+                                <span class="tag-item">Eletrificação de Quadros e Máquinas</span>
+                                <span class="tag-item">Pneumática Industrial</span>
+                                <span class="tag-item">Soldadura de PCBs</span>
+                                <span class="tag-item">Programação CNC (CIMCO)</span>
+                            </div>
+                        </div>
+
+                        <div class="stack-group">
+                            <h3 class="stack-category-title">Software & Visão Industrial</h3>
+                            <div class="stack-tags">
+                                <span class="tag-item">Python (NumPy, Matplotlib)</span>
+                                <span class="tag-item">OpenCV (Visão Computacional)</span>
+                                <span class="tag-item">C / C++ / C#</span>
+                                <span class="tag-item">HTML5 & CSS3</span>
+                                <span class="tag-item">Anaconda & PyCharm</span>
+                            </div>
+                        </div>
+
+                        <div class="stack-group">
+                            <h3 class="stack-category-title">Design, 3D & Ferramentas</h3>
+                            <div class="stack-tags">
+                                <span class="tag-item">Figma (UX/UI Design)</span>
+                                <span class="tag-item">SolidWorks & Autodesk Fusion 360</span>
+                                <span class="tag-item">AutoCAD & Revit</span>
+                                <span class="tag-item">3ds Max & Unity3D</span>
+                                <span class="tag-item">Adobe CC (Ps, Ai, Pr, Ae)</span>
+                                <span class="tag-item">Manufatura Aditiva</span>
+                                <span class="tag-item">ProjectLibre</span>
+                            </div>
+                        </div>
+
+                        <div class="stack-group">
+                            <h3 class="stack-category-title">Linguagens</h3>
+                            <div class="stack-tags">
+                                <span class="tag-item">Inglês</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article: Projetos GitHub -->
+                    <article id="projetos" class="curriculo-section">
+                        <div class="link-card link-card-github">
+                            <i class="fab fa-github"></i>
+                            <div class="link-card-content">
+                                <h3 class="link-card-title">NyaPuma / Os-meus-projetos</h3>
+                                <p class="link-card-descricao">Repositório central com implementações de <strong>Visão
+                                        Industrial</strong>, lógica de <strong>Automação</strong> e projetos de
+                                    <strong>Desenvolvimento Web</strong>.
+                                </p>
+                                <a href="https://github.com/NyaPuma/Os-meus-projetos" target="_blank"
+                                    class="link-card-link">Consultar Repositório no GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article: LinkedIn -->
+                    <article id="linkedin-profile" class="curriculo-section">
+                        <div class="link-card link-card-linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <div class="link-card-content">
+                                <h3 class="link-card-title">André Moreira | Perfil Profissional</h3>
+                                <p class="link-card-descricao">
+                                    Conecte-se comigo para acompanhar partilhas sobre <strong>Engenharia</strong>,
+                                    <strong>Automação Industrial</strong> e o desenvolvimento de soluções tecnológicas.
+                                </p>
+                                <a href="https://www.linkedin.com/in/andre-nyapuma-moreira-" target="_blank"
+                                    class="link-card-link">Consultar Perfil no LinkedIn</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </section>
+            </div>
+        </main>
+
+        <!-- Rodapé com contactos -->
+        <footer class="curriculo-footer">
+            <div class="footer-contactos">
+                <span class="footer-label">Contactos:</span>
+            </div>
+
+            <nav class="footer-links">
+                <a href="mailto:afrmscb@gmail.com" class="nav-item">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://github.com/NyaPuma" target="_blank" class="nav-item">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/andre-nyapuma-moreira-" target="_blank" class="nav-item">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- Script para exportar PDF -->
+    <script>
+        document.getElementById('btn-export-pdf').addEventListener('click', () => {
+            const element = document.querySelector('.curriculo-container');
+            const nav = document.querySelector('.curriculo-nav');
+            const btn = document.getElementById('btn-export-pdf');
+
+            // Configurações otimizadas
+            const opt = {
+                margin: [10, 10, 10, 10],
+                filename: 'Curriculo_Andre_Moreira.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 3,
+                    useCORS: true,
+                    letterRendering: true,
+                    // Remove a navegação e o botão especificamente na captura do canvas
+                    ignoreElements: (el) => el.classList.contains('no-print') || el.classList.contains('curriculo-nav')
+                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Feedback visual simples
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> A gerar...';
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> Descarregar PDF';
+            });
+        });
+    </script>
+</body>
+
+</html>

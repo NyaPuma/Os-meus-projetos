@@ -54,3 +54,4 @@ package-lock.json
 *.ai
 *.zip
 *.rar
+/.vs

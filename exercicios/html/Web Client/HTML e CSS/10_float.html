@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <style>
+        #container {
+            width: 80%;
+            padding: 25px;
+            background-color: antiquewhite;
+            overflow: auto;
+        }
+
+        #container div {
+            width: 10%;
+            height: 50px;
+            border: 2px solid red;
+            margin: 5px;
+        }
+
+        #div1 {
+            float: left;
+        }
+        #div2 {
+            float: left;
+        }
+        #div3 {
+            float: left;
+        }
+
+        header {
+            background-color: aqua;
+            height: 50px;
+        }
+
+        nav {
+            width: 25%;
+            height: 50px;
+            background-color: aquamarine;
+            float: left;
+        }
+
+        main {
+            width: 75%;
+            background-color: bisque;
+            height: 100px;
+            float: right;
+        }
+
+        footer {
+            height: 50px;
+            background-color: plum;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Propriedade float</h1>
+    <div id="container">
+        <div id="div1">Esta é a DIV 1</div>
+        <div id="div2">Esta é a DIV 2</div>
+        <div id="div3">Esta é a DIV 3</div>
+    </div>
+
+    <hr>
+
+    <header>Isto é um header</header>
+    <nav>NAV</nav>
+    <main>Isto é o main</main>
+    <footer>Isto é o footer</footer>
+</body>
+</html>

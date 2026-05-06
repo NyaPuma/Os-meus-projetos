@@ -1,0 +1,718 @@
+/* ================================================= */
+/* === CURRÍCULO PROFISSIONAL - ESTILOS MINIMALISTAS === */
+/* ================================================= */
+
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Reset e base */
+* {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Variáveis */
+:root {
+    --color-primary: #FF6600;
+    --color-secondary: #222222;
+    --color-background: #F4F4F4;
+    --color-card-background: #FFFFFF;
+    --color-text-dark: #222222;
+    --color-text-light: #FFFFFF;
+    --color-text-muted: #666;
+    --color-border-light: #eee;
+}
+
+/* ================================================= */
+/* === CONTAINER PRINCIPAL === */
+/* ================================================= */
+
+.curriculo-container {
+    width: 100%;
+    min-width: auto;
+    margin: 0 auto;
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ================================================= */
+/* === NAVEGAÇÃO === */
+/* ================================================= */
+
+.curriculo-nav {
+    background-color: var(--color-secondary);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categorias-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-item {
+    color: var(--color-text-light);
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: var(--color-primary);
+}
+
+/* ================================================= */
+/* === BANNER / CABEÇALHO === */
+/* ================================================= */
+
+.curriculo-banner {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 40px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.curriculo-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.perfil-foto-container {
+    flex-shrink: 0;
+}
+
+.perfil-foto {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid var(--color-primary);
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.curriculo-nome {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.curriculo-subtitulo {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.curriculo-skills {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.curriculo-skills li {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--color-text-light);
+}
+
+.curriculo-skills li i {
+    color: var(--color-primary);
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+/* ================================================= */
+/* === LAYOUT COM SIDEBAR === */
+/* ================================================= */
+
+.curriculo-layout {
+    padding: 40px 5%;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Sidebar */
+.curriculo-sidebar {
+    flex: 1;
+    max-width: 300px;
+}
+
+.curriculo-sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.curriculo-sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.curriculo-sidebar nav ul li a {
+    display: block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: var(--color-text-muted);
+    transition: all 0.3s;
+}
+
+.curriculo-sidebar nav ul li a.active {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+/* Box de contactos */
+
+/* 1. O Container Principal */
+/* Container da Box de Contactos */
+.contactos-box {
+    background: #f9f9f9 !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    margin-top: 20px !important;
+    list-style: none !important;
+    border: 1px solid #eee !important; /* Um toque de definição */
+}
+
+.contactos-box strong {
+    display: block !important;
+    margin-bottom: 15px !important;
+    font-size: 0.95rem !important;
+    color: var(--color-secondary) !important;
+}
+
+/* Item de contacto individual */
+.contact-item {
+    display: flex !important;
+    align-items: center !important; 
+    gap: 12px !important;
+    margin-bottom: 12px !important;
+    line-height: 1 !important; 
+    transition: transform 0.2s ease !important; /* Feedback ao passar o rato no conjunto */
+}
+
+/* Ícones */
+.contact-item i {
+    color: var(--color-primary) !important;
+    font-size: 1rem !important;
+    width: 18px !important;
+    text-align: center !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Links e Texto */
+.contact-item a, 
+.contact-item span {
+    font-size: 0.9rem !important;
+    color: #444 !important;
+    text-decoration: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    transition: all 0.3s ease !important; /* Transição para cor e sublinhado */
+}
+
+/* --- NOVO: Efeito de Hover nos Contactos --- */
+.contact-item:hover i {
+    color: var(--color-secondary) !important; /* Ícone muda de cor */
+}
+
+.contact-item a:hover {
+    color: var(--color-primary) !important; /* Texto muda para a cor principal */
+    text-decoration: underline !important;
+    cursor: pointer !important;
+}
+
+/* --- Botão exportar PDF (Otimizado) --- */
+.btn-export-pdf {
+    background: var(--color-primary) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    margin-top: 20px !important; /* Adicionei para separar da box */
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.btn-export-pdf:hover {
+    background-color: var(--color-secondary) !important; /* Troca para a secundária ou um tom mais escuro */
+    transform: translateY(-2px) !important; /* Efeito de elevação */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15) !important;
+}
+
+.btn-export-pdf:active {
+    transform: translateY(0) !important; /* Efeito de clique */
+}
+
+/* Secção de detalhes */
+.curriculo-detalhes {
+    flex: 3;
+}
+
+.curriculo-section {
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    color: var(--color-text-dark);
+}
+
+.section-divider {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid var(--color-border-light);
+}
+
+.section-header {
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 5px;
+}
+
+.section-title {
+    font-size: 1.5em;
+    color: var(--color-primary);
+    letter-spacing: 0.5px;
+}
+
+.texto-descricao {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ================================================= */
+/* === EXPERIÊNCIA PROFISSIONAL === */
+/* ================================================= */
+
+.experiencia-item {
+    padding: 20px;
+    border-left: 4px solid var(--color-primary);
+    background: #fdfdfd;
+    margin-bottom: 25px;
+    border-radius: 0 8px 8px 0;
+}
+
+.experiencia-titulo {
+    color: #222;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.experiencia-data {
+    font-size: 0.9em;
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.experiencia-lista {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* ================================================= */
+/* === FORMAÇÃO === */
+/* ================================================= */
+
+.formacao-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formacao-item {
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+}
+
+.formacao-curso {
+    font-size: 1.15em;
+    color: #222;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.formacao-instituicao {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+.formacao-data {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+/* ================================================= */
+/* === VOLUNTARIADO === */
+/* ================================================= */
+
+.voluntariado-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.voluntariado-item {
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+}
+
+.voluntariado-projeto {
+    font-size: 1.1em;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.voluntariado-projeto i {
+    margin-right: 8px;
+}
+
+.voluntariado-data {
+    font-size: 0.85em;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.voluntariado-descricao {
+    color: #444;
+    font-size: 0.95em;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+}
+
+/* ================================================= */
+/* === STACK TECNOLÓGICA === */
+/* ================================================= */
+
+.stack-group {
+    margin-bottom: 20px;
+}
+
+.stack-category-title {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-item {
+    background: var(--color-primary);
+    color: white;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.9em;
+}
+
+/* ================================================= */
+/* === CARDS DE LINKS (GITHUB, LINKEDIN) === */
+/* ================================================= */
+
+.link-card {
+    width: 100%;
+    padding: 30px;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    transition: 0.3s;
+    background: white;
+}
+
+.link-card i {
+    font-size: 60px;
+    color: #333;
+}
+
+.link-card-content {
+    flex: 1;
+}
+
+.link-card-title {
+    color: var(--color-primary);
+    font-size: 1.3em;
+}
+
+.link-card-descricao {
+    margin: 12px 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #444;
+}
+
+.link-card-link {
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--color-primary);
+}
+
+.link-card-link:hover {
+    color: #e55a00;
+}
+
+/* Card LinkedIn específico */
+.link-card-linkedin {
+    border-color: #0077b5;
+    background-color: rgba(0, 119, 181, 0.03);
+    margin-top: 30px;
+}
+
+.link-card-linkedin i {
+    color: #0077b5;
+}
+
+.link-card-linkedin .link-card-title {
+    color: #0077b5;
+}
+
+.link-card-linkedin .link-card-link {
+    color: #0077b5;
+}
+
+/* ================================================= */
+/* === RODAPÉ === */
+/* ================================================= */
+
+.curriculo-footer {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 20px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}
+
+.footer-contactos {
+    display: flex;
+    align-items: center;
+}
+
+.footer-label {
+    font-weight: 700;
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-links .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-links .nav-item:hover {
+    background-color: var(--color-primary);
+}
+
+/* ================================================= */
+/* === RESPONSIVIDADE === */
+/* ================================================= */
+
+@media (max-width: 768px) {
+    .curriculo-layout {
+        flex-direction: column;
+        padding: 20px 4%;
+    }
+
+    .curriculo-sidebar {
+        max-width: 100%;
+    }
+
+    .curriculo-nome {
+        font-size: 2.2em;
+    }
+
+    .curriculo-skills {
+        align-items: center;
+        margin: 15px auto;
+    }
+
+    .curriculo-skills li {
+        justify-content: center;
+    }
+
+    .curriculo-header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .perfil-foto {
+        width: 130px;
+        height: 130px;
+    }
+
+    .curriculo-banner {
+        padding: 30px 5%;
+    }
+
+    .curriculo-footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .footer-links .nav-item {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .link-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .link-card i {
+        font-size: 40px;
+    }
+}
+
+/* ================================================= */
+/* === IMPRESSÃO (PDF) === */
+/* ================================================= */
+
+@media print {
+    article, .stack-group, .curriculo-section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .quebrar-pagina {
+        page-break-before: always;
+        break-before: page;
+    }
+
+    #btn-export-pdf, .curriculo-nav {
+        display: none !important;
+    }
+}
+
+/* --- Ajuste nos Link Cards para Mobile --- */
+@media (max-width: 768px) {
+    .link-card {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .link-card i {
+        font-size: 45px; /* Reduzi um pouco para não dominar o ecrã */
+    }
+
+    .link-card-title {
+        font-size: 1.15em;
+    }
+}
+
+/* --- Otimização para PDF (Impressão) --- */
+/* Esta classe garante que o botão e a nav nunca saiam no PDF */
+@media print {
+    .no-print, 
+    .curriculo-nav, 
+    #btn-export-pdf, 
+    .btn-export-pdf {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Garante que o fundo do PDF seja branco para poupar tinta e manter leitura */
+    .curriculo-container {
+        background-color: white !important;
+    }
+
+    /* Evita que títulos fiquem sozinhos no fim de uma página */
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+}

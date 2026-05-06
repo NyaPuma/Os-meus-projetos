@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: antiquewhite;
+        }
+
+        table {
+            background-color: burlywood;
+            width: 80%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: chocolate;
+            border: 2px solid white;
+            padding: 10px;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Tabela de cursos CESAE</caption>
+
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Area</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <td colspan="3">Valores sujeitos a IVA</td>
+            </tr>
+        </tfoot>
+
+        <tbody>
+            <tr>
+                <td rowspan="3">Design</td>
+                <td>Ilustrator</td>
+                <td>500€</td>
+            </tr>
+            <tr>
+                <td>Photoshop</td>
+                <td>500€</td>
+            </tr>
+            <tr>
+                <td>InDesign</td>
+                <td>500€</td>
+            </tr>
+
+            <tr>
+                <td rowspan="4">WEB</td>
+                <td>HTML</td>
+                <td>100€</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>150€</td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>200€</td>
+            </tr>
+            <tr>
+                <td>PHP</td>
+                <td>300€</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

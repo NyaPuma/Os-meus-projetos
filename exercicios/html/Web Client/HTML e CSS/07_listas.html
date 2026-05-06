@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas com css</title>
+    <style>
+        body {
+            background-color: grey;
+            font-family: sans-serif;
+            width: 600px;
+            margin: auto;
+        }
+
+        h2 {
+            color: orange
+        }
+
+        /* Listas não ordenadas (quadrados) */
+        .square {
+            list-style-type: square;
+            color: aliceblue;
+        }
+
+        /* Listas não ordenadas (círculos) */
+        .circle {
+            list-style-type: circle;
+            color: aliceblue;
+        }
+
+        /* Lista sem marcação */
+        .none {
+            list-style-type: none;
+            color: aliceblue;          
+        }
+
+        /* Lista Ordenada (Letras) */
+        .Letras {
+            list-style-type: upper-latin;
+            color: aliceblue;
+        }
+
+        /* Lista Ordenada (Números) */
+        .Numeros {
+            list-style-type: decimal;
+            color: aliceblue;
+        }
+
+        /* Lista Ordenada (Romanos) */
+        .Romanos {
+            list-style-type: upper-roman;
+            color: aliceblue; 
+        }
+
+        .seta {
+            list-style-type: "➤";
+            color: aliceblue; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Listas com css</h1>
+
+    <h2>Listas não ordenadas (quadrados)</h2>
+    <ul class="square">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <h2>Listas não ordenadas (circulos)</h2>
+    <ul class="circle">
+        <li>Braga</li>
+        <li>Porto</li>
+        <li>Lisboa</li>
+    </ul>
+
+    <h2>Lista sem marcação</h2>
+    <ul class="none">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <h2>Lista com seta</h2>
+    <ul class="seta">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <hr color="Orange" size="5px">
+
+    <h2>Lista Ordenada (Letras)</h2>
+    <ol class="Letras">
+        <li>Primeiro</li>
+        <li>Segundo</li>
+        <li>Terceiro</li>
+    </ol>
+
+        <h2>Lista Ordenada (Números)</h2>
+    <ol class="Numeros">
+        <li>Primeiro</li>
+        <li>Segundo</li>
+        <li>Terceiro</li>
+    </ol>
+
+        <h2>Lista Ordenada (Romanos)</h2>
+    <ol class="Romanos">
+        <li>Primeiro</li>
+        <li>Segundo</li>
+        <li>Terceiro</li>
+    </ol>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex box e display</title>
+    <style>
+        .cardContainer {
+            display: flex;
+            gap: 10px;
+        }
+
+        .cardFlex {
+            border: 1px solid black;
+            width: 30%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 5px 5px 10px green;
+        }
+
+        .cardFlex button {
+            align-self: flex-end;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Flex</h1>
+    <p>Dispor ou distribuir elementos</p>
+    <p>Ajuda a centralizar na vertical</p>
+
+    <section class="cardContainer">
+        <article class="cardFlex">
+            <h3>Artigo A</h3>
+            <img src="imagens/html5.png" alt="HTML5">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quos facere pariatur dolorum error repellat, incidunt nemo, doloremque modi minus sequi excepturi quisquam amet consectetur, voluptatibus eaque natus ratione rem.</p>
+            <button>Adicionar</button>
+        </article>
+        <article class="cardFlex">
+            <h3>Artigo B</h3>
+            <img src="imagens/css3.png" alt="CSS3">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quos facere pariatur dolorum error repellat, incidunt nemo, doloremque modi minus sequi excepturi quisquam amet consectetur, voluptatibus eaque natus ratione rem.</p>
+            <button>Adicionar</button>
+        </article>
+        <article class="cardFlex">
+            <h3>Artigo C</h3>
+            <img src="imagens/logoico.png" alt="Logo Ico">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quos facere pariatur dolorum error repellat, incidunt nemo, doloremque modi minus sequi excepturi quisquam amet consectetur, voluptatibus eaque natus ratione rem.</p>
+            <button>Adicionar</button>
+        </article>
+    </section>
+</body>
+</html>

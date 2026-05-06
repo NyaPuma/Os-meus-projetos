@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms HTML</title>
+    <style>
+        html {
+            background-color: antiquewhite;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            background-color: azure;
+            width: 350px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px black;
+            padding: 10px;
+        }
+
+        input,label,select {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input,select {
+            padding: 5px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid antiquewhite;
+        }
+
+        label {
+            margin-bottom: 2px;
+        }
+
+        fieldset {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="" method="">
+        <fieldset>
+            <legend>Formulário de login</legend>
+
+            <label for="Username">Username</label>
+            <input type="text" name="" id="Username" autofocus required>
+
+            <label for="Password">Password</label>
+            <input type="password" name="" id="Password" required>
+
+            <label for="tipo">Tipo de acesso</label>
+            <select name="tipo_acesso" id="tipo">
+                <option value="admin">Administrador</option>
+                <option value="professor">Professor</option>
+                <option value="aluno">Aluno</option>
+            </select>
+
+            <input type="submit" name="" id="" value="Enviar Login">
+        </fieldset>
+    </form>
+</body>
+</html>
