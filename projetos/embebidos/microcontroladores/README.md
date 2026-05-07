@@ -1,6 +1,6 @@
 # 🔧 Microcontroladores
 
-Esta pasta contém projetos relacionados com **microcontroladores e sistemas embarcados**, desenvolvidos usando **Microchip Studio**.
+Esta pasta contém projetos relacionados com **microcontroladores e sistemas embebidos**, desenvolvidos utilizando **Microchip Studio**.
 
 ---
 
