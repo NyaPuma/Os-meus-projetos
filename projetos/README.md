@@ -1,6 +1,6 @@
 # 🛠 Projetos
 
-Esta pasta contém **projetos pessoais e profissionais** desenvolvidos em várias áreas, como **modelação 3D, visão computacional, web e embarcados**.
+Esta pasta contém **projetos pessoais e profissionais** desenvolvidos em várias áreas, como **modelação 3D, visão computacional, web e embebidos**.
 
 ---
 
