@@ -32,9 +32,6 @@ namespace Exercicio_Sistema_de_Pedidos_Online
         public Produto Produto { get; set; } = produto;
 
         // Calcula o valor total deste item (Preço * Quantidade).
-        public double SubTotal()
-        {
-            return Quantidade * Preco;
-        }
+        public double SubTotal() => Quantidade * Preco;
     }
 }
