@@ -1,6 +1,6 @@
-# 🔧 Projetos Embarcados
+# 🔧 Projetos Embebidos
 
-Esta pasta contém projetos relacionados com **microcontroladores e sistemas embarcados**.
+Esta pasta contém projetos relacionados com **microcontroladores e sistemas embebidos**.
 
 ---
 
