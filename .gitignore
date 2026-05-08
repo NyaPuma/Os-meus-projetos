@@ -61,3 +61,6 @@ package-lock.json
 /linguagens/csharp/Sistema de Gestao de uma Clinica Medica/.vs/ProjectEvaluation
 /linguagens/csharp/Exercicio Sistema de Pedidos Online/.vs/ProjectEvaluation/exercicio sistema de pedidos online.metadata.v10.bin
 *.bin
+*.db
+*.db-shm
+*.db-wal
