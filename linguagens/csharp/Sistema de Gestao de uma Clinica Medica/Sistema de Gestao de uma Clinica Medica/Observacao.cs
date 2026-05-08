@@ -91,7 +91,15 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    internal class Observacao
+    public enum Prioridade { Baixa, Media, Alta }
+
+    public class Observacao(string texto, Prioridade prioridade)
     {
+        public string Texto { get; set; } = texto;
+        public DateTime DataHora { get; set; } = DateTime.Now;
+        public Prioridade NivelPrioridade { get; set; } = prioridade;
+
+        public void ExibirInfo() =>
+            Console.WriteLine($"   - {DataHora:HH:mm} [{NivelPrioridade}]: {Texto}");
     }
 }

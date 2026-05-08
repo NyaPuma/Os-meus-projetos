@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static Sistema_de_Gestao_de_uma_Clinica_Medica.Observacao;
 
 namespace Sistema_de_Gestao_de_uma_Clinica_Medica
 {
@@ -91,7 +92,23 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    internal class Consulta
+    public class Consulta(DateTime dataHora, Paciente paciente, Medico medico)
     {
+        public DateTime DataHora { get; set; } = dataHora;
+        public Paciente Paciente { get; set; } = paciente;
+        public Medico Medico { get; set; } = medico;
+        private readonly List<Observacao> observacoes = [];
+
+        public void AdicObs(string texto, Prioridade prioridade) => observacoes.Add(new Observacao(texto, prioridade));
+
+        public void ExibirInfoCompleta()
+        {
+            Console.WriteLine("\n-------------------------------------------------------");
+            Console.WriteLine($"DATA/HORA: {DataHora:dd/MM/yyyy HH:mm}");
+            Console.WriteLine($"PACIENTE: {Paciente.Nome} (Proc. nº {Paciente.NumProcesso})");
+            Console.WriteLine($"MÉDICO: {Medico.Nome} (Cédula: {Medico.NumCedula})");
+            Console.WriteLine("OBSERVAÇÕES:");
+            foreach (var obs in observacoes) obs.ExibirInfo();
+        }
     }
 }

@@ -91,7 +91,17 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    internal class Clinica
+    public class Clinica(string nome, string morada)
     {
+        public string Nome { get; set; } = nome;
+        public string Morada { get; set; } = morada;
+        public List<Paciente> pacientes = [];
+        public List<Medico> medicos = [];
+        public List<Consulta> consultas = [];
+
+        public void ListarTodosPacientes() => pacientes.ForEach(p => p.ExibirInfo());
+        public void ListarTodosMedicos() => medicos.ForEach(m => m.ExibirInfo());
+        public void ListarTodasConsultas() => consultas.ForEach(c => c.ExibirInfoCompleta());
     }
 }
+
