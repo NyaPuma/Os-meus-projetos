@@ -207,8 +207,9 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                         break;
 
                     case "0":
-                        // Persistir os dados em ficheiro e encerrar o programa
-                        GestorDados.GuardarDados(clinica);
+                        // Instancie o objeto primeiro
+                        GestorDados gestor = new();
+                        gestor.Guardar(clinica);
                         sair = true;
                         break;
 

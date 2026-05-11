@@ -94,7 +94,7 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    internal class GestorDados
+    internal class GestorDados : IDadosRepository
     {
         // Definir os nomes dos ficheiros de armazenamento
         private const string FichPacientes = "pacientes.csv";
@@ -138,165 +138,167 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
         }
 
         // Ler e processar todos os ficheiros para restaurar o estado da clínica
-        public static void CarregarDados(Clinica clinica)
+        public void Carregar(Clinica clinica)
         {
             try
             {
-                // 1. Processar ficheiro de Pacientes
+                // 1. Processar Pacientes
                 if (File.Exists(FichPacientes))
                 {
-                    foreach (var linha in File.ReadAllLines(FichPacientes).Skip(1))
-                    {
-                        if (string.IsNullOrWhiteSpace(linha)) continue;
-                        var d = SplitCsv(linha);
+                    using var reader = new StreamReader(FichPacientes);
+                    reader.ReadLine(); // Saltar cabeçalho
 
-                        // Validar a integridade da linha antes de processar
+                    while (!reader.EndOfStream)
+                    {
+                        var linhaCifrada = reader.ReadLine();
+                        if (string.IsNullOrWhiteSpace(linhaCifrada)) continue;
+
+                        // --- DECIFRAR AQUI ---
+                        string linhaDecifrada = CriptoHelper.Decifrar(linhaCifrada);
+                        var d = SplitCsv(linhaDecifrada);
+
                         if (d.Length < 3) continue;
 
-                        string idLimpo = d[0].ToUpper().Replace("P", "").Trim();
-
-                        if (int.TryParse(idLimpo, out int idValido))
+                        if (int.TryParse(d[0], out int idValido))
                         {
-                            // Converter a string da data usando um formato global invariante
-                            if (!DateTime.TryParseExact(d[2].Trim(), "yyyy-MM-dd",
+                            if (DateTime.TryParseExact(d[2].Trim(), "yyyy-MM-dd",
                                 CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime data))
                             {
-                                Console.WriteLine($"⚠️ Data inválida ignorada na linha: {linha}");
-                                continue;
+                                clinica.AdicionarPacienteAuto(d[1].Trim(), data);
                             }
-
-                            // Reinstanciar e adicionar o paciente à clínica
-                            clinica.AdicionarPaciente(new Paciente(d[1].Trim(), data, idValido));
                         }
                     }
                 }
 
-                // 2. Processar ficheiro de Médicos
+                // 2. Processar Médicos
                 if (File.Exists(FichMedicos))
                 {
-                    foreach (var linha in File.ReadAllLines(FichMedicos).Skip(1))
+                    foreach (var linhaCifrada in File.ReadAllLines(FichMedicos).Skip(1))
                     {
-                        if (string.IsNullOrWhiteSpace(linha)) continue;
+                        if (string.IsNullOrWhiteSpace(linhaCifrada)) continue;
 
-                        var d = SplitCsv(linha);
+                        string linhaDecifrada = CriptoHelper.Decifrar(linhaCifrada);
+                        var d = SplitCsv(linhaDecifrada);
 
                         if (d.Length < 3) continue;
-
-                        // Adicionar o médico com base nos campos do CSV
                         clinica.AdicionarMedico(new Medico(d[1].Trim(), d[2].Trim(), d[0].Trim()));
                     }
                 }
 
-                // 3. Reconstruir Consultas e associar Observações
+                // 3. Reconstruir Consultas e Observações
                 if (File.Exists(FichConsultas))
                 {
-                    var linhasConsultas = File.ReadAllLines(FichConsultas).Skip(1);
-                    var linhasObs = File.Exists(FichObs)
-                        ? [.. File.ReadAllLines(FichObs).Skip(1)]
-                        : new List<string>();
+                    var linhasConsultasCifradas = File.ReadAllLines(FichConsultas).Skip(1);
 
-                    foreach (var linha in linhasConsultas)
+                    // Deciframos todas as observações primeiro para podermos filtrar por data
+                    var listaObsDecifradas = new List<string[]>();
+                    if (File.Exists(FichObs))
                     {
-                        if (string.IsNullOrWhiteSpace(linha)) continue;
+                        foreach (var linhaO in File.ReadAllLines(FichObs).Skip(1))
+                        {
+                            if (!string.IsNullOrWhiteSpace(linhaO))
+                                listaObsDecifradas.Add(SplitCsv(CriptoHelper.Decifrar(linhaO)));
+                        }
+                    }
 
-                        var d = SplitCsv(linha);
+                    foreach (var linhaC in linhasConsultasCifradas)
+                    {
+                        if (string.IsNullOrWhiteSpace(linhaC)) continue;
+
+                        string linhaDecifrada = CriptoHelper.Decifrar(linhaC);
+                        var d = SplitCsv(linhaDecifrada);
 
                         if (d.Length < 3) continue;
 
-                        // Converter data e hora da consulta
-                        if (!DateTime.TryParseExact(d[0].Trim(), "yyyy-MM-dd HH:mm:ss",
+                        if (DateTime.TryParseExact(d[0].Trim(), "yyyy-MM-dd HH:mm:ss",
                             CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dataHora))
                         {
-                            Console.WriteLine($"⚠️ Data/hora inválida ignorada na linha: {linha}");
-                            continue;
-                        }
+                            if (!int.TryParse(d[1], out int idPacBusca)) continue;
+                            string idMedBusca = d[2].Trim();
 
-                        // Identificar as chaves estrangeiras (ID Paciente e ID Médico)
-                        string idLimpo = d[1].ToUpper().Replace("P", "").Trim();
-                        if (!int.TryParse(idLimpo, out int idPacBusca)) continue;
+                            var p = clinica.Pacientes.FirstOrDefault(x => x.NumProcesso == idPacBusca);
+                            var m = clinica.Medicos.FirstOrDefault(x => x.NumCedula == idMedBusca);
 
-                        string idMedBusca = d[2].Trim();
-
-                        // Ligar a consulta aos objetos já carregados na memória
-                        var p = clinica.Pacientes.FirstOrDefault(x => x.NumProcesso == idPacBusca);
-                        var m = clinica.Medicos.FirstOrDefault(x => x.NumCedula == idMedBusca);
-
-                        if (p != null && m != null)
-                        {
-                            Consulta novaCons = new(dataHora, p, m);
-
-                            // Filtrar as observações pertencentes a esta consulta específica
-                            string dataChave = dataHora.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
-                            var obsRelacionadas = linhasObs.Where(o => o.StartsWith(dataChave));
-
-                            foreach (var o in obsRelacionadas)
+                            if (p != null && m != null)
                             {
-                                var dObs = SplitCsv(o);
+                                Consulta novaCons = new(dataHora, p, m);
 
-                                // Validar e converter a prioridade da observação
-                                if (dObs.Length >= 3 && Enum.TryParse(dObs[2].Trim(), true, out Prioridade prio))
+                                // Filtrar as observações decifradas que pertencem a esta consulta
+                                string dataChave = dataHora.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+                                var obsRelacionadas = listaObsDecifradas.Where(o => o[0] == dataChave);
+
+                                foreach (var dObs in obsRelacionadas)
                                 {
-                                    novaCons.AdicObs(dObs[1].Trim(), prio);
+                                    if (dObs.Length >= 3 && Enum.TryParse(dObs[2].Trim(), true, out Prioridade prio))
+                                    {
+                                        novaCons.AdicObs(dObs[1].Trim(), prio);
+                                    }
                                 }
+                                clinica.RegistarConsulta(novaCons);
                             }
-
-                            // Registar a consulta completa no histórico da clínica
-                            clinica.RegistarConsulta(novaCons);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Reportar falhas durante a leitura dos dados
-                Console.WriteLine($"⚠️ Erro ao carregar: {ex.Message}");
+                Console.WriteLine($"⚠️ Erro ao decifrar ou carregar os dados: {ex.Message}");
+                Console.WriteLine("Certifique-se de que a chave de cifragem está correta e os ficheiros não estão corrompidos.");
             }
         }
 
         // Serializar e gravar os dados da memória para ficheiros físicos
-        public static void GuardarDados(Clinica clinica)
+        public void Guardar(Clinica clinica)
         {
             try
             {
                 // 1. Exportar Pacientes
-                // Gerar lista de strings com cabeçalho e dados escapados
-                var linhasP = new List<string> { "numProcesso,nome,dataNascimento" };
-                linhasP.AddRange(clinica.Pacientes.Select(p =>
-                    $"{p.NumProcesso},{EscaparCsv(p.Nome)},{p.DataNascimento:yyyy-MM-dd}"));
+                var linhasP = new List<string> { "DADOS_CIFRADOS_PACIENTES" };
+                foreach (var p in clinica.Pacientes)
+                {
+                    // Primeiro montamos a linha normal
+                    string linhaLimpa = $"{p.NumProcesso},{EscaparCsv(p.Nome)},{p.DataNascimento:yyyy-MM-dd}";
+                    // Ciframos e adicionamos à lista
+                    linhasP.Add(CriptoHelper.Cifrar(linhaLimpa));
+                }
                 File.WriteAllLines(FichPacientes, linhasP, Encoding.UTF8);
 
                 // 2. Exportar Médicos
-                var linhasM = new List<string> { "numCedula,nome,especialidade" };
-                linhasM.AddRange(clinica.Medicos.Select(m =>
-                    $"{EscaparCsv(m.NumCedula)},{EscaparCsv(m.Nome)},{EscaparCsv(m.Especialidade)}"));
+                var linhasM = new List<string> { "DADOS_CIFRADOS_MEDICOS" };
+                foreach (var m in clinica.Medicos)
+                {
+                    string linhaLimpa = $"{EscaparCsv(m.NumCedula)},{EscaparCsv(m.Nome)},{EscaparCsv(m.Especialidade)}";
+                    linhasM.Add(CriptoHelper.Cifrar(linhaLimpa));
+                }
                 File.WriteAllLines(FichMedicos, linhasM, Encoding.UTF8);
 
-                // 3. Exportar Consultas e as suas respetivas Observações
-                var linhasC = new List<string> { "dataHora,idPaciente,idMedico" };
-                var linhasO = new List<string> { "dataHoraConsulta,texto,prioridade" };
+                // 3. Exportar Consultas e Observações
+                var linhasC = new List<string> { "DADOS_CIFRADOS_CONSULTAS" };
+                var linhasO = new List<string> { "DADOS_CIFRADOS_OBSERVACOES" };
 
                 foreach (var c in clinica.Consultas)
                 {
-                    // Formatar data de forma normalizada para garantir persistência correta
                     string dataFormatada = c.DataHora.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
-                    linhasC.Add($"{dataFormatada},{c.Paciente.NumProcesso},{EscaparCsv(c.Medico.NumCedula)}");
+
+                    // Linha da Consulta
+                    string linhaConsLimpa = $"{dataFormatada},{c.Paciente.NumProcesso},{EscaparCsv(c.Medico.NumCedula)}";
+                    linhasC.Add(CriptoHelper.Cifrar(linhaConsLimpa));
 
                     foreach (var obs in c.GetObservacoes())
                     {
-                        // Gravar observações num ficheiro separado para normalização
-                        linhasO.Add($"{dataFormatada},{EscaparCsv(obs.Texto)},{obs.NivelPrioridade}");
+                        // Linha da Observação
+                        string linhaObsLimpa = $"{dataFormatada},{EscaparCsv(obs.Texto)},{obs.NivelPrioridade}";
+                        linhasO.Add(CriptoHelper.Cifrar(linhaObsLimpa));
                     }
                 }
 
-                // Escrever os conteúdos finais nos ficheiros de destino
                 File.WriteAllLines(FichConsultas, linhasC, Encoding.UTF8);
                 File.WriteAllLines(FichObs, linhasO, Encoding.UTF8);
 
-                Console.WriteLine("✔ Todos os ficheiros foram atualizados com sucesso!");
+                Console.WriteLine("✔ Todos os ficheiros foram cifrados e atualizados!");
             }
             catch (Exception ex)
             {
-                // Capturar e exibir erros críticos durante a escrita
                 Console.WriteLine($"❌ Erro crítico ao guardar dados: {ex.Message}");
             }
         }

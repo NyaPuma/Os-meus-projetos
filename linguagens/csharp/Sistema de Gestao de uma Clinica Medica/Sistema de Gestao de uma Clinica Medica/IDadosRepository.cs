@@ -91,35 +91,12 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    public class Paciente
-        (
-            string nome,
-            DateTime dataNascimento,
-            int numProcesso
-        )
+    internal interface IDadosRepository
     {
-        // Armazenar o nome completo do paciente
-        public string Nome { get; set; } = nome;
+        // Define o contrato para persistir (salvar) os dados da clínica num meio de armazenamento
+        void Guardar(Clinica clinica);
 
-        // Guardar a data de nascimento para controlo de idade ou histórico
-        public DateTime DataNascimento { get; set; } = dataNascimento;
-
-        // Reter o identificador numérico único do processo clínico
-        public int NumProcesso { get; set; } = numProcesso;
-
-        // Exibir os dados identificadores do paciente de forma simplificada na consola
-        public void ExibirInfo() => Console.WriteLine($"[Paciente] Proc: {NumProcesso} | Nome: {Nome}");
-
-        public (bool Valido, string Mensagem) Validar()
-        {
-            if (string.IsNullOrWhiteSpace(Nome) || Nome.Length < 3)
-                return (false, "Nome inválido.");
-            if (DataNascimento > DateTime.Now)
-                return (false, "Data de nascimento não pode ser no futuro.");
-            if (NumProcesso <= 0)
-                return (false, "Número de processo deve ser positivo.");
-
-            return (true, "OK");
-        }
+        // Define o contrato para recuperar (ler) os dados da clínica do meio de armazenamento
+        void Carregar(Clinica clinica);
     }
 }

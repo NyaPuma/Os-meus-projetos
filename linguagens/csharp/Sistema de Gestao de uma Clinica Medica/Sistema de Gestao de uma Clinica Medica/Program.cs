@@ -108,7 +108,8 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                 // 2. CARREGAR DADOS (Via GestorDados)
                 Console.WriteLine("\nCarregando dados dos ficheiros...");
                 // Restaurar a informação guardada nos ficheiros CSV para a memória
-                GestorDados.CarregarDados(clinica);
+                GestorDados gestor = new();
+                gestor.Carregar(clinica);
 
                 // 3. EXECUTAR MENU (Via classe Menu)
                 // Transferir o fluxo de controlo para o loop do menu principal

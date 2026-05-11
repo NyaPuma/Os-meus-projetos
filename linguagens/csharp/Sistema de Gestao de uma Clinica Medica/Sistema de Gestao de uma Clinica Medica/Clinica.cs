@@ -110,7 +110,23 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
 
         // Métodos para Adicionar
         // Inserir um novo objeto Paciente na coleção correspondente
-        public void AdicionarPaciente(Paciente p) => Pacientes.Add(p);
+        // O método simples: Apenas adiciona à lista
+        public void AdicionarPaciente(Paciente p)
+        {
+            if (p != null) Pacientes.Add(p);
+        }
+
+        // O método inteligente: Calcula o ID e depois chama o método simples
+        public void AdicionarPacienteAuto(string nome, DateTime dn)
+        {
+            int novoId = (Pacientes.Count > 0) ? Pacientes.Max(p => p.NumProcesso) + 1 : 1;
+
+            // Cria o objeto
+            Paciente novo = new(nome, dn, novoId);
+
+            // Reutiliza o método acima para guardar
+            AdicionarPaciente(novo);
+        }
 
         // Inserir um novo objeto Medico na lista de profissionais
         public void AdicionarMedico(Medico m) => Medicos.Add(m);
