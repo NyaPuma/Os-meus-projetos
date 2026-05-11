@@ -93,32 +93,43 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
     public class Clinica
         (
-            string nome, 
+            string nome,
             string morada
         )
     {
+        // Armazenar a designação oficial da clínica
         public string Nome { get; set; } = nome;
+
+        // Guardar a localização física do estabelecimento
         public string Morada { get; set; } = morada;
 
-        // definidas as listas na classe Clinica
+        // Inicializar as listas globais para gerir as entidades do sistema
         public List<Paciente> Pacientes { get; private set; } = [];
         public List<Medico> Medicos { get; private set; } = [];
         public List<Consulta> Consultas { get; private set; } = [];
 
-        // Métodos para Adicionar (O UML implica que a Clínica gere estas coleções)
+        // Métodos para Adicionar
+        // Inserir um novo objeto Paciente na coleção correspondente
         public void AdicionarPaciente(Paciente p) => Pacientes.Add(p);
+
+        // Inserir um novo objeto Medico na lista de profissionais
         public void AdicionarMedico(Medico m) => Medicos.Add(m);
+
+        // Arquivar um novo objeto Consulta no histórico da clínica
         public void RegistarConsulta(Consulta c) => Consultas.Add(c);
 
-        // Métodos de Listagem (Como você já tinha, mas com verificação de segurança)
+        // Métodos de Listagem
+        // Percorrer a lista de pacientes e invocar o método de exibição de cada um
         public void ListarTodosPacientes()
         {
             Console.WriteLine($"--- Pacientes da Clínica {Nome} ---");
             Pacientes.ForEach(p => p.ExibirInfo());
         }
 
+        // Iterar sobre a lista de médicos para apresentar os seus dados
         public void ListarTodosMedicos() => Medicos.ForEach(m => m.ExibirInfo());
 
+        // Iterar sobre o histórico de consultas para mostrar os detalhes completos
         public void ListarTodasConsultas() => Consultas.ForEach(c => c.ExibirInfoCompleta());
     }
 }

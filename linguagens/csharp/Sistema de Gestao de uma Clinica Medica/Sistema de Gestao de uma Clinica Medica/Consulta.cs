@@ -94,23 +94,30 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
     public class Consulta
         (
-            DateTime dataHora, 
-            Paciente paciente, 
+            DateTime dataHora,
+            Paciente paciente,
             Medico medico
         )
     {
+        // Armazenar o momento exato (data e hora) do agendamento
         public DateTime DataHora { get; set; } = dataHora;
+
+        // Manter a referência ao objeto do paciente associado
         public Paciente Paciente { get; set; } = paciente;
+
+        // Manter a referência ao objeto do médico responsável
         public Medico Medico { get; set; } = medico;
 
-        // Private
+        // Criar uma lista privada para encapsular as notas médicas
         private readonly List<Observacao> observacoes = [];
 
-        // O método de leitura continua igual, mas aponta para a private
+        // Disponibilizar o acesso às observações apenas para leitura externa
         public IReadOnlyList<Observacao> GetObservacoes() => observacoes.AsReadOnly();
 
+        // Instanciar e anexar uma nova observação à lista interna
         public void AdicObs(string texto, Prioridade prioridade) => observacoes.Add(new Observacao(texto, prioridade));
 
+        // Apresentar o relatório detalhado da consulta e respetivas notas na consola
         public void ExibirInfoCompleta()
         {
             Console.WriteLine("\n-------------------------------------------------------");
@@ -118,6 +125,8 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
             Console.WriteLine($"PACIENTE: {Paciente.Nome} (Proc. nº {Paciente.NumProcesso})");
             Console.WriteLine($"MÉDICO: {Medico.Nome} (Cédula: {Medico.NumCedula})");
             Console.WriteLine("OBSERVAÇÕES:");
+
+            // Iterar sobre a coleção de observações para exibir cada uma individualmente
             foreach (var obs in observacoes) obs.ExibirInfo();
         }
     }

@@ -95,37 +95,39 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
         {
             try
             {
-                // 1. GESTÃO DA CLÍNICA: Configuração inicial (Agora via ConsolaHelper)
+                // 1. GESTÃO DA CLÍNICA: Configuração inicial (Via ConsolaHelper)
                 Console.WriteLine("=== INICIALIZAÇÃO DO SISTEMA CLÍNICO ===");
 
-                // Usamos os métodos estáticos da ConsolaHelper que criou anteriormente
+                // Solicitar e validar o nome e a morada da clínica para a sessão atual
                 string nomeC = ConsolaHelper.LerTexto("Nome da Clínica", 3, true);
                 string moradaC = ConsolaHelper.LerTexto("Morada da Clínica", 5, false);
 
-                // Instanciação da Clínica
+                // Instanciar o objeto principal da Clínica
                 Clinica clinica = new(nomeC, moradaC);
 
-                // 2. CARREGAR DADOS (Agora via GestorDados)
+                // 2. CARREGAR DADOS (Via GestorDados)
                 Console.WriteLine("\nCarregando dados dos ficheiros...");
+                // Restaurar a informação guardada nos ficheiros CSV para a memória
                 GestorDados.CarregarDados(clinica);
 
-                // 3. EXECUTAR MENU (Agora via classe Menu)
-                // Criamos o objeto menu e passamos o controlo do programa para ele
+                // 3. EXECUTAR MENU (Via classe Menu)
+                // Transferir o fluxo de controlo para o loop do menu principal
                 Menu menuPrincipal = new();
                 Menu.Exibir(clinica);
 
             }
             catch (Exception ex)
             {
-                // Captura erros fatais no arranque (ex: falta de memória ou erro na criação do objeto)
+                // Intercetar falhas críticas que impeçam o arranque do sistema
                 Console.WriteLine($"\n[ERRO FATAL]: O sistema encontrou um problema crítico: {ex.Message}");
             }
             finally
             {
-                // Encerramento limpo
+                // Garantir a execução de mensagens de despedida e libertação de recursos
                 Console.WriteLine("\n-------------------------------------------");
                 Console.WriteLine("Sistema finalizado. Obrigado por utilizar!");
                 Console.WriteLine("Prima qualquer tecla para fechar a consola.");
+                // Aguardar a interação do utilizador antes de encerrar o processo
                 Console.ReadKey();
             }
         }

@@ -91,18 +91,26 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
+    
+    // Definir os níveis de urgência permitidos para uma observação
     public enum Prioridade { Baixa, Media, Alta }
 
     public class Observacao
         (
-            string texto, 
+            string texto,
             Prioridade prioridade
         )
     {
+        // Armazenar o conteúdo textual da observação
         public string Texto { get; set; } = texto;
+
+        // Registar automaticamente o momento em que a observação é criada
         public DateTime DataHora { get; set; } = DateTime.Now;
+
+        // Guardar o nível de importância associado
         public Prioridade NivelPrioridade { get; set; } = prioridade;
 
+        // Formatar e imprimir os detalhes da observação na consola
         public void ExibirInfo() => Console.WriteLine($"   - {DataHora:HH:mm} [{NivelPrioridade}]: {Texto}");
     }
 }

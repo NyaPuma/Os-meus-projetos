@@ -93,15 +93,21 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
     public class Paciente
         (
-            string nome, 
-            DateTime dataNascimento, 
+            string nome,
+            DateTime dataNascimento,
             int numProcesso
         )
     {
+        // Armazenar o nome completo do paciente
         public string Nome { get; set; } = nome;
+
+        // Guardar a data de nascimento para controlo de idade ou histórico
         public DateTime DataNascimento { get; set; } = dataNascimento;
+
+        // Reter o identificador numérico único do processo clínico
         public int NumProcesso { get; set; } = numProcesso;
 
+        // Exibir os dados identificadores do paciente de forma simplificada na consola
         public void ExibirInfo() => Console.WriteLine($"[Paciente] Proc: {NumProcesso} | Nome: {Nome}");
     }
 }

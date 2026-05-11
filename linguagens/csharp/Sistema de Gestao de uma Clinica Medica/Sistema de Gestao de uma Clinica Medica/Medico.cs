@@ -93,15 +93,21 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
     public class Medico
         (
-            string nome, 
-            string especialidade, 
+            string nome,
+            string especialidade,
             string numCedula
         )
     {
+        // Armazenar o nome completo do profissional
         public string Nome { get; set; } = nome;
+
+        // Guardar a área de especialização médica
         public string Especialidade { get; set; } = especialidade;
+
+        // Reter o identificador profissional único (número de cédula)
         public string NumCedula { get; set; } = numCedula;
 
+        // Projetar os dados do médico de forma formatada no terminal
         public void ExibirInfo() => Console.WriteLine($"[Médico] Cédula: {NumCedula} | Nome: {Nome} ({Especialidade})");
     }
 }

@@ -98,28 +98,34 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
         // 1. LER TEXTO
         public static string LerTexto(string campo, int minLetras, bool apenasLetras, bool apenasNumeros = false)
         {
+            // Manter o loop até obter uma entrada de texto válida
             while (true)
             {
                 try
                 {
+                    // Solicitar a entrada ao utilizador e remover espaços extra
                     Console.Write($"{campo}: ");
                     string entrada = Console.ReadLine()?.Trim() ?? "";
 
+                    // Validar se o texto cumpre o tamanho mínimo exigido
                     if (string.IsNullOrEmpty(entrada) || entrada.Length < minLetras)
                     {
                         throw new ArgumentException($"O campo '{campo}' é obrigatório e deve ter pelo menos {minLetras} caracteres.");
                     }
 
+                    // Impedir a introdução de números quando o campo exige apenas letras
                     if (apenasLetras && entrada.Any(char.IsDigit))
                     {
                         throw new FormatException($"O campo '{campo}' não pode conter números.");
                     }
 
+                    // Garantir que a entrada contém apenas algorismos se solicitado
                     if (apenasNumeros && !entrada.All(char.IsDigit))
                     {
                         throw new FormatException($"O campo '{campo}' deve conter apenas algarismos numéricos.");
                     }
 
+                    // Formatar o texto para "Title Case" (Primeira Letra Maiúscula) e retornar
                     return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(entrada.ToLower());
                 }
                 catch (ArgumentException ex) { Console.WriteLine($"[ERRO]: {ex.Message}"); }
@@ -131,6 +137,7 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
         // 2. LER DATA
         public static DateTime LerData(string prompt)
         {
+            // Repetir o processo até capturar uma data válida
             while (true)
             {
                 try
@@ -138,15 +145,19 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                     Console.Write($"{prompt}: ");
                     string entrada = "";
 
+                    // Controlar a leitura de teclas individualmente para aplicar máscara
                     while (true)
                     {
                         ConsoleKeyInfo tecla = Console.ReadKey(true);
+
+                        // Finalizar a leitura ao premir Enter
                         if (tecla.Key == ConsoleKey.Enter)
                         {
                             Console.WriteLine();
                             break;
                         }
 
+                        // Gerir a funcionalidade de Backspace e remover caracteres (incluindo barras)
                         if (tecla.Key == ConsoleKey.Backspace && entrada.Length > 0)
                         {
                             if (entrada.EndsWith('/'))
@@ -159,6 +170,7 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                             continue;
                         }
 
+                        // Aceitar apenas dígitos e inserir barras automáticas no formato dd/mm/aaaa
                         if (char.IsDigit(tecla.KeyChar) && entrada.Length < 10)
                         {
                             entrada += tecla.KeyChar;
@@ -172,8 +184,10 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                         }
                     }
 
+                    // Tentar converter o texto final num objeto DateTime
                     if (DateTime.TryParseExact(entrada, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime data))
                     {
+                        // Bloquear datas que ainda não ocorreram
                         if (data > DateTime.Now)
                         {
                             throw new Exception("A data não pode ser no futuro.");
@@ -192,6 +206,7 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
         // 3. LER INTEIRO
         public static int LerInteiro(string campo)
         {
+            // Processar a entrada até converter com sucesso para inteiro
             while (true)
             {
                 try
@@ -199,11 +214,13 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                     Console.Write($"{campo}: ");
                     string entrada = Console.ReadLine() ?? "";
 
+                    // Validar se a string é um número inteiro válido
                     if (!int.TryParse(entrada, out int valor))
                     {
                         throw new FormatException("A entrada deve ser um número inteiro válido.");
                     }
 
+                    // Rejeitar valores negativos por regra de negócio
                     if (valor < 0)
                     {
                         throw new ArgumentOutOfRangeException(nameof(campo), "O valor não pode ser negativo.");
@@ -218,12 +235,15 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
         // 4. LER INTEIRO RANGE
         public static int LerInteiroRange(string campo, int min, int max)
         {
+            // Repetir a verificação de intervalo
             while (true)
             {
                 try
                 {
+                    // Reutilizar o método LerInteiro para obter o valor base
                     int valor = LerInteiro(campo);
 
+                    // Verificar se o número está dentro dos limites permitidos
                     if (valor < min || valor > max)
                     {
                         throw new ArgumentOutOfRangeException(null, $"O valor deve estar entre {min} e {max}.");
