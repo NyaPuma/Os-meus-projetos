@@ -114,6 +114,10 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                 Clinica clinica = new(nomeC, moradaC);
                 bool sair = false;
 
+                // CARREGAR DAS BASES DE DATA (CSV)
+                Console.WriteLine("Carregando dados dos ficheiros...");
+                CarregarDados(clinica);
+
                 // Ciclo principal de interação com o utilizador
                 while (!sair)
                 {
@@ -240,6 +244,82 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                 Console.WriteLine("Sistema finalizado. Obrigado por utilizar!");
                 Console.WriteLine("Prima qualquer tecla para fechar a consola.");
                 Console.ReadKey();
+            }
+
+            // ========================================================================================================================= //
+            // ========================================================================================================================= //
+            // ========================================================================================================================= //
+
+            static void CarregarDados(Clinica clinica)
+            {
+                try
+                {
+                    // 1. Carregar Pacientes 
+                    foreach (var linha in File.ReadAllLines("pacientes.csv").Skip(1))
+                    {
+                        var dados = linha.Split(',');
+                        clinica.pacientes.Add(new Paciente(dados[1], DateTime.Parse(dados[2]), dados[0]));
+                    }
+
+                    // 2. Carregar Médicos 
+                    foreach (var linha in File.ReadAllLines("medicos.csv").Skip(1))
+                    {
+                        var dados = linha.Split(',');
+                        clinica.medicos.Add(new Medico(dados[1], dados[2], dados[0]));
+                    }
+
+                    // 3. Carregar Consultas 
+                    // Precisamos dos médicos e pacientes já carregados para fazer a associação
+                    var linhasConsultas = File.ReadAllLines("consultas.csv").Skip(1);
+                    var linhasObs = File.ReadAllLines("observacoes.csv").Skip(1).ToList();
+
+                    foreach (var linha in linhasConsultas)
+                    {
+                        var dados = linha.Split(',');
+                        string dataHoraStr = dados[0];
+                        string idPac = dados[1];
+                        string idMed = dados[2];
+
+                        Paciente p = clinica.pacientes.FirstOrDefault(x => x.NumProcesso == idPac);
+                        Medico m = clinica.medicos.FirstOrDefault(x => x.NumCedula == idMed);
+
+                        if (p != null && m != null)
+                        {
+                            Consulta c = new Consulta(DateTime.Parse(dataHoraStr), p, m);
+
+                            // 4. Carregar Observações daquela consulta (Composição) 
+                            var obsDaConsulta = linhasObs.Where(o => o.Split(',')[0] == dataHoraStr);
+                            foreach (var o in obsDaConsulta)
+                            {
+                                var dObs = o.Split(',');
+                                Prioridade prio = Enum.Parse<Prioridade>(dObs[2].ToUpper());
+                                c.AdicObs(dObs[1], prio);
+                            }
+                            clinica.consultas.Add(c);
+                        }
+                    }
+                    Console.WriteLine("✔ Dados importados com sucesso!");
+                }
+                catch (FileNotFoundException) { Console.WriteLine("⚠ Ficheiros CSV não encontrados. Iniciando clínica vazia."); }
+                catch (Exception ex) { Console.WriteLine($"⚠ Erro ao ler CSV: {ex.Message}"); }
+            }
+
+            // ========================================================================================================================= //
+            // ========================================================================================================================= //
+            // ========================================================================================================================= //
+
+            static void GuardarDados(Clinica clinica)
+            {
+                // Criar as linhas para o CSV (Cabeçalho + Dados)
+                List<string> linhasPacientes = new List<string> { "numProcesso,nome,dataNascimento" };
+
+                foreach (var p in clinica.pacientes)
+                {
+                    linhasPacientes.Add($"{p.NumProcesso},{p.Nome},{p.DataNascimento:yyyy-MM-dd}");
+                }
+
+                File.WriteAllLines("pacientes.csv", linhasPacientes);
+                Console.WriteLine("✔ Dados guardados com sucesso!");
             }
 
             // ========================================================================================================================= //
