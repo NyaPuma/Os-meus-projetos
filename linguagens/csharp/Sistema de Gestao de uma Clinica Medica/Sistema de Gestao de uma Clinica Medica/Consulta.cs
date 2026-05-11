@@ -107,7 +107,7 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
         private readonly List<Observacao> observacoes = [];
 
         // O método de leitura continua igual, mas aponta para a private
-        public List<Observacao> GetObservacoes() => observacoes;
+        public IReadOnlyList<Observacao> GetObservacoes() => observacoes.AsReadOnly();
 
         public void AdicObs(string texto, Prioridade prioridade) => observacoes.Add(new Observacao(texto, prioridade));
 

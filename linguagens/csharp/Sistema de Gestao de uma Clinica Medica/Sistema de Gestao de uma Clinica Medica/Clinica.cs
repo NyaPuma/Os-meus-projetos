@@ -100,13 +100,26 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
         public string Nome { get; set; } = nome;
         public string Morada { get; set; } = morada;
 
-        public List<Paciente> pacientes = [];
-        public List<Medico> medicos = [];
-        public List<Consulta> consultas = [];
+        // definidas as listas na classe Clinica
+        public List<Paciente> Pacientes { get; private set; } = [];
+        public List<Medico> Medicos { get; private set; } = [];
+        public List<Consulta> Consultas { get; private set; } = [];
 
-        public void ListarTodosPacientes() => pacientes.ForEach(p => p.ExibirInfo());
-        public void ListarTodosMedicos() => medicos.ForEach(m => m.ExibirInfo());
-        public void ListarTodasConsultas() => consultas.ForEach(c => c.ExibirInfoCompleta());
+        // Métodos para Adicionar (O UML implica que a Clínica gere estas coleções)
+        public void AdicionarPaciente(Paciente p) => Pacientes.Add(p);
+        public void AdicionarMedico(Medico m) => Medicos.Add(m);
+        public void RegistarConsulta(Consulta c) => Consultas.Add(c);
+
+        // Métodos de Listagem (Como você já tinha, mas com verificação de segurança)
+        public void ListarTodosPacientes()
+        {
+            Console.WriteLine($"--- Pacientes da Clínica {Nome} ---");
+            Pacientes.ForEach(p => p.ExibirInfo());
+        }
+
+        public void ListarTodosMedicos() => Medicos.ForEach(m => m.ExibirInfo());
+
+        public void ListarTodasConsultas() => Consultas.ForEach(c => c.ExibirInfoCompleta());
     }
 }
 

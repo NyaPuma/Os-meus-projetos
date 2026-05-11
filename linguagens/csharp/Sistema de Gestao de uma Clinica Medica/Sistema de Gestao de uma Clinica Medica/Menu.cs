@@ -114,13 +114,26 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                 switch (opcao)
                 {
                     case "1":
-                        // Usamos a classe auxiliar ConsolaHelper para as validações
-                        string np = ConsolaHelper.LerTexto("Nome do Paciente", 3, true);
-                        DateTime dn = ConsolaHelper.LerData("Data de Nascimento (dd/mm/aaaa)");
-                        int proc = ConsolaHelper.LerInteiro("Número de Processo");
+                        try // Try-catch específico para regras de negócio (ex: duplicados)
+                        {
+                            string np = ConsolaHelper.LerTexto("Nome do Paciente", 3, true);
+                            DateTime dn = ConsolaHelper.LerData("Data de Nascimento (dd/mm/aaaa)");
+                            int proc = ConsolaHelper.LerInteiro("Número de Processo");
 
-                        clinica.pacientes.Add(new Paciente(np, dn, proc));
-                        Console.WriteLine("✔ Paciente adicionado!");
+                            // Verifica duplicados usando a lista da clínica
+                            if (clinica.Pacientes.Any(p => p.NumProcesso == proc))
+                            {
+                                // Lança uma exceção personalizada para ser apanhada pelo catch
+                                throw new Exception("Já existe um paciente com este número de processo!");
+                            }
+
+                            clinica.AdicionarPaciente(new Paciente(np, dn, proc));
+                            Console.WriteLine("✔ Paciente adicionado com sucesso!");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"\n[ERRO NO REGISTO]: {ex.Message}");
+                        }
                         break;
 
                     case "2":
@@ -128,30 +141,29 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                         string esp = ConsolaHelper.LerTexto("Especialidade", 4, true);
                         string ced = ConsolaHelper.LerTexto("Nº Cédula", 2, false, true);
 
-                        clinica.medicos.Add(new Medico(nm, esp, ced));
+                        clinica.Medicos.Add(new Medico(nm, esp, ced));
                         Console.WriteLine("✔ Médico adicionado!");
                         break;
 
                     case "3":
-                        if (clinica.pacientes.Count == 0 || clinica.medicos.Count == 0)
+                        if (clinica.Pacientes.Count == 0 || clinica.Medicos.Count == 0)
                         {
-                            Console.WriteLine("⚠ Erro: Precisa de ter médicos e pacientes registados.");
-                            break;
+                            throw new Exception("Operação cancelada: Precisa de ter médicos e pacientes registados.");
                         }
 
                         // Seleção de Paciente
                         Console.WriteLine("\n--- Selecione o Paciente ---");
-                        for (int i = 0; i < clinica.pacientes.Count; i++)
-                            Console.WriteLine($"{i}. {clinica.pacientes[i].Nome}");
-                        int idxP = ConsolaHelper.LerInteiroRange("Índice do Paciente", 0, clinica.pacientes.Count - 1);
+                        for (int i = 0; i < clinica.Pacientes.Count; i++)
+                            Console.WriteLine($"{i}. {clinica.Pacientes[i].Nome}");
+                        int idxP = ConsolaHelper.LerInteiroRange("Índice do Paciente", 0, clinica.Pacientes.Count - 1);
 
                         // Seleção de Médico
                         Console.WriteLine("\n--- Selecione o Médico ---");
-                        for (int i = 0; i < clinica.medicos.Count; i++)
-                            Console.WriteLine($"{i}. {clinica.medicos[i].Nome}");
-                        int idxM = ConsolaHelper.LerInteiroRange("Índice do Médico", 0, clinica.medicos.Count - 1);
+                        for (int i = 0; i < clinica.Medicos.Count; i++)
+                            Console.WriteLine($"{i}. {clinica.Medicos[i].Nome}");
+                        int idxM = ConsolaHelper.LerInteiroRange("Índice do Médico", 0, clinica.Medicos.Count - 1);
 
-                        Consulta novaCons = new(DateTime.Now, clinica.pacientes[idxP], clinica.medicos[idxM]);
+                        Consulta novaCons = new(DateTime.Now, clinica.Pacientes[idxP], clinica.Medicos[idxM]);
 
                         // Gestão de Observações
                         Console.Write("Adicionar observação? (s/n): ");
@@ -164,7 +176,7 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
                             Console.Write("Adicionar outra? (s/n): ");
                         }
 
-                        clinica.consultas.Add(novaCons);
+                        clinica.Consultas.Add(novaCons);
                         Console.WriteLine("✔ Consulta registada!");
                         break;
 

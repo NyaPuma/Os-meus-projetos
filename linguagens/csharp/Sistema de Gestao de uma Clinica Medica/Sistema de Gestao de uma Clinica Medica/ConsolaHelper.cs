@@ -206,7 +206,7 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
 
                     if (valor < 0)
                     {
-                        throw new ArgumentOutOfRangeException(nameof(valor), "O valor não pode ser negativo.");
+                        throw new ArgumentOutOfRangeException(nameof(campo), "O valor não pode ser negativo.");
                     }
 
                     return valor;
@@ -226,7 +226,7 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
 
                     if (valor < min || valor > max)
                     {
-                        throw new ArgumentOutOfRangeException(nameof(valor), $"O valor deve estar entre {min} e {max}.");
+                        throw new ArgumentOutOfRangeException(null, $"O valor deve estar entre {min} e {max}.");
                     }
 
                     return valor;

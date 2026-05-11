@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO; // Necessário para File.ReadAllLines e WriteAllLines
 using System.Linq; // Necessário para .Skip(), .Select(), .FirstOrDefault()
 using System.Text;
@@ -106,82 +107,82 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
         {
             try
             {
-                // 1. Carregar Pacientes
+                // 1. Pacientes - Tratamento de P001
                 if (File.Exists(FichPacientes))
                 {
                     foreach (var linha in File.ReadAllLines(FichPacientes).Skip(1))
                     {
                         if (string.IsNullOrWhiteSpace(linha)) continue;
-                        var dados = linha.Split(',');
-                        if (int.TryParse(dados[0], out int idConvertido))
+                        var d = linha.Split(',');
+
+                        // 1. Limpa o 'P' e converte
+                        string idLimpo = d[0].ToUpper().Replace("P", "").Trim();
+
+                        if (int.TryParse(idLimpo, out int idValido)) // O resultado da conversão fica em 'idValido'
                         {
-                            clinica.pacientes.Add(new Paciente(dados[1], DateTime.Parse(dados[2]), idConvertido));
+                            // 2. CORREÇÃO: Passar 'idValido' e não 'id'
+                            // Também adicionei a sugestão do ParseExact para evitar erros de data
+                            DateTime data = DateTime.ParseExact(d[2], "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+                            clinica.Pacientes.Add(new Paciente(d[1], data, idValido));
                         }
                     }
                 }
 
-                // 2. Carregar Médicos
+                // 2. Médicos (Aqui costuma ser string, por isso d[0] direto)
                 if (File.Exists(FichMedicos))
                 {
                     foreach (var linha in File.ReadAllLines(FichMedicos).Skip(1))
                     {
                         if (string.IsNullOrWhiteSpace(linha)) continue;
-                        var dados = linha.Split(',');
-                        clinica.medicos.Add(new Medico(dados[1], dados[2], dados[0]));
+                        var d = linha.Split(',');
+                        clinica.Medicos.Add(new Medico(d[1], d[2], d[0].Trim()));
                     }
                 }
 
-                // 3. Carregar Consultas e Observações
+                // 3. Consultas e Observações
                 if (File.Exists(FichConsultas))
                 {
                     var linhasConsultas = File.ReadAllLines(FichConsultas).Skip(1);
-                    // Carregar as observações para uma lista em memória para facilitar a busca
                     var linhasObs = File.Exists(FichObs) ? [.. File.ReadAllLines(FichObs).Skip(1)] : new List<string>();
 
                     foreach (var linha in linhasConsultas)
                     {
                         if (string.IsNullOrWhiteSpace(linha)) continue;
+                        var d = linha.Split(',');
 
-                        var dados = linha.Split(',');
-                        string dataHoraStr = dados[0];
-                        DateTime dataConvertida = DateTime.Parse(dataHoraStr);
+                        DateTime dataHora = DateTime.Parse(d[0]);
+                        // Mesma limpeza do 'P' para o ID do paciente na consulta
+                        int idPacBusca = int.Parse(d[1].ToUpper().Replace("P", "").Trim());
+                        string idMedBusca = d[2].Trim();
 
-                        int idBuscaPac = int.Parse(dados[1]);
-                        string idMed = dados[2];
-
-                        var p = clinica.pacientes.FirstOrDefault(x => x.NumProcesso == idBuscaPac);
-                        var m = clinica.medicos.FirstOrDefault(x => x.NumCedula == idMed);
+                        var p = clinica.Pacientes.FirstOrDefault(x => x.NumProcesso == idPacBusca);
+                        var m = clinica.Medicos.FirstOrDefault(x => x.NumCedula == idMedBusca);
 
                         if (p != null && m != null)
                         {
-                            Consulta novaConsulta = new(dataConvertida, p, m);
+                            Consulta novaCons = new(dataHora, p, m);
 
-                            // 4. Carregar Observações ligadas a esta consulta
-                            var obsDaConsulta = linhasObs.Where(o => o.Split(',')[0] == dataHoraStr);
-                            foreach (var o in obsDaConsulta)
+                            // Filtra observações pela data exata formatada
+                            string dataChave = dataHora.ToString("yyyy-MM-dd HH:mm");
+                            var obsRelacionadas = linhasObs.Where(o => o.StartsWith(dataChave));
+
+                            foreach (var o in obsRelacionadas)
                             {
                                 var dObs = o.Split(',');
-                                if (dObs.Length >= 3)
+                                if (dObs.Length >= 3 && Enum.TryParse(dObs[2], true, out Prioridade prio))
                                 {
-                                    if (Enum.TryParse(dObs[2], true, out Prioridade prio))
-                                    {
-                                        novaConsulta.AdicObs(dObs[1], prio);
-                                    }
+                                    novaCons.AdicObs(dObs[1], prio);
                                 }
                             }
-                            clinica.consultas.Add(novaConsulta);
+                            clinica.Consultas.Add(novaCons);
                         }
                     }
                 }
-                Console.WriteLine("✔ Dados importados com sucesso!");
-            }
-            catch (FileNotFoundException)
-            {
-                Console.WriteLine("ℹ Info: Alguns ficheiros ainda não existem. Serão criados ao guardar.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"⚠ Erro ao ler CSV: {ex.Message}");
+                Console.WriteLine($"⚠️ Erro ao carregar: {ex.Message}");
             }
         }
 
@@ -192,19 +193,19 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
             {
                 // 1. Guardar Pacientes
                 var linhasP = new List<string> { "numProcesso,nome,dataNascimento" };
-                linhasP.AddRange(clinica.pacientes.Select(p => $"{p.NumProcesso},{p.Nome},{p.DataNascimento:yyyy-MM-dd}"));
+                linhasP.AddRange(clinica.Pacientes.Select(p => $"{p.NumProcesso},{p.Nome},{p.DataNascimento:yyyy-MM-dd}"));
                 File.WriteAllLines(FichPacientes, linhasP);
 
                 // 2. Guardar Médicos
                 var linhasM = new List<string> { "numCedula,nome,especialidade" };
-                linhasM.AddRange(clinica.medicos.Select(m => $"{m.NumCedula},{m.Nome},{m.Especialidade}"));
+                linhasM.AddRange(clinica.Medicos.Select(m => $"{m.NumCedula},{m.Nome},{m.Especialidade}"));
                 File.WriteAllLines(FichMedicos, linhasM);
 
                 // 3. Guardar Consultas e Observações
                 var linhasC = new List<string> { "dataHora,idPaciente,idMedico" };
                 var linhasO = new List<string> { "dataHoraConsulta,texto,prioridade" };
 
-                foreach (var c in clinica.consultas)
+                foreach (var c in clinica.Consultas)
                 {
                     string dataFormatada = c.DataHora.ToString("yyyy-MM-dd HH:mm:ss");
                     linhasC.Add($"{dataFormatada},{c.Paciente.NumProcesso},{c.Medico.NumCedula}");
