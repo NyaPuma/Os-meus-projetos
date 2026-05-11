@@ -92,12 +92,22 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    public class Consulta(DateTime dataHora, Paciente paciente, Medico medico)
+    public class Consulta
+        (
+            DateTime dataHora, 
+            Paciente paciente, 
+            Medico medico
+        )
     {
         public DateTime DataHora { get; set; } = dataHora;
         public Paciente Paciente { get; set; } = paciente;
         public Medico Medico { get; set; } = medico;
+
+        // Private
         private readonly List<Observacao> observacoes = [];
+
+        // O método de leitura continua igual, mas aponta para a private
+        public List<Observacao> GetObservacoes() => observacoes;
 
         public void AdicObs(string texto, Prioridade prioridade) => observacoes.Add(new Observacao(texto, prioridade));
 

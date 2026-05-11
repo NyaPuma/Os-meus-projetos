@@ -91,13 +91,17 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    public class Paciente(string nome, DateTime dataNasc, int numProcesso)
+    public class Paciente
+        (
+            string nome, 
+            DateTime dataNascimento, 
+            int numProcesso
+        )
     {
         public string Nome { get; set; } = nome;
-        public DateTime DataNasc { get; set; } = dataNasc;
+        public DateTime DataNascimento { get; set; } = dataNascimento;
         public int NumProcesso { get; set; } = numProcesso;
 
-        public void ExibirInfo() =>
-            Console.WriteLine($"[Paciente] Proc: {NumProcesso} | Nome: {Nome}");
+        public void ExibirInfo() => Console.WriteLine($"[Paciente] Proc: {NumProcesso} | Nome: {Nome}");
     }
 }

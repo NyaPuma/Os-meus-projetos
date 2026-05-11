@@ -91,13 +91,17 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    public class Medico(string nome, string especialidade, string numCedula)
+    public class Medico
+        (
+            string nome, 
+            string especialidade, 
+            string numCedula
+        )
     {
         public string Nome { get; set; } = nome;
         public string Especialidade { get; set; } = especialidade;
         public string NumCedula { get; set; } = numCedula;
 
-        public void ExibirInfo() =>
-            Console.WriteLine($"[Médico] Cédula: {NumCedula} | Nome: {Nome} ({Especialidade})");
+        public void ExibirInfo() => Console.WriteLine($"[Médico] Cédula: {NumCedula} | Nome: {Nome} ({Especialidade})");
     }
 }

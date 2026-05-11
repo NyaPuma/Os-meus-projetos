@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq; // Necessário para .Any() e .All()
+using System.Text;
 
 namespace Sistema_de_Gestao_de_uma_Clinica_Medica
 {
@@ -89,44 +93,145 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    internal class Program
+    public static class ConsolaHelper
     {
-        static void Main(string[] args)
+        // 1. LER TEXTO
+        public static string LerTexto(string campo, int minLetras, bool apenasLetras, bool apenasNumeros = false)
         {
-            try
+            while (true)
             {
-                // 1. GESTÃO DA CLÍNICA: Configuração inicial (Agora via ConsolaHelper)
-                Console.WriteLine("=== INICIALIZAÇÃO DO SISTEMA CLÍNICO ===");
+                try
+                {
+                    Console.Write($"{campo}: ");
+                    string entrada = Console.ReadLine()?.Trim() ?? "";
 
-                // Usamos os métodos estáticos da ConsolaHelper que criou anteriormente
-                string nomeC = ConsolaHelper.LerTexto("Nome da Clínica", 3, true);
-                string moradaC = ConsolaHelper.LerTexto("Morada da Clínica", 5, false);
+                    if (string.IsNullOrEmpty(entrada) || entrada.Length < minLetras)
+                    {
+                        throw new ArgumentException($"O campo '{campo}' é obrigatório e deve ter pelo menos {minLetras} caracteres.");
+                    }
 
-                // Instanciação da Clínica
-                Clinica clinica = new(nomeC, moradaC);
+                    if (apenasLetras && entrada.Any(char.IsDigit))
+                    {
+                        throw new FormatException($"O campo '{campo}' não pode conter números.");
+                    }
 
-                // 2. CARREGAR DADOS (Agora via GestorDados)
-                Console.WriteLine("\nCarregando dados dos ficheiros...");
-                GestorDados.CarregarDados(clinica);
+                    if (apenasNumeros && !entrada.All(char.IsDigit))
+                    {
+                        throw new FormatException($"O campo '{campo}' deve conter apenas algarismos numéricos.");
+                    }
 
-                // 3. EXECUTAR MENU (Agora via classe Menu)
-                // Criamos o objeto menu e passamos o controlo do programa para ele
-                Menu menuPrincipal = new();
-                Menu.Exibir(clinica);
-
+                    return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(entrada.ToLower());
+                }
+                catch (ArgumentException ex) { Console.WriteLine($"[ERRO]: {ex.Message}"); }
+                catch (FormatException ex) { Console.WriteLine($"[ERRO]: {ex.Message}"); }
+                catch (Exception ex) { Console.WriteLine($"[ERRO INESPERADO]: {ex.Message}"); }
             }
-            catch (Exception ex)
+        }
+
+        // 2. LER DATA
+        public static DateTime LerData(string prompt)
+        {
+            while (true)
             {
-                // Captura erros fatais no arranque (ex: falta de memória ou erro na criação do objeto)
-                Console.WriteLine($"\n[ERRO FATAL]: O sistema encontrou um problema crítico: {ex.Message}");
+                try
+                {
+                    Console.Write($"{prompt}: ");
+                    string entrada = "";
+
+                    while (true)
+                    {
+                        ConsoleKeyInfo tecla = Console.ReadKey(true);
+                        if (tecla.Key == ConsoleKey.Enter)
+                        {
+                            Console.WriteLine();
+                            break;
+                        }
+
+                        if (tecla.Key == ConsoleKey.Backspace && entrada.Length > 0)
+                        {
+                            if (entrada.EndsWith('/'))
+                            {
+                                entrada = entrada[..^1];
+                                Console.Write("\b \b");
+                            }
+                            entrada = entrada[..^1];
+                            Console.Write("\b \b");
+                            continue;
+                        }
+
+                        if (char.IsDigit(tecla.KeyChar) && entrada.Length < 10)
+                        {
+                            entrada += tecla.KeyChar;
+                            Console.Write(tecla.KeyChar);
+
+                            if (entrada.Length == 2 || entrada.Length == 5)
+                            {
+                                entrada += "/";
+                                Console.Write("/");
+                            }
+                        }
+                    }
+
+                    if (DateTime.TryParseExact(entrada, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime data))
+                    {
+                        if (data > DateTime.Now)
+                        {
+                            throw new Exception("A data não pode ser no futuro.");
+                        }
+                        return data;
+                    }
+                    else
+                    {
+                        throw new FormatException("Data inválida ou formato incompleto.");
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine($"\n[ERRO]: {ex.Message}"); }
             }
-            finally
+        }
+
+        // 3. LER INTEIRO
+        public static int LerInteiro(string campo)
+        {
+            while (true)
             {
-                // Encerramento limpo
-                Console.WriteLine("\n-------------------------------------------");
-                Console.WriteLine("Sistema finalizado. Obrigado por utilizar!");
-                Console.WriteLine("Prima qualquer tecla para fechar a consola.");
-                Console.ReadKey();
+                try
+                {
+                    Console.Write($"{campo}: ");
+                    string entrada = Console.ReadLine() ?? "";
+
+                    if (!int.TryParse(entrada, out int valor))
+                    {
+                        throw new FormatException("A entrada deve ser um número inteiro válido.");
+                    }
+
+                    if (valor < 0)
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(valor), "O valor não pode ser negativo.");
+                    }
+
+                    return valor;
+                }
+                catch (Exception ex) { Console.WriteLine($"[ERRO]: {ex.Message.Split('\r')[0]}"); }
+            }
+        }
+
+        // 4. LER INTEIRO RANGE
+        public static int LerInteiroRange(string campo, int min, int max)
+        {
+            while (true)
+            {
+                try
+                {
+                    int valor = LerInteiro(campo);
+
+                    if (valor < min || valor > max)
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(valor), $"O valor deve estar entre {min} e {max}.");
+                    }
+
+                    return valor;
+                }
+                catch (Exception ex) { Console.WriteLine($"[ERRO]: {ex.Message.Split('\r')[0]}"); }
             }
         }
     }

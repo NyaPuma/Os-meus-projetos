@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO; // Necessário para File.ReadAllLines e WriteAllLines
+using System.Linq; // Necessário para .Skip(), .Select(), .FirstOrDefault()
+using System.Text;
 
 namespace Sistema_de_Gestao_de_uma_Clinica_Medica
 {
@@ -89,44 +93,136 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    internal class Program
+    internal class GestorDados
     {
-        static void Main(string[] args)
+        // Constantes para evitar erros de digitação ao longo do código
+        private const string FichPacientes = "pacientes.csv";
+        private const string FichMedicos = "medicos.csv";
+        private const string FichConsultas = "consultas.csv";
+        private const string FichObs = "observacoes.csv";
+
+        // Método Público e Estático para carregar tudo
+        public static void CarregarDados(Clinica clinica)
         {
             try
             {
-                // 1. GESTÃO DA CLÍNICA: Configuração inicial (Agora via ConsolaHelper)
-                Console.WriteLine("=== INICIALIZAÇÃO DO SISTEMA CLÍNICO ===");
+                // 1. Carregar Pacientes
+                if (File.Exists(FichPacientes))
+                {
+                    foreach (var linha in File.ReadAllLines(FichPacientes).Skip(1))
+                    {
+                        if (string.IsNullOrWhiteSpace(linha)) continue;
+                        var dados = linha.Split(',');
+                        if (int.TryParse(dados[0], out int idConvertido))
+                        {
+                            clinica.pacientes.Add(new Paciente(dados[1], DateTime.Parse(dados[2]), idConvertido));
+                        }
+                    }
+                }
 
-                // Usamos os métodos estáticos da ConsolaHelper que criou anteriormente
-                string nomeC = ConsolaHelper.LerTexto("Nome da Clínica", 3, true);
-                string moradaC = ConsolaHelper.LerTexto("Morada da Clínica", 5, false);
+                // 2. Carregar Médicos
+                if (File.Exists(FichMedicos))
+                {
+                    foreach (var linha in File.ReadAllLines(FichMedicos).Skip(1))
+                    {
+                        if (string.IsNullOrWhiteSpace(linha)) continue;
+                        var dados = linha.Split(',');
+                        clinica.medicos.Add(new Medico(dados[1], dados[2], dados[0]));
+                    }
+                }
 
-                // Instanciação da Clínica
-                Clinica clinica = new(nomeC, moradaC);
+                // 3. Carregar Consultas e Observações
+                if (File.Exists(FichConsultas))
+                {
+                    var linhasConsultas = File.ReadAllLines(FichConsultas).Skip(1);
+                    // Carregar as observações para uma lista em memória para facilitar a busca
+                    var linhasObs = File.Exists(FichObs) ? [.. File.ReadAllLines(FichObs).Skip(1)] : new List<string>();
 
-                // 2. CARREGAR DADOS (Agora via GestorDados)
-                Console.WriteLine("\nCarregando dados dos ficheiros...");
-                GestorDados.CarregarDados(clinica);
+                    foreach (var linha in linhasConsultas)
+                    {
+                        if (string.IsNullOrWhiteSpace(linha)) continue;
 
-                // 3. EXECUTAR MENU (Agora via classe Menu)
-                // Criamos o objeto menu e passamos o controlo do programa para ele
-                Menu menuPrincipal = new();
-                Menu.Exibir(clinica);
+                        var dados = linha.Split(',');
+                        string dataHoraStr = dados[0];
+                        DateTime dataConvertida = DateTime.Parse(dataHoraStr);
 
+                        int idBuscaPac = int.Parse(dados[1]);
+                        string idMed = dados[2];
+
+                        var p = clinica.pacientes.FirstOrDefault(x => x.NumProcesso == idBuscaPac);
+                        var m = clinica.medicos.FirstOrDefault(x => x.NumCedula == idMed);
+
+                        if (p != null && m != null)
+                        {
+                            Consulta novaConsulta = new(dataConvertida, p, m);
+
+                            // 4. Carregar Observações ligadas a esta consulta
+                            var obsDaConsulta = linhasObs.Where(o => o.Split(',')[0] == dataHoraStr);
+                            foreach (var o in obsDaConsulta)
+                            {
+                                var dObs = o.Split(',');
+                                if (dObs.Length >= 3)
+                                {
+                                    if (Enum.TryParse(dObs[2], true, out Prioridade prio))
+                                    {
+                                        novaConsulta.AdicObs(dObs[1], prio);
+                                    }
+                                }
+                            }
+                            clinica.consultas.Add(novaConsulta);
+                        }
+                    }
+                }
+                Console.WriteLine("✔ Dados importados com sucesso!");
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("ℹ Info: Alguns ficheiros ainda não existem. Serão criados ao guardar.");
             }
             catch (Exception ex)
             {
-                // Captura erros fatais no arranque (ex: falta de memória ou erro na criação do objeto)
-                Console.WriteLine($"\n[ERRO FATAL]: O sistema encontrou um problema crítico: {ex.Message}");
+                Console.WriteLine($"⚠ Erro ao ler CSV: {ex.Message}");
             }
-            finally
+        }
+
+        // Método Público e Estático para guardar tudo
+        public static void GuardarDados(Clinica clinica)
+        {
+            try
             {
-                // Encerramento limpo
-                Console.WriteLine("\n-------------------------------------------");
-                Console.WriteLine("Sistema finalizado. Obrigado por utilizar!");
-                Console.WriteLine("Prima qualquer tecla para fechar a consola.");
-                Console.ReadKey();
+                // 1. Guardar Pacientes
+                var linhasP = new List<string> { "numProcesso,nome,dataNascimento" };
+                linhasP.AddRange(clinica.pacientes.Select(p => $"{p.NumProcesso},{p.Nome},{p.DataNascimento:yyyy-MM-dd}"));
+                File.WriteAllLines(FichPacientes, linhasP);
+
+                // 2. Guardar Médicos
+                var linhasM = new List<string> { "numCedula,nome,especialidade" };
+                linhasM.AddRange(clinica.medicos.Select(m => $"{m.NumCedula},{m.Nome},{m.Especialidade}"));
+                File.WriteAllLines(FichMedicos, linhasM);
+
+                // 3. Guardar Consultas e Observações
+                var linhasC = new List<string> { "dataHora,idPaciente,idMedico" };
+                var linhasO = new List<string> { "dataHoraConsulta,texto,prioridade" };
+
+                foreach (var c in clinica.consultas)
+                {
+                    string dataFormatada = c.DataHora.ToString("yyyy-MM-dd HH:mm:ss");
+                    linhasC.Add($"{dataFormatada},{c.Paciente.NumProcesso},{c.Medico.NumCedula}");
+
+                    foreach (var obs in c.GetObservacoes())
+                    {
+                        linhasO.Add($"{dataFormatada},{obs.Texto},{obs.NivelPrioridade}");
+                    }
+                }
+
+                File.WriteAllLines(FichConsultas, linhasC);
+                File.WriteAllLines(FichObs, linhasO);
+
+                Console.WriteLine("✔ Todos os ficheiros foram atualizados com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Erro crítico ao guardar dados: {ex.Message}");
             }
         }
     }

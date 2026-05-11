@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sistema_de_Gestao_de_uma_Clinica_Medica
 {
@@ -89,44 +90,106 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::: justificação:                                                                                 ::::: //
     // :::::    - Por que a ideia foi escolhida.E como ela melhora o sistema.                              ::::: //
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
-    internal class Program
+    internal class Menu
     {
-        static void Main(string[] args)
+        // Método principal que gere o loop do menu
+        public static void Exibir(Clinica clinica)
         {
-            try
+            bool sair = false;
+
+            while (!sair)
             {
-                // 1. GESTÃO DA CLÍNICA: Configuração inicial (Agora via ConsolaHelper)
-                Console.WriteLine("=== INICIALIZAÇÃO DO SISTEMA CLÍNICO ===");
+                Console.WriteLine($"\n--- MENU GESTÃO: {clinica.Nome.ToUpper()} ---");
+                Console.WriteLine("1. Adicionar Paciente");
+                Console.WriteLine("2. Adicionar Médico");
+                Console.WriteLine("3. Registar Consulta");
+                Console.WriteLine("4. Listar Pacientes");
+                Console.WriteLine("5. Listar Médicos");
+                Console.WriteLine("6. Listar Consultas");
+                Console.WriteLine("0. Sair");
+                Console.Write("Opção: ");
 
-                // Usamos os métodos estáticos da ConsolaHelper que criou anteriormente
-                string nomeC = ConsolaHelper.LerTexto("Nome da Clínica", 3, true);
-                string moradaC = ConsolaHelper.LerTexto("Morada da Clínica", 5, false);
+                string opcao = Console.ReadLine() ?? "";
 
-                // Instanciação da Clínica
-                Clinica clinica = new(nomeC, moradaC);
+                switch (opcao)
+                {
+                    case "1":
+                        // Usamos a classe auxiliar ConsolaHelper para as validações
+                        string np = ConsolaHelper.LerTexto("Nome do Paciente", 3, true);
+                        DateTime dn = ConsolaHelper.LerData("Data de Nascimento (dd/mm/aaaa)");
+                        int proc = ConsolaHelper.LerInteiro("Número de Processo");
 
-                // 2. CARREGAR DADOS (Agora via GestorDados)
-                Console.WriteLine("\nCarregando dados dos ficheiros...");
-                GestorDados.CarregarDados(clinica);
+                        clinica.pacientes.Add(new Paciente(np, dn, proc));
+                        Console.WriteLine("✔ Paciente adicionado!");
+                        break;
 
-                // 3. EXECUTAR MENU (Agora via classe Menu)
-                // Criamos o objeto menu e passamos o controlo do programa para ele
-                Menu menuPrincipal = new();
-                Menu.Exibir(clinica);
+                    case "2":
+                        string nm = ConsolaHelper.LerTexto("Nome do Médico", 3, true);
+                        string esp = ConsolaHelper.LerTexto("Especialidade", 4, true);
+                        string ced = ConsolaHelper.LerTexto("Nº Cédula", 2, false, true);
 
-            }
-            catch (Exception ex)
-            {
-                // Captura erros fatais no arranque (ex: falta de memória ou erro na criação do objeto)
-                Console.WriteLine($"\n[ERRO FATAL]: O sistema encontrou um problema crítico: {ex.Message}");
-            }
-            finally
-            {
-                // Encerramento limpo
-                Console.WriteLine("\n-------------------------------------------");
-                Console.WriteLine("Sistema finalizado. Obrigado por utilizar!");
-                Console.WriteLine("Prima qualquer tecla para fechar a consola.");
-                Console.ReadKey();
+                        clinica.medicos.Add(new Medico(nm, esp, ced));
+                        Console.WriteLine("✔ Médico adicionado!");
+                        break;
+
+                    case "3":
+                        if (clinica.pacientes.Count == 0 || clinica.medicos.Count == 0)
+                        {
+                            Console.WriteLine("⚠ Erro: Precisa de ter médicos e pacientes registados.");
+                            break;
+                        }
+
+                        // Seleção de Paciente
+                        Console.WriteLine("\n--- Selecione o Paciente ---");
+                        for (int i = 0; i < clinica.pacientes.Count; i++)
+                            Console.WriteLine($"{i}. {clinica.pacientes[i].Nome}");
+                        int idxP = ConsolaHelper.LerInteiroRange("Índice do Paciente", 0, clinica.pacientes.Count - 1);
+
+                        // Seleção de Médico
+                        Console.WriteLine("\n--- Selecione o Médico ---");
+                        for (int i = 0; i < clinica.medicos.Count; i++)
+                            Console.WriteLine($"{i}. {clinica.medicos[i].Nome}");
+                        int idxM = ConsolaHelper.LerInteiroRange("Índice do Médico", 0, clinica.medicos.Count - 1);
+
+                        Consulta novaCons = new(DateTime.Now, clinica.pacientes[idxP], clinica.medicos[idxM]);
+
+                        // Gestão de Observações
+                        Console.Write("Adicionar observação? (s/n): ");
+                        while ((Console.ReadLine() ?? "").Equals("s", StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            string txt = ConsolaHelper.LerTexto("Observação", 5, false);
+                            int pInt = ConsolaHelper.LerInteiroRange("Prioridade (0-Baixa, 1-Media, 2-Alta)", 0, 2);
+
+                            novaCons.AdicObs(txt, (Prioridade)pInt);
+                            Console.Write("Adicionar outra? (s/n): ");
+                        }
+
+                        clinica.consultas.Add(novaCons);
+                        Console.WriteLine("✔ Consulta registada!");
+                        break;
+
+                    case "4":
+                        clinica.ListarTodosPacientes();
+                        break;
+
+                    case "5":
+                        clinica.ListarTodosMedicos();
+                        break;
+
+                    case "6":
+                        clinica.ListarTodasConsultas();
+                        break;
+
+                    case "0":
+                        // Alterar de GuardarTudo para GuardarDados
+                        GestorDados.GuardarDados(clinica);
+                        sair = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("⚠ Opção inválida!");
+                        break;
+                }
             }
         }
     }

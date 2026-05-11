@@ -93,13 +93,16 @@ namespace Sistema_de_Gestao_de_uma_Clinica_Medica
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: //
     public enum Prioridade { Baixa, Media, Alta }
 
-    public class Observacao(string texto, Prioridade prioridade)
+    public class Observacao
+        (
+            string texto, 
+            Prioridade prioridade
+        )
     {
         public string Texto { get; set; } = texto;
         public DateTime DataHora { get; set; } = DateTime.Now;
         public Prioridade NivelPrioridade { get; set; } = prioridade;
 
-        public void ExibirInfo() =>
-            Console.WriteLine($"   - {DataHora:HH:mm} [{NivelPrioridade}]: {Texto}");
+        public void ExibirInfo() => Console.WriteLine($"   - {DataHora:HH:mm} [{NivelPrioridade}]: {Texto}");
     }
 }
