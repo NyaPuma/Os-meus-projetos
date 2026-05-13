@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 
+    //
+
+    let max
+    let min
+    let numero
+    let input = []
+
+    while (true) 
+    {
+        numero = parseInt(prompt("Introduza um valor (0 para sair):"))
+
+        if (numero == 0) 
+        {
+            break
+        }
+
+        input.push(numero)
+
+        if (input.length == 1) 
+        {
+            max = numero
+            min = numero
+        } 
+        else 
+        {
+            if (numero > max) 
+            {
+                max = numero
+            }
+            if (numero < min) 
+            {
+                min = numero
+            }
+        }
+    }
+
+    if (input.length > 0) 
+    {
+        document.write("A lista de números é: " + input.join(", ") + "<br>")
+        document.write("O maior número é: " + max + "<br>")
+        document.write("O menor número é: " + min + "<br>")
+    } 
+    else 
+    {
+        document.write("Nenhum número foi introduzido.")
+    }
+    </script>
+</body>
+</html>
