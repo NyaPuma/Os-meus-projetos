@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let soma = 0
+        let numero = 0
+        let quantidade = 0
+        quantidade = prompt("Quantos numeros vai introduzir para eu calcular a média?")
+
+        for(contador = 0; contador < quantidade; contador++){
+            numero = parseInt(prompt("Digite o " + (contador + 1) + "º número:"))
+            soma = soma + numero
+        }
+
+
+        media = soma / contador
+        alert("A média é " + media)
+
+        document.write("A média é " + media)
+    </script>
+</body>
+</html>

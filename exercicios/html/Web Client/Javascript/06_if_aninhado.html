@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nota1 = parseFloat(prompt("Digite a 1ª nota:"))
+        let nota2 = parseFloat(prompt("Digite a 2ª nota:"))
+
+        if (nota1 >= 0 && nota1 <= 20 && nota2 >= 0 && nota2 <= 20){
+            let media = (nota1 + nota2)/2
+            if (media >= 18){
+                alert("Excelente")
+            }
+            else if(media >= 15){
+                alert("Muito bom")
+            }
+            else if(media >= 10){
+                alert("Muito bom")
+            }
+            else{
+                alert("Reprovado")
+            }
+        }
+        else{
+            alert("Nota Inválida. As notas têm de estar no intervalo entre 0 e 20")
+        }
+    </script>
+</body>
+</html>
