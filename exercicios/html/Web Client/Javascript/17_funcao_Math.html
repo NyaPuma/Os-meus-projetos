@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratório Math</title>
+    <style>
+        /* Estilização Base */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #34495e;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Botão Estilizado */
+        button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, #2980b9, #3498db);
+        }
+
+        /* Área de Resultados */
+        #resultado {
+            text-align: left;
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        /* Estilo para cada linha de resultado */
+        .res-item {
+            padding: 8px 12px;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            justify-content: space-between;
+            transition: background 0.2s;
+        }
+
+        .res-item:last-child {
+            border-bottom: none;
+        }
+
+        .res-item:hover {
+            background-color: #f0f9ff;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #7f8c8d;
+        }
+
+        .valor {
+            color: #2980b9;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Funções Math</h1>
+        <br>
+        <button onclick="calculos()">Calcular Número</button>
+        
+        <section id="resultado">
+            <p style="text-align: center; color: #999;">Os resultados aparecerão aqui...</p>
+        </section>
+    </div>
+
+    <script>
+        function calculos() {
+            let numero = parseFloat(prompt("Digite um número: "));
+
+            if (isNaN(numero)) {
+                alert("Por favor, digite um número válido.");
+                return;
+            }
+
+            let saida = document.getElementById("resultado");
+            
+            // Cria uma estrutura mais limpa utilizando uma função auxiliar
+            function formatar(label, valor) {
+                return `<div class="res-item">
+                            <span class="label">${label}</span>
+                            <span class="valor">${valor}</span>
+                        </div>`;
+            }
+
+            saida.innerHTML = `<h3 style="text-align:center; color:#3498db">Análise do número ${numero}</h3>`;
+            saida.innerHTML += formatar("Valor Absoluto:", Math.abs(numero));
+            saida.innerHTML += formatar("Raiz Quadrada:", Math.sqrt(numero).toFixed(2));
+            saida.innerHTML += formatar("Raiz Cúbica:", Math.cbrt(numero).toFixed(2));
+            saida.innerHTML += formatar(`${numero} ao cubo:`, Math.pow(numero, 3));
+            saida.innerHTML += formatar("Arredondado (Padrão):", Math.round(numero));
+            saida.innerHTML += formatar("Arredondado p/ cima:", Math.ceil(numero));
+            saida.innerHTML += formatar("Arredondado p/ baixo:", Math.floor(numero));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+    <style>
+        /* Estilização Geral */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Contentor Principal */
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        h1 {
+            color: #5a67d8;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Input e Botão */
+        input {
+            padding: 10px;
+            width: 80%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #6e8efb;
+        }
+
+        button {
+            background-color: #6e8efb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #5a67d8;
+        }
+
+        /* Mensagens de Feedback */
+        #feedback {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            min-height: 1.5em;
+        }
+
+        .tentativas {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Adivinha o Número</h1>
+        <p>Estou a pensar num número entre <strong>0 e 100</strong>. Consegues acertar?</p>
+        
+        <input type="number" id="palpite" placeholder="Digita aqui...">
+        <button onclick="verificarPalpite()">Tentar</button>
+
+        <div id="feedback"></div>
+        <div id="contador" class="tentativas">Tentativas: 0</div>
+    </div>
+
+    <script>
+        // Lógica do Jogo
+        let aleatorio = Math.trunc(Math.random() * 101); // 101 para incluir o 100
+        let tentativas = 0;
+
+        function verificarPalpite() {
+            const input = document.getElementById("palpite");
+            const feedback = document.getElementById("feedback");
+            const contador = document.getElementById("contador");
+            let palpite = parseInt(input.value);
+
+            if (isNaN(palpite)) {
+                feedback.innerText = "Por favor, introduz um número válido.";
+                feedback.style.color = "orange";
+                return;
+            }
+
+            tentativas++;
+            contador.innerText = "Tentativas: " + tentativas;
+
+            if (palpite === aleatorio) {
+                feedback.innerText = "🎉 Parabéns! Acertaste no número " + aleatorio + "!";
+                feedback.style.color = "green";
+                input.disabled = true; // Bloqueia o input após ganhar
+            } else if (palpite > aleatorio) {
+                feedback.innerText = "O meu número é MENOR.";
+                feedback.style.color = "#e53e3e";
+            } else {
+                feedback.innerText = "O meu número é MAIOR.";
+                feedback.style.color = "#e53e3e";
+            }
+
+            input.value = ""; // Limpa o campo
+            input.focus();    // Volta a focar no campo
+        }
+    </script>
+</body>
+</html>

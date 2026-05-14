@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada Inteligente</title>
+    <style>
+        /* Estilo Global */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Card Principal */
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Controles */
+        .controles {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 60px;
+            padding: 8px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #4a90e2;
+        }
+
+        /* Botões */
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            margin: 5px;
+        }
+
+        .btn-gerar {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        .btn-gerar:hover {
+            background-color: #357abd;
+        }
+
+        .btn-limpar {
+            background-color: #edf2f7;
+            color: #4a5568;
+        }
+
+        .btn-limpar:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* Área de Resultado */
+        #resultado {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #edf2f7;
+            text-align: left;
+            line-height: 1.8;
+            color: #4a5568;
+            font-family: 'Courier New', Courier, monospace; /* Dá um look de "conta" matemática */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Tabuada</h1>
+        
+        <div class="controles">
+            <label for="numero">Número: </label>
+            <input type="number" min="1" max="100" value="5" id="numero">
+            <br><br>
+            <button class="btn btn-gerar" onclick="tabuada()">Gerar Tabuada</button>
+            <button class="btn btn-limpar" onclick="limpar()">Limpar</button>
+        </div>
+
+        <section id="resultado"></section>
+    </div>
+
+    <script>
+        function tabuada() {
+            let numero_entrada = document.getElementById("numero").value;
+            let saida = document.getElementById("resultado");
+            
+            if (numero_entrada === "") return; // Evita gerar vazio
+
+            limpar();
+            
+            // Gera a tabuada com um pequeno detalhe visual (padding nos números)
+            for(let i = 1; i <= 10; i++) {
+                let resultadoLinha = `${numero_entrada} x ${i} = ${numero_entrada * i}`;
+                saida.innerHTML += `<div>${resultadoLinha}</div>`;
+            }
+        }
+
+        function limpar() {
+            let saida = document.getElementById("resultado");
+            saida.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
