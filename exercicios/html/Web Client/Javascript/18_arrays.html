@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numeros = new Array(5)
+        let i = 0
+
+        for(i = 0; i < 5; i++)
+        {
+            numeros[i] = Number(prompt("Digite o " + (i + 1) + " número"))
+        }
+
+        for(i = 0; i < 5; i++)
+        {
+            window.alert(`O ${i + 1}º número é o ${numeros[i]}`)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cálculos com arrays</h1>
+    <button onclick="inserir_numeros()">Inserir 5 números</button>
+    <button onclick="mostrar_numeros()">Mostrar 5 números</button>
+
+    <section id = "resultado1">
+        Os valores vão ser mostrados aqui !!!!
+    </section>
+
+    <button onclick="mostrar_soma()" >Calcular a soma dos valores</button>
+
+    <section id = "resultado2">
+        Aqui vai ser mostrada a soma dos valores
+    </section>
+
+    <button onclick="mostrar_media()" >Calcular a media dos valores</button>
+
+    <section id = "resultado3">
+        Aqui vai ser mostrada a media dos valores
+    </section>
+
+    <button onclick="mostrar_MaiorMenor()" >Mostra os valores que são maiores ou menores</button>
+
+    <section id = "resultado4">
+        Aqui vão ser mostrados os valores que são maiores ou menores
+    </section>
+
+    <button onclick="ordenar_MaiorMenor()" >Mostra os valores ordenados do maior para o menor</button>
+
+    <section id = "resultado5">
+        Aqui vão ser mostrados os valores ordenados do maior para o menor
+    </section>
+
+    <button onclick="ordenar_MenorMaior()" >Mostra os valores ordenados do menor para o maior</button>
+
+    <section id = "resultado6">
+        Aqui vão ser mostrados os valores ordenados do menor para o maior
+    </section>
+
+    <script>
+        let saida1 = document.querySelector("section#resultado1")
+        let saida2 = document.querySelector("section#resultado2")
+        let saida3 = document.querySelector("section#resultado3")
+        let saida4 = document.querySelector("section#resultado4")
+        let saida5 = document.querySelector("section#resultado5")
+        let saida6 = document.querySelector("section#resultado6")
+        let numero = new Array(5)
+  
+        function inserir_numeros()
+        {
+            
+            for (i = 0; i < 5; i++)
+            {
+                numero[i] = Number(prompt("Digite o " + (i + 1) + "º número"))
+            }
+
+        }
+
+        function mostrar_numeros()
+        {
+            saida1.innerHTML = ""
+            for (i = 0; i < 5; i++)
+            {
+                saida1.innerHTML += ("O " + (i + 1) + "º número é " + numero[i] + "<br>")
+            }
+        }
+
+        function mostrar_soma()
+        {
+            let somaTotal = 0
+            saida2.innerHTML = ""
+            for (i = 0; i < 5; i++)
+            {
+                somaTotal += numero[i]
+                saida2.innerHTML = ("O resultado da soma é " + somaTotal + "<br>")
+            }
+        }
+
+        function mostrar_media()
+        {
+            let media = 0
+            let somaTotal = 0
+            saida3.innerHTML = ""
+            for (i = 0; i < 5; i++)
+            {
+                somaTotal += numero[i]
+                media = somaTotal / 5
+                saida3.innerHTML = ("A media é " + media + "<br>")
+            }
+        }
+
+        function mostrar_MaiorMenor()
+        {
+            let max = null
+            let min = null
+            for (i = 0; i < 5; i++)
+            {
+                if (i == 0)
+                {
+                    max = numero[i]
+                    min = numero[i]
+                }
+                else if (numero[i] > max) 
+                {
+                    max = numero[i]
+                }
+                else if (numero[i] < min) 
+                {
+                    min = numero[i]
+                }
+                saida4.innerHTML = ("O maior número é: " + max + " | O menor número é: " + min + "<br>")
+            }
+        }
+
+        function ordenar_MaiorMenor()
+        {
+        numero.sort((a, b) => b - a)
+        saida5.innerHTML = numero
+        }
+
+        function ordenar_MenorMaior()
+        {
+        numero.sort((a, b) => a - b)
+        saida6.innerHTML = numero
+        }
+    </script>
+</body>
+</html>
