@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Product_Management_Domain.Interfaces
 {
-    internal interface IProdutoRepository
+    public interface IProdutoRepository
     {
         // Isolar o acesso aos dados da lógica de negócio
 

@@ -1,9 +1,22 @@
 ﻿namespace Product_Management_Domain.Entities
 {
-    public class Produto(int id, string nome, decimal preco)
+    public class Produto
     {
-        public int Id { get; set; } = id;
-        public string Nome { get; set; } = nome;
-        public decimal Preco { get; set; } = preco;
+        public int Id { get; set; }
+
+        public string Nome { get; set; }
+
+        public decimal Preco { get; set; }
+
+        public Produto()
+        {
+        }
+
+        public Produto(int id, string nome, decimal preco)
+        {
+            Id = id;
+            Nome = nome;
+            Preco = preco;
+        }
     }
 }

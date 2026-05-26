@@ -1,9 +1,11 @@
-﻿using Product_Management_Domain.Entities;
+﻿using System;
+using System.Collections.Generic;
+using Product_Management_Domain.Entities;
 using Product_Management_Domain.Interfaces;
 
 namespace Product_Management_Data.Repositories
 {
-    internal class ProdutoRepository : IProdutoRepository
+    public class ProdutoRepository : IProdutoRepository
     {
         private List<Produto> _produtos;
         private int _proximoId;
