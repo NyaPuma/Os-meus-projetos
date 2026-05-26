@@ -7,12 +7,12 @@ namespace Product_Management_Data.Repositories
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        private List<Produto> _produtos;
+        private readonly List<Produto> _produtos;
         private int _proximoId;
 
         public ProdutoRepository()
         {
-            _produtos = new List<Produto>();
+            _produtos = [];
             _proximoId = 1;
         }
 
@@ -39,6 +39,17 @@ namespace Product_Management_Data.Repositories
                 }
             }
             return null;
+        }
+
+        public bool Remover(int id)
+        {
+            Produto? produto = _produtos.Find(p => p.Id == id);
+            if (produto != null)
+            {
+                _produtos.Remove(produto);
+                return true;
+            }
+            return false;
         }
     }
 }

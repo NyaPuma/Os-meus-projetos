@@ -14,5 +14,7 @@ namespace Product_Management_Domain.Interfaces
         public List<Produto> ObterTodos();
 
         public Produto? ObterPorNome(string nome);
+
+        public bool Remover(int id);
     }
 }
