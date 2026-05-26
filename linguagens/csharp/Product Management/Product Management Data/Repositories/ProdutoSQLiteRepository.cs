@@ -7,7 +7,7 @@ using Microsoft.Data.Sqlite;
 
 namespace Product_Management_Data.Repositories
 {
-    internal class ProdutoSQLiteRepository : IProdutoRepository
+    public class ProdutoSQLiteRepository : IProdutoRepository
     {
         private readonly string _conectionString = "Data Source = produtos.db";
 

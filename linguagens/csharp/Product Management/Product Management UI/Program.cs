@@ -1,5 +1,6 @@
 ﻿using Product_Management_Business.Services;
 using Product_Management_Data.Repositories;
+using Product_Management_Domain.Interfaces;
 
 namespace Product_Management_UI
 {
@@ -7,8 +8,7 @@ namespace Product_Management_UI
     {
         static void Main(string[] args)
         {
-            ProdutoRepository repo = new();
-
+            IProdutoRepository repo = new ProdutoSQLiteRepository();
             ProdutoService servico = new(repo);
 
             bool continuar = true;
