@@ -7,9 +7,9 @@ namespace Product_Management_UI
     {
         static void Main(string[] args)
         {
-            ProdutoRepository repo = new ProdutoRepository();
+            ProdutoRepository repo = new();
 
-            ProdutoService servico = new ProdutoService(repo);
+            ProdutoService servico = new(repo);
 
             bool continuar = true;
 
