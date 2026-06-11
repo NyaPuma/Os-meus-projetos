@@ -45,7 +45,7 @@ class ProdutoController extends Controller
         $direction = $request->input('direction') === 'desc' ? 'desc' : 'asc';
 
         // Executa a consulta
-        $produtos = $query->orderBy($orderBy, $direction)->get(); // ou ->paginate(10);
+        $produtos = $query->orderBy($orderBy, $direction)->paginate(25);
 
         return view('produtos.index', compact('produtos'));
     }

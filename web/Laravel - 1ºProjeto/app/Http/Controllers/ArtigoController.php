@@ -46,7 +46,7 @@ class ArtigoController extends Controller
             $query->orderBy($orderBy, $direction);
         }
 
-        $artigos = $query->get();
+        $artigos = $query->paginate(25);
 
         return view('artigos.index', compact('artigos'));
     }

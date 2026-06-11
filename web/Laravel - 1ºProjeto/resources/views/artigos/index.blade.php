@@ -11,185 +11,205 @@
 
 <body>
 
-<div class="container mt-5">
+    <div class="container mt-5">
 
-    {{-- HEADER --}}
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div class="d-flex align-items-center gap-3">
-            <a href="{{ url('/') }}" class="btn btn-outline-secondary btn-sm">
-                ← Início
+        {{-- HEADER --}}
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center gap-3">
+                <a href="{{ url('/') }}" class="btn btn-outline-secondary btn-sm">
+                    ← Início
+                </a>
+                <h1 class="mb-0">Listagem de artigos</h1>
+            </div>
+
+            <a href="{{ route('artigos.create') }}" class="btn btn-primary">
+                Novo Artigo
             </a>
-            <h1 class="mb-0">Listagem de artigos</h1>
         </div>
 
-        <a href="{{ route('artigos.create') }}" class="btn btn-primary">
-            Novo Artigo
-        </a>
-    </div>
+        {{-- SUCCESS MESSAGE --}}
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @endif
 
-    {{-- SUCCESS MESSAGE --}}
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        {{-- FILTERS --}}
+        <div class="p-3 mb-4 border rounded bg-light shadow-sm">
+            <form action="{{ route('artigos.index') }}" method="GET">
+
+                <div class="input-group mb-3">
+                    <input type="text" name="search" class="form-control"
+                        placeholder="Pesquisar descrição ou características..." value="{{ request('search') }}">
+
+                    <button type="submit" class="btn btn-secondary">
+                        Procurar
+                    </button>
+
+                    @if (request()->anyFilled(['search', 'order_by', 'direction']))
+                        <a href="{{ route('artigos.index') }}" class="btn btn-outline-danger">
+                            Limpar Filtros
+                        </a>
+                    @endif
+                </div>
+
+                <div class="row g-2">
+
+                    {{-- ORDER BY --}}
+                    <div class="col-sm-6">
+                        <label class="form-label small fw-bold text-muted mb-1">Ordenar por</label>
+
+                        <select name="order_by" class="form-select form-select-sm" onchange="this.form.submit()">
+
+                            <option value="id" {{ request('order_by') == 'id' ? 'selected' : '' }}>
+                                ID
+                            </option>
+
+                            <option value="descricao"
+                                {{ request('order_by', 'descricao') == 'descricao' ? 'selected' : '' }}>
+                                Descrição
+                            </option>
+
+                            <option value="preco" {{ request('order_by') == 'preco' ? 'selected' : '' }}>
+                                Preço
+                            </option>
+
+                            {{-- CATEGORIA (SUBSTITUI DATA) --}}
+                            <option value="categoria" {{ request('order_by') == 'categoria' ? 'selected' : '' }}>
+                                Categoria
+                            </option>
+
+                        </select>
+                    </div>
+
+                    {{-- DIREÇÃO --}}
+                    <div class="col-sm-6">
+                        <label class="form-label small fw-bold text-muted mb-1">Direção</label>
+
+                        <select name="direction" class="form-select form-select-sm" onchange="this.form.submit()">
+                            <option value="asc" {{ request('direction', 'asc') == 'asc' ? 'selected' : '' }}>
+                                Crescente
+                            </option>
+
+                            <option value="desc" {{ request('direction') == 'desc' ? 'selected' : '' }}>
+                                Decrescente
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+            </form>
         </div>
-    @endif
 
-    {{-- FILTERS --}}
-    <div class="p-3 mb-4 border rounded bg-light shadow-sm">
-        <form action="{{ route('artigos.index') }}" method="GET">
+        {{-- TABLE --}}
+        <div class="card shadow">
+            <div class="card-body">
 
-            <div class="input-group mb-3">
-                <input type="text"
-                       name="search"
-                       class="form-control"
-                       placeholder="Pesquisar descrição ou características..."
-                       value="{{ request('search') }}">
+                <table class="table table-striped table-hover table-bordered align-middle mb-0">
 
-                <button type="submit" class="btn btn-secondary">
-                    Procurar
-                </button>
-
-                @if(request()->anyFilled(['search', 'order_by', 'direction']))
-                    <a href="{{ route('artigos.index') }}" class="btn btn-outline-danger">
-                        Limpar Filtros
-                    </a>
-                @endif
-            </div>
-
-            <div class="row g-2">
-
-                {{-- ORDER BY --}}
-                <div class="col-sm-6">
-                    <label class="form-label small fw-bold text-muted mb-1">Ordenar por</label>
-
-                    <select name="order_by" class="form-select form-select-sm" onchange="this.form.submit()">
-
-                        <option value="id" {{ request('order_by') == 'id' ? 'selected' : '' }}>
-                            ID
-                        </option>
-
-                        <option value="descricao" {{ request('order_by', 'descricao') == 'descricao' ? 'selected' : '' }}>
-                            Descrição
-                        </option>
-
-                        <option value="preco" {{ request('order_by') == 'preco' ? 'selected' : '' }}>
-                            Preço
-                        </option>
-
-                        {{-- CATEGORIA (SUBSTITUI DATA) --}}
-                        <option value="categoria" {{ request('order_by') == 'categoria' ? 'selected' : '' }}>
-                            Categoria
-                        </option>
-
-                    </select>
-                </div>
-
-                {{-- DIREÇÃO --}}
-                <div class="col-sm-6">
-                    <label class="form-label small fw-bold text-muted mb-1">Direção</label>
-
-                    <select name="direction" class="form-select form-select-sm" onchange="this.form.submit()">
-                        <option value="asc" {{ request('direction', 'asc') == 'asc' ? 'selected' : '' }}>
-                            Crescente
-                        </option>
-
-                        <option value="desc" {{ request('direction') == 'desc' ? 'selected' : '' }}>
-                            Decrescente
-                        </option>
-                    </select>
-                </div>
-
-            </div>
-        </form>
-    </div>
-
-    {{-- TABLE --}}
-    <div class="card shadow">
-        <div class="card-body">
-
-            <table class="table table-striped table-hover table-bordered align-middle mb-0">
-
-                <thead class="table-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Descrição</th>
-                        <th>Características</th>
-                        <th>Preço</th>
-                        <th>Categoria</th>
-                        <th>Foto</th>
-                        <th width="200">Ações</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @forelse ($artigos as $artigo)
+                    <thead class="table-dark">
                         <tr>
-                            <td>{{ $artigo->id }}</td>
-                            <td>{{ $artigo->descricao }}</td>
-                            <td>{{ $artigo->caracteristicas ?? '---' }}</td>
-                            <td>{{ number_format($artigo->preco, 2, ',', '.') }} €</td>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                            <th>Características</th>
+                            <th>Preço</th>
+                            <th>Categoria</th>
+                            <th>Foto</th>
+                            <th width="200">Ações</th>
+                        </tr>
+                    </thead>
 
-                            {{-- CATEGORIA --}}
-                            <td>
-                                {{ $artigo->categoria->categoria ?? '---' }}
-                            </td>
+                    <tbody>
+                        @forelse ($artigos as $artigo)
+                            <tr>
+                                <td>{{ $artigo->id }}</td>
+                                <td>{{ $artigo->descricao }}</td>
+                                <td>{{ $artigo->caracteristicas ?? '---' }}</td>
+                                <td>{{ number_format($artigo->preco, 2, ',', '.') }} €</td>
 
-                            {{-- FOTO --}}
-                            <td>
-                                @if($artigo->foto)
-                                    <img src="{{ asset('storage/' . $artigo->foto) }}"
-                                         width="60"
-                                         height="60"
-                                         style="object-fit: cover;"
-                                         class="rounded">
-                                @else
-                                    ---
-                                @endif
-                            </td>
+                                {{-- CATEGORIA --}}
+                                <td>
+                                    {{ $artigo->categoria->categoria ?? '---' }}
+                                </td>
 
-                            <td>
-                                <div class="d-flex gap-2">
-                                    <a href="{{ route('artigos.show', $artigo->id) }}"
-                                       class="btn btn-info btn-sm">
-                                        Ver
-                                    </a>
+                                {{-- FOTO --}}
+                                <td>
+                                    @if ($artigo->foto)
+                                        <img src="{{ asset('storage/' . $artigo->foto) }}" width="60"
+                                            height="60" style="object-fit: cover;" class="rounded">
+                                    @else
+                                        ---
+                                    @endif
+                                </td>
 
-                                    <a href="{{ route('artigos.edit', $artigo->id) }}"
-                                       class="btn btn-warning btn-sm">
-                                        Editar
-                                    </a>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route('artigos.show', $artigo->id) }}" class="btn btn-info btn-sm">
+                                            Ver
+                                        </a>
 
-                                    <form action="{{ route('artigos.destroy', $artigo->id) }}"
-                                          method="POST">
-                                        @csrf
-                                        @method('DELETE')
+                                        <a href="{{ route('artigos.edit', $artigo->id) }}"
+                                            class="btn btn-warning btn-sm">
+                                            Editar
+                                        </a>
 
-                                        <button type="submit"
-                                                class="btn btn-danger btn-sm"
+                                        <form action="{{ route('artigos.destroy', $artigo->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-danger btn-sm"
                                                 onclick="return confirm('Tem a certeza que deseja eliminar este artigo?')">
-                                            Eliminar
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="7" class="text-center">
-                                Nenhum artigo encontrado com os critérios aplicados.
-                            </td>
-                        </tr>
-                    @endforelse
-                </tbody>
+                                                Eliminar
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="7" class="text-center">
+                                    Nenhum artigo encontrado com os critérios aplicados.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
 
-            </table>
+                </table>
 
+                @if ($artigos->hasPages())
+                    <div class="row align-items-center mt-4">
+                        <div class="col-12 col-md-4 text-center text-md-start text-muted small mb-2 mb-md-0">
+                            A mostrar {{ $artigos->firstItem() }} a {{ $artigos->lastItem() }} de
+                            {{ $artigos->total() }} entradas
+                        </div>
+
+                        <div class="col-12 col-md-4 d-flex justify-content-center custom-pagination">
+                            {{ $artigos->withQueryString()->links() }}
+                        </div>
+
+                        <div class="col-12 col-md-4"></div>
+                    </div>
+
+                    <style>
+                        .custom-pagination p.text-muted {
+                            display: none !important;
+                            /* Esconde o texto nativo do Laravel */
+                        }
+
+                        .custom-pagination .justify-content-between {
+                            justify-content: center !important;
+                            /* Força os botões a ficarem no centro */
+                        }
+                    </style>
+                @endif
+
+            </div>
         </div>
+
     </div>
 
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

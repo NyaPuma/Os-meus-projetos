@@ -31,7 +31,7 @@ class ClienteController extends Controller
         $direction = $request->input('direction') === 'desc' ? 'desc' : 'asc';
 
         // Obtém os dados ordenados
-        $clientes = $query->orderBy($orderBy, $direction)->get(); // ou ->paginate(10);
+        $clientes = $query->orderBy($orderBy, $direction)->paginate(25);
 
         return view('clientes.index', compact('clientes'));
     }

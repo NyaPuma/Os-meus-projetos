@@ -41,7 +41,7 @@ class FornecedorController extends Controller
         $direction = $request->input('direction') === 'desc' ? 'desc' : 'asc';
 
         // Executa a consulta
-        $fornecedores = $query->orderBy($orderBy, $direction)->get(); // ou ->paginate(10);
+        $fornecedores = $query->orderBy($orderBy, $direction)->paginate(25);
 
         return view('fornecedores.index', compact('fornecedores'));
     }

@@ -89,7 +89,7 @@
                 <h5 class="text-primary mb-3">Gestão de Inventário</h5>
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        options<strong>Stock Atual:</strong>
+                        <strong>Stock Atual:</strong>
                         @if ($produto->stock_atual <= $produto->stock_minimo)
                             <span class="badge bg-danger fs-6">{{ $produto->stock_atual }} (Abaixo do Mínimo)</span>
                         @else
