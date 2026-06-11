@@ -4,20 +4,19 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArtigoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FornecedorController;
-use App\Http\Controllers\ProdutoController; // <- Adicionado aqui
+use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\StoreController;
-use App\Http\Controllers\MeuControllerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', [AboutController::class, 'index']);
-Route::get('/main',  [MainController::class, 'index']);
-Route::get('/store', [StoreController::class, 'index']);
+Route::get('/about',                  [AboutController::class, 'index']);
+Route::get('/main',                   [MainController::class, 'index']);
+Route::get('/store',                  [StoreController::class, 'index']);
 
 // Clientes
 Route::get('/clientes',               [ClienteController::class, 'index'])      ->name('clientes.index');
