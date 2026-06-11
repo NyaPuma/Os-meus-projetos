@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/my_layout', [MeuControllerController::class,'index'])->name('my_layout');
-
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/main',  [MainController::class, 'index']);
 Route::get('/store', [StoreController::class, 'index']);
