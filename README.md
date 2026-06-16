@@ -5,7 +5,7 @@ Um repositório pessoal para guardar e partilhar mini projetos desenvolvidos em 
 ---
 
 ## Sobre
-Este repositório serve como portfólio e arquivo de projetos pessoais, criados para aprendizado, experimentação e prática de competências em diferentes tecnologias.
+Este repositório serve como portfólio e arquivo de projetos pessoais, desenvolvidos para aprendizagem, experimentação e desenvolvimento de competências tecnológicas.
 
 **Licença:** [MIT](LICENSE)
 
