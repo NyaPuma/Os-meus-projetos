@@ -15,7 +15,7 @@ Este repositório serve como portfólio e arquivo de projetos pessoais, desenvol
 
 | Pasta | Descrição |
 | :--- | :--- |
-| [`android/`](android/) | Projetos para **Android** (aplicações desenvolvidas em Android Studio com Kotlin). |
+| [`android/`](Android/) | Projetos para **Android** (aplicações desenvolvidas em Android Studio com Kotlin). |
 | [`Portugol/`](Portugol/) | Projetos em **Portugol** (linguagem educativa para lógica de programação). |
 | [`bases-de-dados/`](bases-de-dados/) | Projetos relacionados com **bases de dados** (SQL, modelação, etc.). |
 | [`cnc-torno/`](cnc-torno/) | Projetos de **programação para torno CNC** (controlo numérico computadorizado). |
