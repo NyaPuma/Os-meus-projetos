@@ -12,16 +12,18 @@ Este repositório serve como portfólio e arquivo de projetos pessoais, desenvol
 ---
 
 ## Estrutura do Repositório
-   Pasta | Descrição |
- |-------|-----------|
- | [`Portugol/`](Portugol/) | Projetos em **Portugol** (linguagem educativa para lógica de programação). |
- | [`bases-de-dados/`](bases-de-dados/) | Projetos relacionados com **bases de dados** (SQL, modelação, etc.). |
- | [`cnc-torno/`](cnc-torno/) | Projetos de **programação para torno CNC** (controle numérico computadorizado). |
- | [`csharp/`](csharp/) | Projetos em **C#** (aplicações de consola, desktop, etc.). |
- | [`embebidos/`](embebidos/) | Projetos de **sistemas embebidos** (Arduino). |
- | [`modelacao-3d/`](modelacao-3d/) | Projetos de **modelação 3D** (SolidWorks, Fusion 360, etc.). |
- | [`python/`](python/) | Projetos em **Python** (Visão computacional, analise de dados, etc.). |
- | [`web/`](web/) | Projetos **web** (HTML, CSS, JavaScript, frameworks). |
+
+| Pasta | Descrição |
+| :--- | :--- |
+| [`android/`](android/) | Projetos para **Android** (aplicações desenvolvidas em Android Studio com Kotlin). |
+| [`Portugol/`](Portugol/) | Projetos em **Portugol** (linguagem educativa para lógica de programação). |
+| [`bases-de-dados/`](bases-de-dados/) | Projetos relacionados com **bases de dados** (SQL, modelação, etc.). |
+| [`cnc-torno/`](cnc-torno/) | Projetos de **programação para torno CNC** (controlo numérico computadorizado). |
+| [`csharp/`](csharp/) | Projetos em **C#** (aplicações de consola, desktop, etc.). |
+| [`embebidos/`](embebidos/) | Projetos de **sistemas embebidos** (Arduino). |
+| [`modelacao-3d/`](modelacao-3d/) | Projetos de **modelação 3D** (SolidWorks, Fusion 360, etc.). |
+| [`python/`](python/) | Projetos em **Python** (Visão computacional, análise de dados, etc.). |
+| [`web/`](web/) | Projetos **web** (HTML, CSS, JavaScript, frameworks). |
 
 ---
 
