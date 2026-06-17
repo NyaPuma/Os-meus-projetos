@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Exercicio1</string>
+    <string name="converter_title">Conversor de Moeda</string>
+    <string name="hint_euros">Introduza Euros (€)</string>
+    <string name="btn_converter_text">Converter para Dólar</string>
+    <string name="result_placeholder">---</string>
+    <string name="error_invalid_input">Introduza um valor válido</string>
+    <string name="result_format">%s dólares</string>
+</resources>

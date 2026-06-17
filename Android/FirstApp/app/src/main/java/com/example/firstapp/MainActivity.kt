@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -38,7 +39,12 @@ class MainActivity : AppCompatActivity() { // declaração da classe
         // com view binding
         binding.btnOla.setOnClickListener {
             val nome = binding.editTextNome.text.toString()
-            binding.textViewResultado.text = "Olá $nome"
+            if (nome.isEmpty()) {
+                Toast.makeText(this, "Insira um nome", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                binding.textViewResultado.text = "Olá $nome"
+            }
         }
     }
 }
