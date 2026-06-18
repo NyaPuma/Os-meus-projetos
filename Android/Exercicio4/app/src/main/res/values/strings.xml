@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Exercicio4</string>
+    <string name="primeiro_nome">Primeiro Nome</string>
+    <string name="mostrar_nome">Mostrar Nome</string>
+    <string name="ultimo_nome">Último Nome</string>
+    <string name="nome_nao_inserido">Nome não inserido</string>
+    <string name="saudacao">Olá %1$s %2$s</string>
 </resources>

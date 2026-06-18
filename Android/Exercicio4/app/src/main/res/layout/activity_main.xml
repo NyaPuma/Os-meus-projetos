@@ -11,9 +11,14 @@
     <EditText
         android:id="@+id/editFirstName"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Primeiro Nome"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:autofillHints="givenName"
+        android:hint="@string/primeiro_nome"
         android:inputType="textPersonName"
+        android:textColorHint="#666666"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,10 +26,14 @@
     <EditText
         android:id="@+id/editLastName"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
-        android:hint="Último Nome"
+        android:layout_marginEnd="30dp"
+        android:autofillHints="familyName"
+        android:hint="@string/ultimo_nome"
         android:inputType="textPersonName"
+        android:textColorHint="#666666"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editFirstName" />
@@ -34,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Mostrar Nome"
+        android:text="@string/mostrar_nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editLastName" />

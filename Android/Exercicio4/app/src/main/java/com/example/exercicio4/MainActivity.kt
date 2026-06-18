@@ -29,9 +29,10 @@ class MainActivity : AppCompatActivity() {
             val lastName = binding.editLastName.text.toString().trim()
 
             if (firstName.isEmpty() || lastName.isEmpty()) {
-                binding.textMessage.text = "Nome não inserido"
+                binding.textMessage.text = getString(R.string.nome_nao_inserido)
             } else {
-                binding.textMessage.text = "Olá $firstName $lastName"
+                binding.textMessage.text =
+                    getString(R.string.saudacao, firstName, lastName)
             }
         }
     }

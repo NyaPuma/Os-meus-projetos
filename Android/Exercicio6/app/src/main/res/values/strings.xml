@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Euro Converter</string>
+    <string name="conversor_moedas">CONVERSOR MOEDAS</string>
+    <string name="insira_o_valor_em_euros">Insira o valor em euros</string>
+    <string name="dolares">Dolares</string>
+    <string name="reais">Reais</string>
+    <string name="francos">Francos</string>
+    <string name="resultado">--</string>
+    <string name="converter_para">Converter para:</string>
+    <string name="valor_convertido">VALOR CONVERTIDO</string>
+</resources>
