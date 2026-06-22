@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Exercicio 8</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="bem_vindo">Bem-vindo!</string>
+    <string name="login_errado">Login Errado</string>
+    <string name="voltar">Voltar</string>
+</resources>
