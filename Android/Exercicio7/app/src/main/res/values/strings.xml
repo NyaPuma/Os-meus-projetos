@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Exercicio 7</string>
+    <string name="welcome_title">Bem-vindo</string>
+    <string name="login_instruction">Preencha o seu username e password</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Entrar</string>
+    <string name="login_valid">Login válido</string>
+    <string name="login_invalid">Login inválido</string>
+</resources>
