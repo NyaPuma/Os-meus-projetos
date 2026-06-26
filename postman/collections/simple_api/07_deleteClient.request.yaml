@@ -1,0 +1,5 @@
+$kind: http-request
+name: 07_deleteClient
+url: http://localhost:8000/api/clients/101
+method: DELETE
+order: 4499710973316599

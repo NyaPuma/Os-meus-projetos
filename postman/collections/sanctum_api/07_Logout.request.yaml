@@ -1,0 +1,11 @@
+$kind: http-request
+name: 07_Logout
+url: http://localhost:8000/api/logout
+method: POST
+headers:
+  Accept: Application/Json
+auth:
+  type: bearer
+  credentials:
+    token: 4|Bi2STjukxq5JOZnyygVokU1yL6YoH8LGqUgWavG420f5e52d
+order: 4497120908889668

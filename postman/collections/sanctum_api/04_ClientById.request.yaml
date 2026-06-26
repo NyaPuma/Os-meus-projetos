@@ -1,0 +1,11 @@
+$kind: http-request
+name: 04_ClientById
+url: http://localhost:8000/api/clients/101
+method: GET
+headers:
+  Accept: Application/Json
+auth:
+  type: bearer
+  credentials:
+    token: 4|Bi2STjukxq5JOZnyygVokU1yL6YoH8LGqUgWavG420f5e52d
+order: 4362251838929465

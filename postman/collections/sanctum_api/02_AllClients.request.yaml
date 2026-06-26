@@ -1,0 +1,9 @@
+$kind: http-request
+name: 02_AllClients
+url: http://localhost:8000/api/clients/
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: 97d3f9f177a6f1cb9f850dffea4ee2f00d6695a0b94ac48eb5d456802dcaf235
+order: 1276235302258625

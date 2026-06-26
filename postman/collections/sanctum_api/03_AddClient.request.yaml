@@ -1,0 +1,22 @@
+$kind: http-request
+name: 03_AddClient
+url: http://localhost:8000/api/clients
+method: POST
+headers:
+  Accept: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Maria\",\r
+
+    \    \"email\": \"maria@api.pt\",\r
+
+    \    \"password\":\"9999999\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: 4|Bi2STjukxq5JOZnyygVokU1yL6YoH8LGqUgWavG420f5e52d
+order: 4302660473812128

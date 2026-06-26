@@ -1,0 +1,5 @@
+$kind: http-request
+name: 02_clients
+url: http://localhost:8000/api/clients
+method: GET
+order: 3571362853081089

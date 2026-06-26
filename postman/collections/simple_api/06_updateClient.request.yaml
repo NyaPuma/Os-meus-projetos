@@ -1,0 +1,14 @@
+$kind: http-request
+name: 06_updateClient
+url: http://localhost:8000/api/clients/1
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Manuela Silva\",\r
+
+    \    \"email\": \"manuela.silva@email.com\"\r
+
+    }"
+order: 4489979597666549

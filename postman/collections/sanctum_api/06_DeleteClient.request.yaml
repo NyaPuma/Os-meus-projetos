@@ -1,0 +1,11 @@
+$kind: http-request
+name: 06_DeleteClient
+url: http://localhost:8000/api/clients/103
+method: DELETE
+headers:
+  Accept: Application/Json
+auth:
+  type: bearer
+  credentials:
+    token: 4|Bi2STjukxq5JOZnyygVokU1yL6YoH8LGqUgWavG420f5e52d
+order: 4493831177127311

@@ -1,0 +1,14 @@
+$kind: http-request
+name: 05_addClient
+url: http://localhost:8000/api/addClient
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\":\"Manuel\",\r
+
+    \    \"email\":\"Manuel@email.com\"\r
+
+    }"
+order: 4458034660256687

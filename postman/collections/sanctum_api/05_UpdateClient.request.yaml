@@ -1,0 +1,22 @@
+$kind: http-request
+name: 05_UpdateClient
+url: http://localhost:8000/api/clients/100
+method: PUT
+headers:
+  Accept: Application/Json
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Joana\",\r
+
+    \    \"email\": \"joana@api.pt\",\r
+
+    \    \"password\": \"232132131\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: 4|Bi2STjukxq5JOZnyygVokU1yL6YoH8LGqUgWavG420f5e52d
+order: 4461215608274637

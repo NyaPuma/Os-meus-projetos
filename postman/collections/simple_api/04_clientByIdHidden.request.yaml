@@ -1,0 +1,8 @@
+$kind: http-request
+name: 04_clientByIdHidden
+url: http://localhost:8000/api/clientsByIdHidden
+method: POST
+body:
+  type: json
+  content: "{\r\n    \"id\": 1\r\n}"
+order: 4436830158741744

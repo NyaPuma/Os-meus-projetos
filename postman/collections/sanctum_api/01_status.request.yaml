@@ -1,0 +1,9 @@
+$kind: http-request
+name: 01_status
+url: http://localhost:8000/api/status
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: 4|97d3f9f177a6f1cb9f850dffea4ee2f00d6695a0b94ac48eb5d456802dcaf235
+order: 1782378959598
