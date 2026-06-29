@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonLogin.setOnClickListener {
-            val username = binding.editUsername.text.toString()
-            val password = binding.editPassword.text.toString()
+            val username = binding.editUsername.text.toString().trim()
+            val password = binding.editPassword.text.toString().trim()
 
             if (username == "user" && password == "pass") {
                 val intent = Intent(this, LoginOkActivity::class.java)
