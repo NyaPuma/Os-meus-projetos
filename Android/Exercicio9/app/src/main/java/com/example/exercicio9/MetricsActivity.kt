@@ -1,26 +1,30 @@
 package com.example.exercicio9
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.exercicio9.databinding.ActivityMetricsBinding
 
 class MetricsActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMetricsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_metrics)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.metrics_panel)) { v, insets ->
+        binding = ActivityMetricsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.metricsPanel) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val buttonBack = findViewById<Button>(R.id.buttonBack)
-        buttonBack.setOnClickListener {
+        binding.buttonBack.setOnClickListener {
             Toast.makeText(this, "Voltando para o painel de Controlo Geral", Toast.LENGTH_SHORT).show()
             finish()
         }
