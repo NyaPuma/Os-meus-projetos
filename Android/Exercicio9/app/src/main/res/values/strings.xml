@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Exercicio9</string>
+    <string name="todo">TODO</string>
+    <string name="a_iniciar_diagn_stico_de_sensores">A iniciar diagnóstico de sensores...</string>
+    <string name="cyberarm_x1">CyberArm X1</string>
+    <string name="status_todos_os_sistemas_operacionais_linha_de_montagem_est_vel">Status: Todos os sistemas operacionais. Linha de montagem estável.</string>
+    <string name="ver_desempenho">Ver desempenho</string>
+    <string name="painel_de_controlo_geral">Painel de Controlo Geral</string>
+    <string name="todo2">TODO2</string>
+    <string name="todo3">TODO3</string>
+    <string name="todo4">TODO4</string>
+    <string name="todo5">TODO5</string>
+    <string name="todo6">TODO6</string>
+    <string name="voltar">Voltar</string>
+    <string name="m_tricas_de_desempenho">Métricas de Desempenho</string>
+</resources>
