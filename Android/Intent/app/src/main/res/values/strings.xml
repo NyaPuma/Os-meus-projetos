@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Intent</string>
+    <string name="greeting">Olá %1$s</string>
+    <string name="insert_name">Insira o seu nome:</string>
+    <string name="ok">OK</string>
+</resources>
