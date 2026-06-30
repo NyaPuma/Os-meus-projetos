@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.IntentCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.exercicio11.databinding.ActivityOrderSummaryBinding
 import com.example.exercicio11.databinding.ItemSummaryBinding
-import java.util.Locale
 
 class OrderSummaryActivity : AppCompatActivity() {
 
@@ -28,7 +28,7 @@ class OrderSummaryActivity : AppCompatActivity() {
         }
 
         @Suppress("UNCHECKED_CAST")
-        val selectedProducts = intent.getSerializableExtra("SELECTED_PRODUCTS") as? ArrayList<Product>
+        val selectedProducts = IntentCompat.getSerializableExtra(intent, "SELECTED_PRODUCTS", ArrayList::class.java) as? ArrayList<Product>
 
         displaySummary(selectedProducts)
 
@@ -47,12 +47,12 @@ class OrderSummaryActivity : AppCompatActivity() {
 
         products.forEach { product ->
             val itemBinding = ItemSummaryBinding.inflate(inflater, binding.linearLayoutItems, true)
-            itemBinding.textViewItemName.text = "${product.name} (x${product.quantity})"
+            itemBinding.textViewItemName.text = getString(R.string.summary_item_name_format, product.name, product.quantity)
             val subtotal = product.price * product.quantity
-            itemBinding.textViewItemSubtotal.text = String.format(Locale.getDefault(), "%.2f €", subtotal)
+            itemBinding.textViewItemSubtotal.text = getString(R.string.price_format, subtotal)
             total += subtotal
         }
 
-        binding.textViewTotalValue.text = String.format(Locale.getDefault(), "%.2f €", total)
+        binding.textViewTotalValue.text = getString(R.string.price_format, total)
     }
 }

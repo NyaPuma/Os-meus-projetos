@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.exercicio11.databinding.ActivityMainBinding
 import com.example.exercicio11.databinding.ItemProductBinding
 import java.io.Serializable
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: ProductAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             if (selectedProducts.isEmpty()) {
                 Toast.makeText(this, "Por favor, selecione pelo menos um produto", Toast.LENGTH_SHORT).show()
             } else {
-                val intent = Intent(this, SplashActivity::class.java)
+                val intent = Intent(this, LoadingActivity::class.java)
                 intent.putExtra("SELECTED_PRODUCTS", ArrayList(selectedProducts))
                 startActivity(intent)
             }
@@ -58,12 +60,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         val products = listOf(
-            Product("Café", 0.80, R.drawable.ic_coffee),
-            Product("Pão", 0.20, R.drawable.ic_bread),
-            Product("Chocolate", 1.50, R.drawable.ic_chocolate),
+            Product("Café",            0.80, R.drawable.ic_coffee),
+            Product("Pão",             0.20, R.drawable.ic_bread),
+            Product("Chocolate",       1.50, R.drawable.ic_chocolate),
             Product("Sumo de Laranja", 2.50, R.drawable.ic_juice),
-            Product("Torrada", 1.20, R.drawable.ic_toast),
-            Product("Croissant", 1.80, R.drawable.ic_croissant),
+            Product("Torrada",         1.20, R.drawable.ic_toast),
+            Product("Croissant",       1.80, R.drawable.ic_croissant),
         )
 
         adapter = ProductAdapter(products)
