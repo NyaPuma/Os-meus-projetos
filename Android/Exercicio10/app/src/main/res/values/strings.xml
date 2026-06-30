@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Exercicio10</string>
+    <string name="title_calculator">Calculadora Simples</string>
+    <string name="desc_first_number">Insira o primeiro número para começar os cálculos.</string>
+    <string name="desc_second_number">Agora, insira o segundo número.</string>
+    <string name="hint_first_number">Primeiro número</string>
+    <string name="hint_second_number">Segundo número</string>
+    <string name="button_next">Seguinte</string>
+    <string name="button_calculate">Calcular</string>
+    <string name="error_empty_number">Por favor insira um número</string>
+    <string name="label_sum">Soma: %1$s + %2$s = %3$s</string>
+    <string name="label_diff">Subtração: %1$s - %2$s = %3$s</string>
+    <string name="label_prod">Multiplicação: %1$s * %2$s = %3$s</string>
+    <string name="label_div">Divisão: %1$s / %2$s = %3$s</string>
+    <string name="label_div_error">Divisão: %1$s / %2$s = %3$s</string>
+    <string name="error_div_zero">Erro: Divisão por zero</string>
+    <string name="title_results">Resultados</string>
+</resources>
