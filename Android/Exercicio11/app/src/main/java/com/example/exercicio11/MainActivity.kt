@@ -58,12 +58,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         val products = listOf(
-            Product("Café", 0.80, android.R.drawable.ic_menu_report_image),
-            Product("Pão", 0.20, android.R.drawable.ic_menu_report_image),
-            Product("Chocolate", 1.50, android.R.drawable.ic_menu_report_image),
-            Product("Sumo de Laranja", 2.50, android.R.drawable.ic_menu_report_image),
-            Product("Torrada", 1.20, android.R.drawable.ic_menu_report_image),
-            Product("Croissant", 1.80, android.R.drawable.ic_menu_report_image)
+            Product("Café", 0.80, R.drawable.ic_coffee),
+            Product("Pão", 0.20, R.drawable.ic_bread),
+            Product("Chocolate", 1.50, R.drawable.ic_chocolate),
+            Product("Sumo de Laranja", 2.50, R.drawable.ic_juice),
+            Product("Torrada", 1.20, R.drawable.ic_toast),
+            Product("Croissant", 1.80, R.drawable.ic_croissant),
         )
 
         adapter = ProductAdapter(products)

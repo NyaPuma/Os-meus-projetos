@@ -1,5 +1,6 @@
 package com.example.exercicio11
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.enableEdgeToEdge
@@ -30,6 +31,12 @@ class OrderSummaryActivity : AppCompatActivity() {
         val selectedProducts = intent.getSerializableExtra("SELECTED_PRODUCTS") as? ArrayList<Product>
 
         displaySummary(selectedProducts)
+
+        binding.buttonBackToMain.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+        }
     }
 
     private fun displaySummary(products: ArrayList<Product>?) {
