@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
             val usernameInput = binding.editUsernameLogin.text.toString()
             val passwordInput = binding.editPasswordLogin.text.toString()
 
-            if (usernameInput == usernameSalvo && passwordInput == passwordSalva && usernameSalvo.isNotEmpty()) {
+            if (usernameInput == usernameSalvo && passwordInput == passwordSalva && !usernameSalvo.isNullOrEmpty()) {
                 val intent = Intent(this, SobreActivity::class.java)
                 startActivity(intent)
                 finish()
