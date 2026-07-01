@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Exercicio13</string>
+    <string name="splash_title">Exercício 13</string>
+    <string name="menu_title">Menu Principal</string>
+    <string name="btn_registo">Registo</string>
+    <string name="registo_title">Registo</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_sobre">Sobre</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="btn_guardar">Guardar Registo</string>
+    <string name="login_title">Login</string>
+    <string name="sobre_title">Sobre</string>
+    <string name="dev_name">Desenvolvido por: André Moreira</string>
+    <string name="login_error">Dados incorretos!</string>
+    <string name="btn_voltar">Voltar</string>
+</resources>
