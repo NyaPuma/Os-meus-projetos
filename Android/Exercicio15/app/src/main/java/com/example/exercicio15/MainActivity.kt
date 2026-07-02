@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerViewStudents.layoutManager = LinearLayoutManager(this)
 
         val students = listOf(
-            Student("Ana Silva", "Rua A, 123", "ana@example.com"),
-            Student("Bruno Santos", "Avenida B, 456", "bruno@example.com"),
+            Student("Ana Silva",      "Rua A, 123",      "ana@example.com"),
+            Student("Bruno Santos",   "Avenida B, 456",  "bruno@example.com"),
             Student("Carla Oliveira", "Travessa C, 789", "carla@example.com"),
-            Student("Daniel Pereira", "Rua D, 101", "daniel@example.com")
+            Student("Daniel Pereira", "Rua D, 101",      "daniel@example.com")
         )
 
         val adapter = StudentAdapter(students) { student ->
