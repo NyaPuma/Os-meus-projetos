@@ -20,7 +20,7 @@
     <EditText
         android:id="@+id/editUsernameLogin"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="@string/username_hint"
         android:inputType="text"
         android:autofillHints="username"
@@ -32,7 +32,7 @@
     <EditText
         android:id="@+id/editPasswordLogin"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         android:autofillHints="password"
