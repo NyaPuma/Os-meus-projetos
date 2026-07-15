@@ -1,0 +1,2 @@
+- [x] Modify `contact_item.xml` to use `LinearLayout` as root
+- [x] Verify build and rendering

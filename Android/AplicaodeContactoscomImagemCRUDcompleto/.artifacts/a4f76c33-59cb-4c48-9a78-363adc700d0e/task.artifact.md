@@ -1,0 +1,5 @@
+- [x] Update `AddEditContactActivity.kt` to use `OpenDocument`
+- [x] Verify image selection and persistence
+- [x] Create `BitmapUtils.kt` for efficient image loading
+- [x] Update `AddEditContactActivity.kt` to use `BitmapUtils`
+- [x] Update `ContactAdapter.kt` to use `BitmapUtils`

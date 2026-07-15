@@ -1,0 +1,3 @@
+- `[x]` Update `app/build.gradle.kts` to use API 35
+- `[x]` Run Gradle Sync
+- `[x]` Verify changes
