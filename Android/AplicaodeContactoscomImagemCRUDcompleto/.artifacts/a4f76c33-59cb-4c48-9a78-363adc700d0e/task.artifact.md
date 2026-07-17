@@ -1,5 +1,9 @@
-- [x] Update `AddEditContactActivity.kt` to use `OpenDocument`
-- [x] Verify image selection and persistence
-- [x] Create `BitmapUtils.kt` for efficient image loading
-- [x] Update `AddEditContactActivity.kt` to use `BitmapUtils`
-- [x] Update `ContactAdapter.kt` to use `BitmapUtils`
+- [x] Define modern Material 3 color palette in `colors.xml`
+- [x] Update `themes.xml` with Material 3 components and styles
+- [x] Create vector icons (`ic_add`, `ic_edit`, `ic_delete`, `ic_person`, `ic_phone`, `ic_back`)
+- [x] Redesign `contact_item.xml` with `MaterialCardView` and circular images
+- [x] Redesign `activity_main.xml` with `AppBarLayout`, `Toolbar`, and Empty State
+- [x] Redesign `activity_add_edit_contact.xml` with `TextInputLayout` and circular preview
+- [x] Update `MainActivity.kt` for Toolbar and Empty State logic
+- [x] Update `AddEditContactActivity.kt` for Toolbar and View Binding updates
+- [x] Final visual polish and verification

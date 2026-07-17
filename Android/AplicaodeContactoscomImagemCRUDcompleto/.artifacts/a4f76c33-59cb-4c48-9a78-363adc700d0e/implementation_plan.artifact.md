@@ -1,31 +1,62 @@
-# Fix "Canvas: trying to draw too large bitmap" crash
+# Professional UX/UI Redesign - Material 3
 
-The application is now crashing because it tries to display high-resolution images directly in an `ImageView`. Android has a limit on the size of bitmaps that can be drawn on a `Canvas`. When the user selects a large image (e.g., from the camera), it exceeds this limit.
-
-To fix this, we will implement a helper function to decode images efficiently by downsampling them to a reasonable size (e.g., 512x512 pixels) before displaying them.
+This plan details the transformation of the contact management app into a professional-grade product using **Material 3 (M3)** principles. The focus is on clarity, modern aesthetics, and improved user experience.
 
 ## User Review Required
 
 > [!IMPORTANT]
-> This change introduces a `BitmapUtils` class to handle image loading. The images will be scaled down for display in the app. This is a standard practice in Android to avoid `OutOfMemoryError` and Canvas drawing limits.
+> The redesign involves a full overhaul of the visual identity, including colors, typography, and component structure. The UI will become cleaner and more functional.
 
 ## Proposed Changes
 
-### [app]
+### [res/values]
 
-#### [NEW] [BitmapUtils.kt](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/java/com/example/aplicaodecontactoscomimagemcrudcompleto/BitmapUtils.kt)
-- Create a utility class with a function to decode and scale `Uri` images.
+#### [MODIFY] [colors.xml](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/res/values/colors.xml)
+- Define a modern Material 3 palette:
+    - `md_theme_primary`: Deep Indigo (#3F51B5)
+    - `md_theme_secondary`: Light Blue (#03A9F4)
+    - `md_theme_surface`: Off-white/Gray (#F5F5F5)
+    - `md_theme_error`: Soft Red (#B00020)
 
-#### [MODIFY] [AddEditContactActivity.kt](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/java/com/example/aplicaodecontactoscomimagemcrudcompleto/AddEditContactActivity.kt)
-- Use `BitmapUtils` to load and display the selected image.
+#### [MODIFY] [themes.xml](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/res/values/themes.xml)
+- Apply Material 3 theme attributes.
+- Customize `ShapeAppearance` for cards and buttons.
 
-#### [MODIFY] [ContactAdapter.kt](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/java/com/example/aplicaodecontactoscomimagemcrudcompleto/ContactAdapter.kt)
-- Use `BitmapUtils` to load images in the RecyclerView items.
+### [res/drawable] (New Icons)
+- Create clean, vector-based icons for:
+    - **Add** (FAB)
+    - **Edit** (Action)
+    - **Delete** (Action)
+    - **Person** (Placeholder)
+    - **Phone** (Input Icon)
+
+### [res/layout]
+
+#### [MODIFY] [activity_main.xml](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/res/layout/activity_main.xml)
+- Add `MaterialToolbar` within an `AppBarLayout`.
+- Use `RecyclerView` with vertical padding and clip-to-padding disabled.
+- Add an **Empty State** view with an illustration/icon and helpful text.
+
+#### [MODIFY] [contact_item.xml](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/res/layout/contact_item.xml)
+- Enclose item in a `MaterialCardView` with subtle elevation.
+- Use a circular `ShapeableImageView` for the contact photo.
+- Improved spacing and typography.
+
+#### [MODIFY] [activity_add_edit_contact.xml](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/res/layout/activity_add_edit_contact.xml)
+- Add a `TopAppBar` with a back button.
+- Center a large circular image preview with a "Change Photo" button.
+- Use `TextInputLayout` (OutlinedBox) for all inputs with icons.
+
+### [Source Code]
+
+#### [MODIFY] [MainActivity.kt](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/java/com/example/aplicaodecontactoscomimagemcrudcompleto/MainActivity.kt)
+- Update to handle toolbar setup.
+- Add logic to show/hide the Empty State view based on the contact list size.
 
 ## Verification Plan
 
 ### Manual Verification
-1. Pick a large image from the gallery.
-2. Verify that the image is displayed without crashing.
-3. Save the contact and verify the image appears in the list.
-4. Verify that editing the contact also displays the image correctly.
+- **Visual Audit**: Compare the new UI against Material 3 guidelines.
+- **Interactions**: Check button ripple effects and card clicks.
+- **Responsiveness**: Verify the layout looks good on different screen sizes.
+- **Theming**: Test Light and Dark modes.

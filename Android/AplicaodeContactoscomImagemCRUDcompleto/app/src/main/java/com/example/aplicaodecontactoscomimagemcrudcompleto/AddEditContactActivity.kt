@@ -4,9 +4,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.IntentCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.aplicaodecontactoscomimagemcrudcompleto.databinding.ActivityAddEditContactBinding
 
 class AddEditContactActivity : AppCompatActivity() {
@@ -33,7 +36,17 @@ class AddEditContactActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddEditContactBinding.inflate(layoutInflater)
+        enableEdgeToEdge()
         setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            binding.toolbar.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
+            insets
+        }
+
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
         contactToEdit = IntentCompat.getSerializableExtra(intent, "CONTACT", Contact::class.java)
 
@@ -47,6 +60,9 @@ class AddEditContactActivity : AppCompatActivity() {
                 binding.imgAddContact.imageTintList = null
             }
             binding.btnSave.setText(R.string.atualizar_contacto)
+            binding.toolbar.title = getString(R.string.editar_contacto)
+        } else {
+            binding.toolbar.title = getString(R.string.adicionar_contacto)
         }
 
         binding.btnSelectImage.setOnClickListener {

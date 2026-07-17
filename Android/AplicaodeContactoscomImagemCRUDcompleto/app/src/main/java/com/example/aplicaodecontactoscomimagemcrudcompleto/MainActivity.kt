@@ -2,6 +2,7 @@ package com.example.aplicaodecontactoscomimagemcrudcompleto
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -22,9 +23,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
         
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { _, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            binding.toolbar.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
 
@@ -59,6 +60,14 @@ class MainActivity : AppCompatActivity() {
         val contacts = dbHelper.getAllContacts()
         adapter.submitList(contacts)
         binding.txtTotalContacts.text = getString(R.string.total_contactos, contacts.size)
+        
+        if (contacts.isEmpty()) {
+            binding.emptyState.visibility = View.VISIBLE
+            binding.recyclerViewContacts.visibility = View.GONE
+        } else {
+            binding.emptyState.visibility = View.GONE
+            binding.recyclerViewContacts.visibility = View.VISIBLE
+        }
     }
 
     private fun showDeleteDialog(contact: Contact) {

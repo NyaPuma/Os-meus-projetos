@@ -2,7 +2,11 @@
     <string name="app_name">Aplicação de Contactos com Imagem (CRUD completo)</string>
     <string name="nome">Nome</string>
     <string name="_999_999_999">999 999 999</string>
-    <string name="total_contactos">Total de contactos: %d</string>
+    <string name="total_contactos">%d Contactos</string>
+    <string name="nenhum_contacto">Nenhum contacto encontrado</string>
+    <string name="adicione_primeiro">Adicione o seu primeiro contacto clicando no botão abaixo.</string>
+    <string name="alterar_imagem">Alterar Imagem</string>
+    <string name="voltar">Voltar</string>
     <string name="adicionar_contacto">Adicionar contacto</string>
     <string name="editar_contacto">Editar contacto</string>
     <string name="eliminar_contacto">Eliminar contacto</string>

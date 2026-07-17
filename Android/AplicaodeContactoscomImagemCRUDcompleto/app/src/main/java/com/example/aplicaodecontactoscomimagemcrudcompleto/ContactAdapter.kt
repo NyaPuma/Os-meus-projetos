@@ -1,7 +1,5 @@
 package com.example.aplicaodecontactoscomimagemcrudcompleto
 
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.net.toUri
@@ -32,8 +30,8 @@ class ContactAdapter(
             holder.binding.imgContact.setImageBitmap(bitmap)
             holder.binding.imgContact.imageTintList = null
         } else {
-            holder.binding.imgContact.setImageResource(android.R.drawable.ic_menu_gallery)
-            holder.binding.imgContact.imageTintList = ColorStateList.valueOf(Color.WHITE)
+            holder.binding.imgContact.setImageResource(R.drawable.ic_person)
+            holder.binding.imgContact.imageTintList = null
         }
 
         holder.binding.btnEdit.setOnClickListener { onEditClick(contact) }

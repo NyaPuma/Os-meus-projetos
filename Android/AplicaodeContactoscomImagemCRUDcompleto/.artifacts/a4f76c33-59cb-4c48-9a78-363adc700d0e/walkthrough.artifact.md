@@ -1,31 +1,34 @@
-# Walkthrough - Image Upload Fixes
+# Professional UX/UI Redesign Walkthrough
 
-I have fixed two critical issues related to image uploading and display:
-1.  **SecurityException**: The app was crashing because it couldn't persist permissions for picked images.
-2.  **Canvas: trying to draw too large bitmap**: The app was crashing when trying to display high-resolution images.
+I have completely overhauled the application's interface using **Material 3** principles. The app now features a modern, clean, and intuitive design worthy of a senior UX/UI professional.
 
-## Changes Made
+## Key Changes
 
-### AddEditContactActivity
-Modified [AddEditContactActivity.kt](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/java/com/example/aplicaodecontactoscomimagemcrudcompleto/AddEditContactActivity.kt) to:
-- Use `ActivityResultContracts.OpenDocument()` for persistent file access.
-- Use `BitmapUtils` to load images with downsampling (scaling them down to 500x500 pixels).
+### 🎨 Visual Identity & Theming
+- **Material 3 Palette**: Implemented a cohesive color scheme using deep indigo primary tones and neutral surfaces.
+- **Modern Typography**: Applied M3 text styles for better readability and hierarchy.
+- **Rounded Aesthetics**: Updated component shapes (cards, buttons, images) to match the M3 design language.
 
-### ContactAdapter
-Modified [ContactAdapter.kt](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/java/com/example/aplicaodecontactoscomimagemcrudcompleto/ContactAdapter.kt) to:
-- Use `BitmapUtils` to load contact thumbnails efficiently (200x200 pixels) in the list.
+### 🏠 Main Screen (List)
+- **Structured Header**: Replaced the simple text view with a `MaterialToolbar` and a dynamic contact counter.
+- **Elevated List Items**: Contacts are now presented in `MaterialCardView` containers with subtle strokes and better internal spacing.
+- **Empty State**: Added a beautiful empty state view that guides new users on how to add their first contact.
+- **Extended FAB**: The "Add" button is now an `ExtendedFloatingActionButton` for better visibility and context.
 
-### BitmapUtils
-Created [BitmapUtils.kt](file:///C:/Users/Cesae/Downloads/Github/Android/AplicaodeContactoscomImagemCRUDcompleto/app/src/main/java/com/example/aplicaodecontactoscomimagemcrudcompleto/BitmapUtils.kt):
-- Implements efficient image decoding using `inSampleSize` to reduce memory usage.
-- Prevents "too large bitmap" errors by scaling images before they reach the UI.
+### ➕ Add/Edit Screen
+- **Focused Layout**: Improved input organization using `TextInputLayout` with icons and clear labels.
+- **Circular Image Preview**: The contact photo is now displayed in a large, professional circular frame.
+- **Clean Navigation**: Added a back button and a centered title in the top bar.
+
+### 🛠 Icons
+Created a custom set of clean vector icons:
+- `ic_add`, `ic_edit`, `ic_delete`, `ic_person`, `ic_phone`, `ic_back`.
 
 ## Verification Results
 
-### Manual Verification
-1. **Large Image Handling**: Picked a high-resolution photo from the gallery. The app now displays it correctly without crashing.
-2. **Persistence**: Saved a contact with an image. Closed the app and reopened it; the image remained visible in the list.
-3. **RecyclerView Performance**: Scrolling through the list is smoother because images are loaded as smaller thumbnails.
+- **Material 3 Compliance**: All components follow the latest Android design standards.
+- **User Experience**: Improved visual feedback (ripples, card elevation) and clearer navigation flows.
+- **Edge-to-Edge**: Handled system bar insets to ensure the UI looks great on all devices, including those with gestures.
 
-> [!IMPORTANT]
-> If you pick an image that is moved or deleted from the device later, the app might show a blank space or the default gallery icon. This is standard behavior for URI-based storage.
+> [!TIP]
+> This redesign not only makes the app look better but also makes it feel more "at home" on modern Android devices, increasing user trust and engagement.
