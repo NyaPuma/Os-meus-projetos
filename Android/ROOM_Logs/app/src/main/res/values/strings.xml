@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ROOM_Logs</string>
+    <string name="nome">Nome</string>
+    <string name="curso">Curso</string>
+    <string name="cidade">Cidade</string>
+    <string name="guardar">Guardar</string>
+    <string name="editar">Editar</string>
+    <string name="limpar">Limpar</string>
+    <string name="nome_utilizador">Nome</string>
+    <string name="curso_utilizador">Curso</string>
+    <string name="cidade_utilizador">Cidade</string>
+    <string name="id_1">ID: 1</string>
+    <string name="imagem_aluno">imagem_aluno</string>
+    <string name="novo_aluno">Novo aluno</string>
+    <string name="lista_alunos">Lista de alunos</string>
+    <string name="preencha_campos">Preencha todos os campos</string>
+    <string name="aluno_inserido">Aluno inserido</string>
+    <string name="aluno_atualizado">Aluno atualizado</string>
+    <string name="aluno_eliminado">Aluno eliminado</string>
+    <string name="eliminar_aluno">Eliminar Aluno</string>
+    <string name="confirmar_eliminar">Tem a certeza que deseja eliminar %1$s?</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="id_label">ID: %1$d</string>
+    <string name="editar_aluno">Editar Aluno</string>
+    <string name="db_atualizada">Base de dados atualizada</string>
+    <string name="pesquisar_aluno">Pesquisar aluno...</string>
+    <string name="novo_aluno_sheet">Novo Aluno</string>
+    <string name="sheet_descricao">Preencha os dados para criar um novo registo.</string>
+</resources>
