@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Przykład wielojęzyczny</string>
+    <string name="welcome_title">Witaj w aplikacji!</string>
+    <string name="description_text">To jest przykład, jak wyodrębnić ciągi znaków dla wielu języków w systemie Android.</string>
+    <string name="button_click_me">Kliknij mnie</string>
+    <string name="toast_message">Cześć z wyodrębnionych ciągów!</string>
+</resources>

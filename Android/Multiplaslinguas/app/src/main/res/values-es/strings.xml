@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ejemplo Multi-lenguaje</string>
+    <string name="welcome_title">¡Bienvenido a la App!</string>
+    <string name="description_text">Este es un ejemplo de cómo extraer cadenas para múltiples lenguajes em Android.</string>
+    <string name="button_click_me">Haz clic en mí</string>
+    <string name="toast_message">¡Hola desde las cadenas extraídas!</string>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Méisproochegt Beispill</string>
+    <string name="welcome_title">Wëllkomm an der App!</string>
+    <string name="description_text">Dëst ass e Beispill wéi ee Strings fir verschidde Sproochen an Android extrahéiert.</string>
+    <string name="button_click_me">Klick mech</string>
+    <string name="toast_message">Hallo aus extrahéierte Strings!</string>
+</resources>

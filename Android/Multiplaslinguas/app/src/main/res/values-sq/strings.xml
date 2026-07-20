@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Shembull Shumëgjuhësh</string>
+    <string name="welcome_title">Mirë se vini në aplikacion!</string>
+    <string name="description_text">Ky është një shembull se si të nxirren vargjet për gjuhë të shumta në Android.</string>
+    <string name="button_click_me">Më kliko</string>
+    <string name="toast_message">Përshëndetje nga vargjet e nxjerra!</string>
+</resources>

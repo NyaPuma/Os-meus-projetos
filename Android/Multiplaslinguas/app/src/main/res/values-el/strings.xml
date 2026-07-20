@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Πολυγλωσσικό Παράδειγμα</string>
+    <string name="welcome_title">Καλώς ήρθατε στην εφαρμογή!</string>
+    <string name="description_text">Αυτό είναι ένα παράδειγμα του πώς να εξαγάγετε συμβολοσειρές για πολλές γλώσσες στο Android.</string>
+    <string name="button_click_me">Κάντε κλικ εδώ</string>
+    <string name="toast_message">Γεια σας από εξαγόμενες συμβολοσειρές!</string>
+</resources>

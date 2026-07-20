@@ -5,9 +5,7 @@ plugins {
 android {
     namespace = "com.example.multiplaslinguas"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = release(37)
     }
 
     defaultConfig {
@@ -26,6 +24,9 @@ android {
                 enable = false
             }
         }
+    }
+    buildFeatures {
+        viewBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

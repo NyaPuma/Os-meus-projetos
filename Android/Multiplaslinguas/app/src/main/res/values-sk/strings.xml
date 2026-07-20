@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Viacjazyčný príklad</string>
+    <string name="welcome_title">Vitajte v aplikácii!</string>
+    <string name="description_text">Toto je príklad toho, ako extrahovať reťazce pre viacero jazykov v systéme Android.</string>
+    <string name="button_click_me">Klikni na mňa</string>
+    <string name="toast_message">Ahoj z extrahovaných reťazcov!</string>
+</resources>

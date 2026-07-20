@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Esempio Multilingue</string>
+    <string name="welcome_title">Benvenuto nell\'app!</string>
+    <string name="description_text">Questo è un esempio di come estrarre stringhe per più lingue in Android.</string>
+    <string name="button_click_me">Cliccami</string>
+    <string name="toast_message">Ciao dalle stringhe estratte!</string>
+</resources>

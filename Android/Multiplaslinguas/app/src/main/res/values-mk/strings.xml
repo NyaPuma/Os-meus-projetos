@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Повеќејазичен пример</string>
+    <string name="welcome_title">Добредојдовте во апликацијата!</string>
+    <string name="description_text">Ова е пример за тоа како да се извлечат низи за повеќе јазици во Android.</string>
+    <string name="button_click_me">Кликни ме</string>
+    <string name="toast_message">Здраво од извлечените низи!</string>
+</resources>

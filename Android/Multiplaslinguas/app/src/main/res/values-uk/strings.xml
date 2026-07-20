@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Багатомовний приклад</string>
+    <string name="welcome_title">Ласкаво просимо в додаток!</string>
+    <string name="description_text">Це приклад того, як видобувати рядки для кількох мов в Android.</string>
+    <string name="button_click_me">Натисніть мене</string>
+    <string name="toast_message">Привіт із вилучених рядків!</string>
+</resources>

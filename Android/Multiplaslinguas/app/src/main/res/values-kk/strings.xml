@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Көптілді мысал</string>
+    <string name="welcome_title">Қолданбаға қош келдіңіз!</string>
+    <string name="description_text">Бұл Android жүйесінде бірнеше тіл үшін жолдарды қалай шығару керектігінің мысалы.</string>
+    <string name="button_click_me">Мені басыңыз</string>
+    <string name="toast_message">Шығарылған жолдардан сәлем!</string>
+</resources>

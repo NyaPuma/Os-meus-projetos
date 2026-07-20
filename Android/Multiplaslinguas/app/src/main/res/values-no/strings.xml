@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Flerspråklig eksempel</string>
+    <string name="welcome_title">Velkommen til appen!</string>
+    <string name="description_text">Dette er et eksempel på hvordan man trekker ut strenger for flere språk i Android.</string>
+    <string name="button_click_me">Klikk på meg</string>
+    <string name="toast_message">Hei fra utpakkede strenger!</string>
+</resources>

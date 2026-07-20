@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">多语言示例</string>
+    <string name="welcome_title">欢迎使用本应用！</string>
+    <string name="description_text">这是一个关于如何在 Android 中提取多种语言字符串的示例。</string>
+    <string name="button_click_me">点击我</string>
+    <string name="toast_message">来自提取字符串的问候！</string>
+</resources>

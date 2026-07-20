@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Exemple Multilingüe</string>
+    <string name="welcome_title">Benvingut a l\'aplicació!</string>
+    <string name="description_text">Aquest és un exemple de com extreure cadenes per a diversos idiomes a Android.</string>
+    <string name="button_click_me">Clica\'m</string>
+    <string name="toast_message">Hola des de les cadenes extretes!</string>
+</resources>

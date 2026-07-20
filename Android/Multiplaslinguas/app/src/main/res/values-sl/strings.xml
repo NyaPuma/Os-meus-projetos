@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Večjezični primer</string>
+    <string name="welcome_title">Dobrodošli v aplikaciji!</string>
+    <string name="description_text">To je primer, kako izvleči nize za več jezikov v Androidu.</string>
+    <string name="button_click_me">Klikni me</string>
+    <string name="toast_message">Pozdravljeni iz izvlečenih nizov!</string>
+</resources>

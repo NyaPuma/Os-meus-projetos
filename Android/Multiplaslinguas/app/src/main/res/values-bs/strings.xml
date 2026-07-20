@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Višejezični primjer</string>
+    <string name="welcome_title">Dobrodošli u aplikaciju!</string>
+    <string name="description_text">Ovo je primjer kako izdvojiti stringove za više jezika u Androidu.</string>
+    <string name="button_click_me">Klikni me</string>
+    <string name="toast_message">Zdravo iz izdvojenih stringova!</string>
+</resources>

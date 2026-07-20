@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Вишејезични пример</string>
+    <string name="welcome_title">Добродошли у апликацију!</string>
+    <string name="description_text">Ово је пример како издвојити низове за више језика у Андроиду.</string>
+    <string name="button_click_me">Кликни ме</string>
+    <string name="toast_message">Поздрав из издвојених низова!</string>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">მრავალენოვანი მაგალითი</string>
+    <string name="welcome_title">კეთილი იყოს თქვენი მობრძანება აპლიკაციაში!</string>
+    <string name="description_text">ეს არის მაგალითი იმისა, თუ როგორ უნდა ამოიღოთ სტრიქონები მრავალი ენისთვის Android-ში.</string>
+    <string name="button_click_me">დამაწკაპუნე</string>
+    <string name="toast_message">გამარჯობა ამოღებული სტრიქონებიდან!</string>
+</resources>

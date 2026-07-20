@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Többnyelvű példa</string>
+    <string name="welcome_title">Üdvözöljük az alkalmazásban!</string>
+    <string name="description_text">Ez egy példa arra, hogyan lehet karakterláncokat kivonni több nyelvhez Androidon.</string>
+    <string name="button_click_me">Kattints rám</string>
+    <string name="toast_message">Üdvözlet a kivont karakterláncokból!</string>
+</resources>

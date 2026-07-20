@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Пример на нескольких языках</string>
+    <string name="welcome_title">Добро пожаловать в приложение!</string>
+    <string name="description_text">Это пример того, как извлекать строки для нескольких языков в Android.</string>
+    <string name="button_click_me">Нажми на меня</string>
+    <string name="toast_message">Привет из извлеченных строк!</string>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fjöltyngt dæmi</string>
+    <string name="welcome_title">Velkomin í appið!</string>
+    <string name="description_text">Þetta er dæmi um hvernig á að draga út strengi fyrir mörg tungumál í Android.</string>
+    <string name="button_click_me">Smelltu á mig</string>
+    <string name="toast_message">Halló úr útdregnum strengjum!</string>
+</resources>

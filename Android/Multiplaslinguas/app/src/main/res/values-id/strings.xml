@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Contoh Multi-bahasa</string>
+    <string name="welcome_title">Selamat datang di Aplikasi!</string>
+    <string name="description_text">Ini adalah contoh cara mengekstrak string untuk berbagai bahasa di Android.</string>
+    <string name="button_click_me">Klik Saya</string>
+    <string name="toast_message">Halo dari string yang diekstrak!</string>
+</resources>

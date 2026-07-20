@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">مثال متعدد اللغات</string>
+    <string name="welcome_title">أهلاً بك في التطبيق!</string>
+    <string name="description_text">هذا مثال على كيفية استخراج النصوص للغات متعددة في أندرويد.</string>
+    <string name="button_click_me">انقر هنا</string>
+    <string name="toast_message">مرحباً من النصوص المستخرجة!</string>
+</resources>

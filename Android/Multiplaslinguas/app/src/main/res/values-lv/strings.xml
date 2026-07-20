@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Daudzvalodu piemērs</string>
+    <string name="welcome_title">Laipni lūdzam lietotnē!</string>
+    <string name="description_text">Šis ir piemērs tam, kā Android ierīcē izvilkt virknes vairākām valodām.</string>
+    <string name="button_click_me">Noklikšķiniet uz manis</string>
+    <string name="toast_message">Sveicieni no izvilktajām virknēm!</string>
+</resources>

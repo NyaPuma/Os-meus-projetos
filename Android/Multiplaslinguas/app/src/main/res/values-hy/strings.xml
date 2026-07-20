@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Բազմալեզու Օրինակ</string>
+    <string name="welcome_title">Բարի գալուստ հավելված:</string>
+    <string name="description_text">Սա օրինակ է, թե ինչպես կարելի է արտահանել տողերը Android-ում բազմաթիվ լեզուների համար:</string>
+    <string name="button_click_me">Սեղմիր ինձ</string>
+    <string name="toast_message">Ողջույն արտահանված տողերից:</string>
+</resources>

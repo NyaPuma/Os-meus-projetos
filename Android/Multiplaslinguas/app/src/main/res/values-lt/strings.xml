@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Daugiakalbis pavyzdys</string>
+    <string name="welcome_title">Sveiki atvykę į programėlę!</string>
+    <string name="description_text">Tai pavyzdys, kaip išgauti eilutes kelioms kalboms „Android“.</string>
+    <string name="button_click_me">Spustelėkite mane</string>
+    <string name="toast_message">Sveiki iš ištrauktų eilučių!</string>
+</resources>

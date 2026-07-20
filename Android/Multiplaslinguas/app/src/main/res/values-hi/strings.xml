@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">बहु-भाषा उदाहरण</string>
+    <string name="welcome_title">ऐप में आपका स्वागत है!</string>
+    <string name="description_text">यह Android में कई भाषाओं के लिए स्ट्रिंग्स निकालने के तरीके का एक उदाहरण है।</string>
+    <string name="button_click_me">मुझे क्लिक करें</string>
+    <string name="toast_message">एक्सट्रैक्टेड स्ट्रिंग्स की ओर से नमस्कार!</string>
+</resources>

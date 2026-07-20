@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Multiplas linguas</string>
+    <string name="app_name">Multi-language Example</string>
+    <string name="welcome_title">Welcome to the App!</string>
+    <string name="description_text">This is an example of how to extract strings for multiple languages in Android.</string>
+    <string name="button_click_me">Click Me</string>
+    <string name="toast_message">Hello from extracted strings!</string>
 </resources>

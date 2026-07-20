@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Exemplu Multilingv</string>
+    <string name="welcome_title">Bun venit în aplicație!</string>
+    <string name="description_text">Acesta este un exemplu de extragere a șirurilor de caractere pentru mai multe limbi în Android.</string>
+    <string name="button_click_me">Click pe mine</string>
+    <string name="toast_message">Bună din șirurile extrase!</string>
+</resources>

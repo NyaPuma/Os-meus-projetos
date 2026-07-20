@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Vícejazyčný příklad</string>
+    <string name="welcome_title">Vítejte v aplikaci!</string>
+    <string name="description_text">Toto je příklad toho, jak extrahovat řetězce pro více jazyků v Androidu.</string>
+    <string name="button_click_me">Klikni na mě</string>
+    <string name="toast_message">Ahoj z extrahovaných řetězců!</string>
+</resources>

@@ -1,0 +1,4 @@
+- [x] Create `strings.xml` for all new languages
+- [x] Update `activity_main.xml` with individual language buttons
+- [x] Update `MainActivity.kt` with click listeners for all buttons
+- [x] Verify the build and functionality

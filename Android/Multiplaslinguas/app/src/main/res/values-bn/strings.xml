@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">একাধিক ভাষা উদাহরণ</string>
+    <string name="welcome_title">অ্যাপে স্বাগতম!</string>
+    <string name="description_text">এটি অ্যান্ড্রয়েডে একাধিক ভাষার জন্য স্ট্রিং কীভাবে এক্সট্রাক্ট করতে হয় তার একটি উদাহরণ।</string>
+    <string name="button_click_me">আমাকে ক্লিক করুন</string>
+    <string name="toast_message">এক্সট্রাক্টেড স্ট্রিং থেকে হ্যালো!</string>
+</resources>

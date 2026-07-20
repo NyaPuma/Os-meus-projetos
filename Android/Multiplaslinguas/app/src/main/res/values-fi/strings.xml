@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Monikielinen esimerkki</string>
+    <string name="welcome_title">Tervetuloa sovellukseen!</string>
+    <string name="description_text">Tämä on esimerkki siitä, kuinka merkkijonoja poimitaan useille kielille Androidissa.</string>
+    <string name="button_click_me">Klikkaa minua</string>
+    <string name="toast_message">Hei poimituista merkkijonoista!</string>
+</resources>

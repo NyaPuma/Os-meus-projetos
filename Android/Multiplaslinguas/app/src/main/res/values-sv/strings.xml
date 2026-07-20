@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Flerspråkigt exempel</string>
+    <string name="welcome_title">Välkommen till appen!</string>
+    <string name="description_text">Detta är ett exempel på hur man extraherar strängar för flera språk i Android.</string>
+    <string name="button_click_me">Klicka på mig</string>
+    <string name="toast_message">Hej från extraherade strängar!</string>
+</resources>

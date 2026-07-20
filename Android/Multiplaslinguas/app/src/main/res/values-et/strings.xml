@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mitmekeelne näide</string>
+    <string name="welcome_title">Tere tulemast rakendusse!</string>
+    <string name="description_text">See on näide selle kohta, kuidas Androidis mitme keele stringe eraldada.</string>
+    <string name="button_click_me">Klõpsa mind</string>
+    <string name="toast_message">Tervitus eraldatud stringidest!</string>
+</resources>

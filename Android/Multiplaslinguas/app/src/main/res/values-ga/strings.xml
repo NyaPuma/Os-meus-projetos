@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sampla Ilteangach</string>
+    <string name="welcome_title">Fáilte go dtí an aip!</string>
+    <string name="description_text">Is sampla é seo den chaoi le teaghráin a bhaint amach do theangacha éagsúla in Android.</string>
+    <string name="button_click_me">Cliceáil mé</string>
+    <string name="toast_message">Dia duit ó theaghráin eastasctha!</string>
+</resources>

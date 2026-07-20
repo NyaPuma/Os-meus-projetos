@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Eżempju Multilingwi</string>
+    <string name="welcome_title">Merħba fl-app!</string>
+    <string name="description_text">Dan huwa eżempju ta\' kif jiġu estratti kordi għal lingwi multipli f\'Android.</string>
+    <string name="button_click_me">Ikklikkja lili</string>
+    <string name="toast_message">Hello minn kordi estratti!</string>
+</resources>

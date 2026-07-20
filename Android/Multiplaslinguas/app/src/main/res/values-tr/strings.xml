@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Çok Dilli Örnek</string>
+    <string name="welcome_title">Uygulamaya hoş geldiniz!</string>
+    <string name="description_text">Bu, Android\'de birden fazla dil için dizelerin nasıl ayıklanacağına dair bir örnektir.</string>
+    <string name="button_click_me">Beni tıkla</string>
+    <string name="toast_message">Ayıklanan dizelerden merhaba!</string>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Çoxdilli Nümunə</string>
+    <string name="welcome_title">Tətbiqə xoş gəlmisiniz!</string>
+    <string name="description_text">Bu, Android-də bir neçə dil üçün sətirlərin necə çıxarılacağına dair bir nümunədir.</string>
+    <string name="button_click_me">Məni kliklə</string>
+    <string name="toast_message">Çıxarılmış sətirlərdən salamlar!</string>
+</resources>

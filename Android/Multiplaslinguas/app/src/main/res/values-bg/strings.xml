@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Многоезичен пример</string>
+    <string name="welcome_title">Добре дошли в приложението!</string>
+    <string name="description_text">Това е пример за това как да извлечете низове за няколко езика в Android.</string>
+    <string name="button_click_me">Кликни ме</string>
+    <string name="toast_message">Здравейте от извлечените низове!</string>
+</resources>
