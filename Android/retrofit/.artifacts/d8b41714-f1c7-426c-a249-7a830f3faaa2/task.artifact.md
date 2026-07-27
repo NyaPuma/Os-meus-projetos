@@ -1,7 +1,0 @@
-- [x] Atualizar `libs.versions.toml` com versões ausentes
-- [x] Corrigir `app/build.gradle.kts` (compileSdk e dependências)
-- [x] Corrigir `AndroidManifest.xml` (permissão de internet)
-- [x] Refatorar `RetrofitClient.kt` (correção de sintaxe e typos)
-- [x] Refatorar `MainActivity.kt` (ViewBinding, Coroutines e lógica)
-- [x] Ajustar `activity_main.xml` (IDs consistentes)
-- [x] Verificar build com `./gradlew assembleDebug`

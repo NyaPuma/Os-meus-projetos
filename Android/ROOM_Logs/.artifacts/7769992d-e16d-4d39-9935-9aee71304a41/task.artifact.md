@@ -1,9 +1,0 @@
-- [x] Atualizar Modelo de Dados (`UserModel.kt` -> `AlunoModel`)
-- [x] Atualizar DAO (`UserDao.kt` -> `AlunoDao`)
-- [x] Atualizar Base de Dados (`UserDatabase.kt` -> `AppDatabase`)
-- [x] Atualizar Repositório (`UserRepository.kt` -> `AlunoRepository`)
-- [x] Atualizar ViewModel (`UserViewModel.kt` -> `AlunoViewModel`)
-- [x] Atualizar Layouts (`activity_main.xml` e `item_utilizador.xml`)
-- [x] Atualizar Adapter (`UserAdapter.kt` -> `AlunoAdapter`)
-- [x] Atualizar `MainActivity.kt` com a nova lógica de Alunos
-- [x] Verificar build e funcionamento
