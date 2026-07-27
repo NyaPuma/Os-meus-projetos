@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6FA"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:src="@android:drawable/ic_menu_myplaces"
+            app:tint="#6C63FF" />
+
+        <TextView
+            android:id="@+id/tvProfileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Nome do Utilizador"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A2E" />
+
+        <TextView
+            android:id="@+id/tvProfileEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="email@exemplo.com"
+            android:textSize="14sp"
+            android:textColor="#8A8A9A"
+            android:layout_marginBottom="16dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvBookingCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reservas realizadas: 0"
+                    android:textSize="16sp"
+                    android:textColor="#1A1A2E"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditProfile"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/edit_profile"
+            android:textAllCaps="false"
+            app:backgroundTint="#FFFFFF"
+            android:textColor="#6C63FF"
+            app:strokeColor="#6C63FF"
+            app:strokeWidth="1dp"
+            app:cornerRadius="16dp"
+            app:icon="@android:drawable/ic_menu_edit"
+            app:iconTint="#6C63FF" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChangePassword"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/change_password"
+            android:textAllCaps="false"
+            app:backgroundTint="#FFFFFF"
+            android:textColor="#6C63FF"
+            app:strokeColor="#6C63FF"
+            app:strokeWidth="1dp"
+            app:cornerRadius="16dp"
+            app:icon="@android:drawable/ic_lock_idle_lock"
+            app:iconTint="#6C63FF" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/logout"
+            android:textAllCaps="false"
+            app:backgroundTint="#FFEBEB"
+            android:textColor="#E85C5C"
+            app:cornerRadius="16dp"
+            app:icon="@android:drawable/ic_lock_power_off"
+            app:iconTint="#E85C5C" />
+
+    </LinearLayout>
+</ScrollView>

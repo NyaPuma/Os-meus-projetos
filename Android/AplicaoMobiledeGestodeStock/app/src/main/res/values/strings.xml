@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Stock Informática</string>
+
+    <!-- Login -->
+    <string name="login_title">Bem-vindo</string>
+    <string name="username_hint">Utilizador</string>
+    <string name="password_hint">Palavra-passe</string>
+    <string name="login_button">Entrar</string>
+    <string name="error_empty_fields">Por favor, preencha todos os campos.</string>
+    <string name="error_invalid_credentials">Credenciais inválidas.</string>
+    <string name="welcome_message">Bem-vindo, %1$s</string>
+    <string name="quantity_label">Qtd: %1$d</string>
+    <string name="price_format">%1$.2f €</string>
+    <string name="placeholder_zero">0</string>
+    <string name="placeholder_welcome">Bem-vindo, …</string>
+    <string name="placeholder_product_name">Nome do Produto</string>
+    <string name="placeholder_category">Categoria</string>
+    <string name="placeholder_price">0.00 €</string>
+    <string name="placeholder_quantity">Qtd: 10</string>
+    <string name="app_logo_description">Logótipo da Aplicação</string>
+    <string name="sort_button_description">Botão de Ordenação</string>
+
+    <!-- Home -->
+    <string name="dashboard_title">Dashboard</string>
+    <string name="total_products">Total de Produtos</string>
+    <string name="total_stock">Stock Total</string>
+    <string name="register_product_action">Registar Produto</string>
+    <string name="view_products_action">Consultar Stock</string>
+    <string name="logout_action">Sair</string>
+    <string name="logout_confirmation">Tem a certeza que deseja sair?</string>
+    <string name="action_language">Idioma</string>
+
+    <!-- Product -->
+    <string name="add_product_title">Novo Produto</string>
+    <string name="edit_product_title">Editar Produto</string>
+    <string name="product_name_hint">Nome do Produto</string>
+    <string name="category_hint">Categoria</string>
+    <string name="quantity_hint">Quantidade</string>
+    <string name="price_hint">Preço (€)</string>
+    <string name="description_hint">Descrição (Opcional)</string>
+    <string name="supplier_hint">Fornecedor (Opcional)</string>
+    <string name="save_button">Guardar</string>
+    <string name="cancel_button">Cancelar</string>
+    <string name="delete_button">Eliminar</string>
+    <string name="error_invalid_quantity">Quantidade deve ser >= 0.</string>
+    <string name="error_invalid_price">Preço deve ser > 0.</string>
+    <string name="product_saved">Produto guardado com sucesso.</string>
+    <string name="product_deleted">Produto eliminado.</string>
+    <string name="delete_product_confirmation">Deseja eliminar este produto?</string>
+
+    <!-- List -->
+    <string name="stock_list_title">Inventário</string>
+    <string name="search_hint">Pesquisar produtos...</string>
+    <string name="filter_all">Todas</string>
+    <string name="sort_stock_asc">Stock (Menor -> Maior)</string>
+    <string name="sort_stock_desc">Stock (Maior -> Menor)</string>
+    <string name="empty_state">Nenhum produto encontrado.</string>
+    <string name="low_stock_warning">Stock Baixo!</string>
+
+    <!-- Categorias -->
+    <string name="cat_hardware">Hardware</string>
+    <string name="cat_peripherals">Periféricos</string>
+    <string name="cat_laptops">Portáteis</string>
+    <string name="cat_networking">Redes</string>
+    <string name="cat_software">Software</string>
+</resources>

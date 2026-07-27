@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="3"
+        android:scaleY="3"
+        android:translateX="18"
+        android:translateY="18">
+        <!-- Fundo da Caixa -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M3,9l9,-5l9,5l-9,5l-9,-5z" />
+        <!-- Lado Esquerdo -->
+        <path
+            android:fillColor="#E0E0E0"
+            android:pathData="M3,9l0,6l9,5l0,-6l-9,-5z" />
+        <!-- Lado Direito -->
+        <path
+            android:fillColor="#BDBDBD"
+            android:pathData="M12,14l0,6l9,-5l0,-6l-9,5z" />
+        <!-- Símbolo de Chip/Informática no Topo -->
+        <path
+            android:fillColor="#0D47A1"
+            android:pathData="M9,8h6v2h-6z M11,7h2v4h-2z" />
+    </group>
+</vector>

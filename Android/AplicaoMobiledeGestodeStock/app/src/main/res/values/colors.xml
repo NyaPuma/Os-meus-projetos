@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#0D47A1</color>
+    <color name="primary_variant">#1565C0</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="secondary">#26C6DA</color>
+    <color name="on_secondary">#000000</color>
+
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="error">#B00020</color>
+
+    <color name="low_stock">#FF5252</color>
+    <color name="ok_stock">#4CAF50</color>
+
+    <!-- Categoria Colors -->
+    <color name="cat_hardware">#E91E63</color>
+    <color name="cat_peripherals">#9C27B0</color>
+    <color name="cat_laptops">#673AB7</color>
+    <color name="cat_networking">#3F51B5</color>
+    <color name="cat_software">#2196F3</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

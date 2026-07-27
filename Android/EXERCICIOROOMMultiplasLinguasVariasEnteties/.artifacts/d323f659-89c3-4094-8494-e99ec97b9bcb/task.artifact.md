@@ -1,0 +1,12 @@
+- [x] Create new package structure directories
+- [x] Move `data.model` files (`User.kt`, `Cliente.kt`, `Destino.kt`)
+- [x] Move `data.local` files (`AppDao.kt`, `AppDatabase.kt`)
+- [x] Move `data.repository` files (`AppRepository.kt`)
+- [x] Move `viewmodel` files (`AuthViewModel.kt`, `DestinoViewModel.kt`, `ProfileViewModel.kt`, `ReservaViewModel.kt`)
+- [x] Move `utils` files (`SessionManager.kt`)
+- [x] Move `ui.adapters` files (`DestinoAdapter.kt`)
+- [x] Move `ui.fragments` files (`DestinoListFragment.kt`, `ProfileFragment.kt`)
+- [x] Move `ui.activities` files (`MainActivity.kt`, `LoginActivity.kt`, `RegisterActivity.kt`, `ReservaActivity.kt`, `AddDestinoActivity.kt`, `EditProfileActivity.kt`, `ChangePasswordActivity.kt`)
+- [x] Update `AndroidManifest.xml` with new activity paths
+- [x] Clean up original directory
+- [x] Verify build

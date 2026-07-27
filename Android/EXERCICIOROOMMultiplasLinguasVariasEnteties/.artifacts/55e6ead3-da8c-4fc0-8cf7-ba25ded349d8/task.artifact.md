@@ -1,0 +1,6 @@
+- [x] Enable View Binding in `build.gradle.kts`
+- [x] Migrate `MainActivity` to View Binding
+- [x] Migrate `AddDestinoActivity` to View Binding
+- [x] Migrate `ReservaActivity` to View Binding
+- [x] Migrate `DestinoAdapter` to View Binding
+- [x] Verification and Final Polish
