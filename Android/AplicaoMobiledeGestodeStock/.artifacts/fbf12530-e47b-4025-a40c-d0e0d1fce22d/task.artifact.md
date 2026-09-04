@@ -1,0 +1,23 @@
+# Tarefas de Implementação - Gestão de Stock
+
+- [ ] Configuração Inicial
+    - [ ] Atualizar `libs.versions.toml` com Room, Lifecycle e DataStore
+    - [ ] Configurar `build.gradle.kts` (Projeto e App)
+    - [ ] Sincronizar Gradle
+- [ ] Camada de Dados (Data Layer)
+    - [ ] Criar Entidades (`Utilizador`, `Produto`)
+    - [ ] Criar DAOs (`UtilizadorDao`, `ProdutoDao`)
+    - [ ] Criar `AppDatabase` com pre-população de utilizadores
+    - [ ] Criar Repositórios
+- [ ] Utilitários e Sessão
+    - [ ] Implementar `SessionManager` com DataStore
+- [ ] Interface e Lógica (UI & ViewModel)
+    - [ ] Recursos (Strings, Cores, Temas)
+    - [ ] Splash Screen
+    - [ ] Sistema de Login
+    - [ ] Menu Principal (Dashboard)
+    - [ ] Registo de Produto
+    - [ ] Consulta de Produtos (RecyclerView + Filtros + Ordenação)
+- [ ] Finalização e Verificação
+    - [ ] Testar fluxos principais
+    - [ ] Limpeza de código e comentários
